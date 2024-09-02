@@ -14,7 +14,7 @@ export default function NavBar() {
 
     return (
         <>
-            <div className="hidden mb-3 relative py-4 sm:flex flex-col justify-center">
+            <div className="hidden relative py-4 sm:flex flex-col justify-center">
                 <LogoLink />
                 <DesktopNavLinks />
             </div>
