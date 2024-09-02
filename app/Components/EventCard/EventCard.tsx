@@ -64,7 +64,7 @@ const EventCard : React.FC<eventCardProps> = ({ imgUrl, delay = 0, title = '', d
           <div className=' absolute w-full h-full flex flex-col justify-end rounded-2xl z-20'>
             <div className={` w-full bg-mora-red rounded-b-2xl flex flex-col gap-5 items-center justify-center transition-all duration-700 ease-out overflow-hidden ${ isHovered ? 'h-1/2' : 'h-0'}`}>
               <h1 className=' text-lg font-bold'>{title}</h1>
-              <p className=' text-xs text-justify px-3'>{description}</p>
+              <p className=' text-xs text-center px-3'>{description}</p>
             </div>
           </div>
           <div className={` absolute w-full h-full bg-black z-10 rounded-2xl transition-all duration-700 ease-out ${isHovered ? ' opacity-60' : ' opacity-0'}`}></div>
