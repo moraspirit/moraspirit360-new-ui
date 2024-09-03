@@ -15,7 +15,7 @@ export default function EventPage() {
             ></div>
             <div className="textContainer  w-screen h-1/2 absolute z-20 top-1/4 flex flex-col items-center justify-center">
                 <h1 className="text-[138px] text-white">Our Articles</h1>
-                <h2 className="text-[50px] text-white">ELEVATE EVERY OCCASION</h2>
+                <h2 className="text-[50px] text-white">ELEVATE EVERY</h2>
                 <span className="text-[30px] text-[#DD2025]">
           Where Exceptional Events Come to Life
         </span>
