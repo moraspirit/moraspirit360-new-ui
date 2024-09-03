@@ -18,7 +18,7 @@ export default function NavBar() {
                 <LogoLink />
                 <DesktopNavLinks />
             </div>
-            <div className="sm:hidden relative flex flex-row my-4">
+            <div className="sm:hidden relative flex flex-row my-4 z-50">
                 <LogoLink />
                 <MobileMenuButton onClick={handleDrawerToggle} />
                 <MobileDrawer isOpen={isDrawerOpen} onClose={handleDrawerToggle} />

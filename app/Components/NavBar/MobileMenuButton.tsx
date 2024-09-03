@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 export default function MobileMenuButton({ onClick }) {
     return (
-        <button className="absolute right-2 top-2 p-2" onClick={onClick}>
+        <button className="absolute right-2 top-2 p-2 z-20" onClick={onClick}>
             <FontAwesomeIcon className="text-4xl" icon={faBars} />
         </button>
     );

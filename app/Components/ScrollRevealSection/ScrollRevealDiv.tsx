@@ -40,7 +40,7 @@ const ScrollRevealDiv : React.FC<ScrollRevealDivProps> = ({children, delay = 0, 
 
   return (
     <div 
-        className={` ${className} transition-all ease-out duration-1000 ${isVisible ? ' opacity-100 scale-100' : ' opacity-0 scale-50' }`} 
+        className={` ${className} transition-all ease-out duration-1000 ${isVisible ? ' opacity-100 scale-100' : ' opacity-0 scale-50' }`}
         ref={ref}
         style={{transitionDelay : `${delay}ms`}}
     >
