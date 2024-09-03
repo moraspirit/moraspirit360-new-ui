@@ -6,11 +6,9 @@ interface pageHeroProps {
     title: string;
     subTitle: string;
     description: string;
-    descriptionTwoPartOne?: string;
-    descriptionTwoPartTwo?: string;
 }
 
-function PageHero({imgUrl, title, subTitle, description,descriptionTwoPartOne, descriptionTwoPartTwo}: pageHeroProps) {
+function PageHero({imgUrl, title, subTitle, description}: pageHeroProps) {
     return (
         <div className=' relative w-full h-[50vh] mb-10 sm:h-[90vh] overflow-hidden text-white'>
             <ScrollRevealDiv
@@ -19,8 +17,6 @@ function PageHero({imgUrl, title, subTitle, description,descriptionTwoPartOne, d
                 <h1 className=' text-5xl sm:text-8xl font-semibold tracking-tighter'>{title}</h1>
                 <h2 className=' text-lg sm:text-4xl text-[#CBCBCB] font-semibold'>{subTitle}</h2>
                 <p className=' text-sm sm:text-xl font-semibold text-mora-red'>{description}</p>
-                <p className='text-sm sm:text-xl font-semibold text-white text-center'>{descriptionTwoPartOne}</p>
-                <p className='text-sm sm:text-xl font-semibold text-white text-center'>{descriptionTwoPartTwo}</p>
 
             </ScrollRevealDiv>
             <div className=' absolute w-full h-full bg-black opacity-30'></div>
