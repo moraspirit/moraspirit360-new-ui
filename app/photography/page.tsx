@@ -68,18 +68,18 @@ const galleryImg = [
 const feedbacks = [
     {
       name: 'Kamal Silva',
-      message:
-      <>
-        Just wanted to express my gratitude for your exceptional service in university sports.<br/> Your dedication and professionalism set you apart,<br/> making Moraspirit360 the go-to in the industry. Keep up the fantastic work!,
-        </>,
+      message:'Just wanted to express my gratitude for your exceptional service in university sports. Your dedication and professionalism set you apart, making Moraspirit360 the go-to in the industry. Keep up the fantastic work!',
+       
     },
     {
       name: 'Aruna Udara',
-      message: 'Thank you for consistently delivering top-notch service in university sports. Your passion and expertise make Moraspirit360 stand out as the best in the industry. Keep up the fantastic work!',
+      message: 'Thank you for consistently delivering top-notch service in university sports. Your passion and expertise make Moraspirit360 stand out as the best.'
+
     },
     {
       name: 'Pasan Jayawardena',
-      message: 'Professional and efficient team. Delivered more than expected!',
+      message: ' Professional and efficient team.  Delivered more than expected!'
+ 
     },
 
   ];
@@ -141,16 +141,18 @@ export default function Home() {
                 </div>
             </section>
           
-            <section className=" w-full my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
-            <ScrollRevealDiv className="w-full flex flex-col items-center">
-            <h1 className="text-3xl text-center text-white sm:text-4xl ">EXPERIENCES SHARED BY OUR CLIENTS</h1>
-            </ScrollRevealDiv>
-            <div className=" w-[85%] mt-10 sm:mt-5  sm:gap-5 gap-5 ">
-                <ClientFeedback feedbacks={feedbacks} />
-                </div>
+            <section className="w-full my-6 py-10 text-white flex flex-col items-center gap-2">
+                <ScrollRevealDiv className="w-full flex flex-col items-center">
+                   <h1 className="text-3xl sm:text-4xl text-center">
+                      EXPERIENCES SHARED BY OUR CLIENTS
+                   </h1>
+                </ScrollRevealDiv>
+                   <div className="w-full mt-10 sm:mt-5 gap-5">
+                   <ClientFeedback feedbacks={feedbacks} />
+                   </div>
             </section>
 
-           
+ 
         </div>
     );
 }

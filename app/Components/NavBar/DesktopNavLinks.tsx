@@ -9,11 +9,11 @@ export default function DesktopNavLinks() {
             <li className={path === "/" ? "active" : ""}>
                 <Link href="/">Home</Link>
             </li>
-            <li className={path === "/videography" ? "active" : ""}>
-                <Link href="/videography">Services</Link>
+            <li className={path === "/services" ? "active" : ""}>
+                <Link href="/services">Services</Link>
             </li>
-            <li className={path === "/photography" ? "active" : ""}>
-                <Link href="/photography">Request</Link>
+            <li className={path === "/request" ? "active" : ""}>
+                <Link href="/request">Request</Link>
             </li>
             <li className={path === "/events" ? "active" : ""}>
                 <Link href="/events">Events</Link>
