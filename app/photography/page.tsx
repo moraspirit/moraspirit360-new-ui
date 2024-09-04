@@ -69,7 +69,9 @@ const feedbacks = [
     {
       name: 'Kamal Silva',
       message:
-        'Just wanted to express my gratitude for your exceptional service in university sports. Your dedication and professionalism set you apart, making Moraspirit360 the go-to in the industry. Keep up the fantastic work!',
+      <>
+        Just wanted to express my gratitude for your exceptional service in university sports.<br/> Your dedication and professionalism set you apart,<br/> making Moraspirit360 the go-to in the industry. Keep up the fantastic work!,
+        </>,
     },
     {
       name: 'Aruna Udara',
@@ -79,7 +81,9 @@ const feedbacks = [
       name: 'Pasan Jayawardena',
       message: 'Professional and efficient team. Delivered more than expected!',
     },
+
   ];
+
 
 
 export default function Home() {
@@ -141,7 +145,9 @@ export default function Home() {
             <ScrollRevealDiv className="w-full flex flex-col items-center">
             <h1 className="text-3xl text-center text-white sm:text-4xl ">EXPERIENCES SHARED BY OUR CLIENTS</h1>
             </ScrollRevealDiv>
+            <div className=" w-[85%] mt-10 sm:mt-5  sm:gap-5 gap-5 ">
                 <ClientFeedback feedbacks={feedbacks} />
+                </div>
             </section>
 
            
