@@ -1,80 +1,129 @@
-/* styles/Footer.module.css */
+
+/* Footer Styles */
 .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    display: flex;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  margin-top: 50px;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 10px;
+  flex-direction: row;
+}
+
+.contactSection {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.contactTitle {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.contactText {
+  margin: 5px 0;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.iconLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.iconImage {
+  width: 24px;
+  height: 24px;
+}
+
+.copyrightSection {
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.copyrightText {
+  margin-bottom: 20px;
+}
+
+/* Media query for large screens (desktops, large laptops) */
+@media (min-width: 1200px) {
+  .innerContainer {
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+
+  .contactSection,
+  .socialIcons {
+    margin-bottom: 0;
+  }
+}
+
+/* Media query for tablets and medium-sized screens */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .innerContainer {
     flex-direction: column;
     align-items: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 50px;
-  }
-  
-  .innerContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 10px;
-    flex-direction: row;
-  }
-  
-  .contactSection {
-    text-align: left;
-    margin-bottom: 10px;
-  }
-  
-  .contactTitle {
-    color: #ff0000;
-    margin-bottom: 10px;
-  }
-  
-  .contactText {
-    margin: 5px 0;
-  }
-  
-  .socialIcons {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .iconLink {
-    display: inline-block;
-    text-decoration: none;
-  }
-  
-  .iconImage {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .copyrightSection {
     text-align: center;
-    width: 100%;
-    padding-top: 10px;
   }
-  
-  .copyrightText {
+
+  .contactSection {
     margin-bottom: 20px;
   }
-  
-  /* Media query for mobile screens */
-  @media (max-width: 768px) {
-    .footer {
-      flex-direction: column;
-    }
-  
-    .innerContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .socialIcons {
-      gap: 15px;
-    }
+
+  .socialIcons {
+    gap: 20px;
   }
-  
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .innerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactSection {
+    text-align: center; /* Center the contact section on mobile */
+    margin-bottom: 15px;
+  }
+
+  .socialIcons {
+    gap: 15px;
+  }
+}
+
+/* Media query for very small screens (small phones) */
+@media (max-width: 480px) {
+  .iconImage {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contactText {
+    font-size: 14px;
+  }
+}
