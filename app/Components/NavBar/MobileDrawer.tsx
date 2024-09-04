@@ -1,39 +1,107 @@
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import "./LinkStyle.css"
-import {usePathname} from "next/navigation";
+// components/Footer.js
+import React from 'react';
 
-
-// @ts-ignore
-export default function MobileDrawer({ isOpen, onClose }) {
-    const path=usePathname()
-    return (
-        <div
-            className={`fixed flex flex-col justify-center items-center z-10 top-0 right-0 h-full w-full bg-black text-white transition-transform duration-300 transform ${
-                isOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
-        >
-            <button className="absolute right-7 top-4 p-3" onClick={onClose}>
-                <FontAwesomeIcon className="text-5xl" icon={faXmark} />
-            </button>
-            <ul className="flex text-3xl flex-col justify-center items-center space-y-4">
-                <li className={path === "/" ? "active" : ""}>
-                    <Link href="/">Home</Link>
-                </li>
-                <li className={path === "/services" ? "active" : ""}>
-                    <Link href="/services">Services</Link>
-                </li>
-                <li className={path === "/request" ? "active" : ""}>
-                    <Link href="/request">Request</Link>
-                </li>
-                <li className={path === "/events" ? "active" : ""}>
-                    <Link href="/events">Events</Link>
-                </li>
-                <li className={path === "/articles" ? "active" : ""}>
-                    <Link href="/articles">Articles</Link>
-                </li>
-            </ul>
+const Footer = () => {
+  return (
+    <footer style={styles.footer}>
+      <div style={styles.innerContainer}>
+        <div style={styles.contactSection}>
+          <h3 style={styles.contactTitle}>CONTACT</h3>
+          <p style={styles.contactText}>077 842 3916</p>
+          <p style={styles.contactText}>moraspirit360@moraspirit.com</p>
+          <p style={styles.contactText}>125, 56A Peterson Ln, Colombo, Sri Lanka</p>
         </div>
-    );
-}
+        <div style={styles.socialIcons}>
+          <a href="#" style={styles.iconLink}>
+            <img src="/fb.png" alt="Facebook" style={styles.iconImage} />
+          </a>
+          <a href="#" style={styles.iconLink}>
+            <img src="/ig.png" alt="Instagram" style={styles.iconImage} />
+          </a>
+          <a href="#" style={styles.iconLink}>
+            <img src="/youtube.png" alt="YouTube" style={styles.iconImage} />
+          </a>
+          <a href="#" style={styles.iconLink}>
+            <img src="/twitt.png" alt="Twitter" style={styles.iconImage} />
+          </a>
+        </div>
+      </div>
+      <div style={styles.copyrightSection}>
+        <p style={styles.copyrightText}>
+          Copyright © 2024. Moraspirit Initiative. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+const styles = {
+  footer: {
+    backgroundColor: '#000',
+    color: '#fff',
+    padding: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  innerContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '100%',
+    maxWidth: '1200px',
+    marginBottom: '10px',
+    flexWrap: 'wrap',
+  },
+  contactSection: {
+    textAlign: 'left',
+    flexBasis: '100%',
+    marginBottom: '20px',
+  },
+  contactTitle: {
+    color: '#ff0000',
+    marginBottom: '10px',
+  },
+  contactText: {
+    margin: '5px 0',
+  },
+  socialIcons: {
+    display: 'flex',
+    gap: '25px',
+    justifyContent: 'center',
+    flexBasis: '100%',
+    marginBottom: '20px',
+  },
+  iconLink: {
+    display: 'inline-block',
+    textDecoration: 'none',
+  },
+  iconImage: {
+    width: '24px',
+    height: '24px',
+  },
+  copyrightSection: {
+    textAlign: 'center',
+    width: '100%',
+    paddingTop: '10px',
+  },
+  copyrightText: {
+    marginBottom: '20px',
+  },
+  '@media (min-width: 600px)': {
+    contactSection: {
+      flexBasis: '50%',
+      marginBottom: 0,
+    },
+    socialIcons: {
+      flexBasis: '50%',
+      justifyContent: 'flex-end',
+    },
+  },
+  '@media (min-width: 1024px)': {
+    innerContainer: {
+      flexDirection: 'row',
+    },
+  },
+};
+
+export default Footer;
