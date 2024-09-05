@@ -9,7 +9,7 @@ type EventCardProps = {
 
 const ArticleCard = ({ img, date, title, desc }: EventCardProps) => {
     return (
-        <div className="flex flex-col h-[447px] w-[395px]">
+        <div className="flex flex-col">
             <div className="overflow-hidden">
                 <Image
                     src={img}
