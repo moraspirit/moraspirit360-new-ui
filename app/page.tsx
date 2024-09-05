@@ -23,6 +23,10 @@ const Home = () => {
         window.location.href = "/photography";
     }
 
+    function navigateToMarketing(){
+        window.location.href = "/marketing";
+    }
+
     const pastEvents = [
         {
             url: "https://s3-alpha-sig.figma.com/img/3e61/8921/dc38dc8307e055c22f00dd537faee76a?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=athIPNyxh0XTsRdkvt~ptA3-XLcWvXSp438JoKKHDLK6lBfOZ4-9JBT6SflYTEfaS4~QPO6nikYZnZi92qx8Yt-co-E31O3OstYJXOV47HnoHiBONEuf4VH5dd9pxHcIvocN3lvzpjTbpHBcjX3MXRuYcN2Ejn7rOlsjgioaOwlgdXoqJ-0pYhWDrdqRdWuwub4Jj72to1qaSzajZevgu9DN66e0GYvDRa3GB5xZqnZ4b81GVhCYaC5jeHcWk2Vy9-XZ3vZHf2NB~N7Cx6bsh~J31mh6wqNo6JaHz9icRS90Ni4ezMGLyws0KiN6Keo2tiuOTxo9chUZaW2Lbk3IYA__",
@@ -123,7 +127,7 @@ const Home = () => {
                     <p>Connecting Your Brand with the Right Audience</p>
                     <div className={styles.buttonContainer}>
                         <button className={styles.button} onClick={navigateToRequest}>Request</button>
-                        <button className={styles.button}>Learn more</button>
+                        <button className={styles.button} onClick={navigateToMarketing}>Learn more</button>
                     </div>
                 </ScrollUpDiv>
             </section>
