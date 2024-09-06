@@ -69,7 +69,7 @@ const feedbacks = [
     {
       name: 'Kamal Silva',
       message:'Just wanted to express my gratitude for your exceptional service in university sports. Your dedication and professionalism set you apart, making Moraspirit360 the go-to in the industry. Keep up the fantastic work!',
-       
+
     },
     {
       name: 'Aruna Udara',
@@ -79,7 +79,7 @@ const feedbacks = [
     {
       name: 'Pasan Jayawardena',
       message: ' Professional and efficient team.  Delivered more than expected!'
- 
+
     },
 
   ];
@@ -90,7 +90,7 @@ export default function Home() {
     const eventCard : React.CSSProperties = {
         'width' : '100%',
     }
-    
+
     const navigateToRequest = () => {
         window.location.href = "/request"
     }
@@ -140,7 +140,7 @@ export default function Home() {
                     }
                 </div>
             </section>
-          
+
             <section className="w-full my-6 py-10 text-white flex flex-col items-center gap-2">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
                    <h1 className="text-3xl sm:text-4xl text-center">
@@ -148,11 +148,11 @@ export default function Home() {
                    </h1>
                 </ScrollRevealDiv>
                    <div className="w-full mt-10 sm:mt-5 gap-5">
-                   <ClientFeedback feedbacks={feedbacks} />
+                   <ClientFeedback/>
                    </div>
             </section>
 
- 
+
         </div>
     );
 }
