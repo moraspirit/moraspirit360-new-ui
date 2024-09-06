@@ -1,36 +1,54 @@
-// components/Footer.js
 import React from 'react';
 
-const Footer = () => {
+const Footer: React.FC = () => {
     return (
-        <footer className="bg-black text-white py-5 flex flex-col items-center relative bottom-0 w-full mt-20">
-
-            <div className="flex justify-between w-full max-w-screen-xl mb-2.5 flex-row text-[#ADADAD]">
-                <div className="text-left mb-2.5 font-light">
-                    <h3 className="text-red-500 mb-2.5 text-xl font-bold">CONTACT</h3>
-                    <p className="my-1 ">077 842 3916</p>
-                    <p className="my-1">moraspirit360@moraspirit.com</p>
-                    <p className="my-1 font">125, 56A Peterson Ln, Colombo, Sri Lanka</p>
+        <footer className="bg-black mt-32">
+            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div className="sm:flex sm:items-center">
+                    <div className="flex-1 mb-4 text-sm text-slate-200 sm:mb-0 font-light">
+                        <p className="font-medium text-lg mb-1">Contact</p>
+                        <p>077 842 3916</p>
+                        <a href="mailto:moraspirit360@moraspirit.com" className="hover:underline">
+                            moraspirit360@moraspirit.com
+                        </a>
+                        <p>125, 56A Peterson Ln, Colombo, Sri Lanka, Colombo, Sri Lanka</p>
+                    </div>
+                    <div className="flex-1 flex sm:justify-center mb-4 align-middle">
+                        <a href="#" className="text-slate-200">
+                            <img src="facebook.svg" alt="Facebook" className="w-10 h-10" />
+                        </a>
+                        <a href="#" className="text-slate-200">
+                            <img src="instagram.svg" alt="Instagram" className="w-10 h-10" />
+                        </a>
+                        <a href="#" className="text-slate-200">
+                            <img src="youtube.svg" alt="YouTube" className="w-10 h-10" />
+                        </a>
+                        <a href="#" className="text-slate-200">
+                            <img src="twitter.svg" alt="Twitter" className="w-10 h-10" />
+                        </a>
+                    </div>
+                    <ul className="flex-1 flex flex-wrap justify-start sm:justify-end items-center mb-6 text-sm font-medium text-slate-200 sm:mb-0">
+                        <li>
+                            <a href="/" className="hover:underline">Home</a>
+                        </li>
+                        <li>
+                            <a href="/servicesPage" className="hover:underline ms-4 md:ms-6">Services</a>
+                        </li>
+                        <li>
+                            <a href="/eventsPage" className="hover:underline ms-4 md:ms-6">Events</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:underline ms-4 md:ms-6">Articles</a>
+                        </li>
+                        <li>
+                            <a href="/quotationPage" className="hover:underline ms-4 md:ms-6">Quotation</a>
+                        </li>
+                    </ul>
                 </div>
-                <div className="flex gap-6 justify-center mt-5">
-                    <a href="#" className="inline-block no-underline">
-                        <img src="/fb.png" alt="Facebook" className="w-6 h-6" />
-                    </a>
-                    <a href="#" className="inline-block no-underline">
-                        <img src="/ig.png" alt="Instagram" className="w-6 h-6" />
-                    </a>
-                    <a href="#" className="inline-block no-underline">
-                        <img src="/youtube.png" alt="YouTube" className="w-6 h-6" />
-                    </a>
-                    <a href="#" className="inline-block no-underline">
-                        <img src="/twitt.png" alt="Twitter" className="w-6 h-6" />
-                    </a>
-                </div>
-            </div>
-            <div className="text-center w-full pt-2.5 font-light text-[#ADADAD]">
-                <p className="mb-5">
-                    Copyright © 2024. Moraspirit Initiative. All Rights Reserved.
-                </p>
+                <hr className="my-6 border-gray-500 sm:mx-auto lg:my-8" />
+                <span className="block text-sm text-slate-200 sm:text-center">
+          © 2024 <a href="#" className="hover:underline">Moraspirit Initiative</a>. All Rights Reserved.
+        </span>
             </div>
         </footer>
     );
