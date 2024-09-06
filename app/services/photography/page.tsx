@@ -1,13 +1,14 @@
 'use client';
-import EventCard from "../Components/EventCard/EventCard";
-import EventGallery from "../Components/EventGallery/EventGallery";
-import PageHero from "../Components/PageHero/PageHero";
-import ScrollRevealDiv from "../Components/ScrollRevealSection/ScrollRevealDiv";
-import React from "react";
+import EventCard from "../../Components/EventCard/EventCard";
+import EventGallery from "../../Components/EventGallery/EventGallery";
+import PageHero from "../../Components/PageHero/PageHero";
+import ScrollRevealDiv from "../../Components/ScrollRevealSection/ScrollRevealDiv";
+import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
+
 
 //pageHero content
-const imgUrl = "/VideographyHero.png";
-const title = "VIDEOGRAPHY";
+const imgUrl = "https://s3-alpha-sig.figma.com/img/1b1d/b24b/04e3816a4de631732cdb8ac3bf8db255?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pnHl3sRJ0BTmAEwHJwggcOpyvSS4szX9rgNT-Q7Bf4D2L-is~uQxUzZ68SvaDGCk7GC85uR0fTKefY-JRw0Mw-1uTIDTc0uQb7FFrYweMDFT4Z9vpy6aWTKROcS4~qz0Sc7exWaE-1ISFqEUcB1-RihkcEMegSEmR8hu3vkCdol5UHhM~pAnNQdWp2fQxvS5cD677Aa88O9ox0ZJD~s40lYRmE9mPb~2ZaQfUqqbb3xKQbxk2hlrBaFA9w0aqSe7pfL-u4U-ouRO~bWpKyR~u0FyOCE22CyCL394KyZV7pqCeUbbX8v4WzRDM2V1WElfLv5z3izo3eS8S2r9n2bUmQ__"
+const title = "PHOTOGRAPHY";
 const subTitle = "Turning Every Moment into a Lasting Visual Story";
 const description = "Capturing the Essence with Precision and Passion";
 
@@ -49,7 +50,6 @@ const pastEvents = [
     }
 ]
 
-
 // gallery content
 const galleryImg = [
     "https://s3-alpha-sig.figma.com/img/b010/9441/d29221e271a53ad689d5a886234a929c?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BSEyWdxsWAmCokA0kVviNzUSx4K5YJQ4Q7blt0BWroNALxSG7O327QYKsj2FyEGSkNm12j5RxjDIs~yFY8WcqSyBYCkW~tX9W0PgHkAJFcqWTBm7-rQyHy5f7d68qTTCTCKH41RI9NS8x2DAaRmsT36Tp~rrBW-5Y-aXkZhDAakzGgQihj41kqfSk89BN63SWamtbrrzzhNknvG6Sjxx8g4CX-GsQAcyY2vqMCvcOMJNg0e~aCJ6DhbI5Ps97FmmRMxYyhpNJm7KLl0csa8PzoAmspQ5lXAB06qWnXfdS~qPha7lHOzoItMkondpVUn6amLgSuATsrSENr1UOhJABw__",
@@ -64,20 +64,40 @@ const galleryImg = [
     "https://s3-alpha-sig.figma.com/img/3c1a/aeb7/e89f189de0f33a90a1de10d2e653c98e?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nEnd3szT5xFErKqRxeFMrdc44SZRQKXg4aK5WLm75Chjw5G3E8T6UOxkD8-ncMxn5yEObRQ9TA5rSgYe73nv1IzPANtkDJ4c-gzDj~gZGsNEuZEhcn5ZZA-nMDyeDnyupNnoA3iCVSr2nv-79hey3PE-AjQmi~bkF-cuy6EwTIrcQ4o0wbNIrg2e4u-VomoVP7COdM2745paBVyjoiVm5DTzeJ0iTMAPt2BZcCQsIFa0~wtXiZvq6wxbRVOLZZQWJ8eMZCcuXWF-tfQ1ctifl0Bfkvxw0FTrtZmRH3jTGM6RKW2TTX4wyCTqPbCONqhBc7VAKUsnUlOx2V~rH5tycQ__"
 ]
 
+//client feed back content
+const feedbacks = [
+    {
+      name: 'Kamal Silva',
+      message:'Just wanted to express my gratitude for your exceptional service in university sports. Your dedication and professionalism set you apart, making Moraspirit360 the go-to in the industry. Keep up the fantastic work!',
+
+    },
+    {
+      name: 'Aruna Udara',
+      message: 'Thank you for consistently delivering top-notch service in university sports. Your passion and expertise make Moraspirit360 stand out as the best.'
+
+    },
+    {
+      name: 'Pasan Jayawardena',
+      message: ' Professional and efficient team.  Delivered more than expected!'
+
+    },
+
+  ];
+
+
+
 export default function Home() {
     const eventCard : React.CSSProperties = {
         'width' : '100%',
     }
 
-
-    function navigateToRequest() {
-        window.location.href = "/request";
+    const navigateToRequest = () => {
+        window.location.href = "/request"
     }
 
     return (
         <div>
-            <PageHero imgUrl={imgUrl} title={title} subTitle={subTitle} description={description}/>
-
+            <PageHero imgUrl={imgUrl} title={title} subTitle={subTitle} description={description} />
             <section className=" w-full mt-10 mb-5 my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
                     <h1 className=" text-2xl mb-5 sm:text-7xl tracking-widest font-bold">STORIES IN MOTION</h1>
@@ -107,25 +127,32 @@ export default function Home() {
 
             <section className=" w-full my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
-                    <h1 className="text-3xl sm:text-4xl font-bold">STAY AHEAD</h1>
-                    <h2 className=" text-lg sm:text-xl font-medium">Discover What's Next on the Horizon</h2>
+                    <h1 className=" text-3xl sm:text-4xl font-bold">RELIVE THE HIGHLIGHTS</h1>
+                    <h2 className=" text-lg sm:text-xl font-medium">A Glimpse into Our Unforgettable Moments</h2>
                 </ScrollRevealDiv>
-                <div
-                    className=" w-[80%] mt-10 sm:mt-5 flex flex-col sm:flex-row sm:gap-5 gap-10 flex-1 items-center justify-center">
-
+                <div className=" w-[80%] mt-10 sm:mt-5 flex flex-col sm:flex-row sm:gap-5 gap-10 flex-1 items-center justify-center">
                     {
-                        upcomingEvents.map((event, index) => {
+                        pastEvents.map((event, index) => {
                             return (
-                                <EventCard key={index} delay={index * 200} imgUrl={event.url} title={event.title}
-                                           description={event.description} hoverText={true} cardStyle={eventCard}/>
+                                <EventCard key={index} delay={index * 200} imgUrl={event.url} title={event.title} description={event.description} hoverText={true} cardStyle={eventCard}/>
                             )
                         })
                     }
                 </div>
             </section>
 
+            <section className="w-full my-6 py-10 text-white flex flex-col items-center gap-2">
+                <ScrollRevealDiv className="w-full flex flex-col items-center">
+                   <h1 className="text-3xl sm:text-4xl text-center">
+                      EXPERIENCES SHARED BY OUR CLIENTS
+                   </h1>
+                </ScrollRevealDiv>
+                   <div className="w-full mt-10 sm:mt-5 gap-5">
+                   <ClientFeedback/>
+                   </div>
+            </section>
 
-            <EventGallery eventImg={galleryImg}/>
+
         </div>
     );
 }

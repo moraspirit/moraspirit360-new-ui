@@ -16,11 +16,15 @@ const Home = () => {
     }
 
     function navigateToVideography() {
-        window.location.href = "/videography";
+        window.location.href = "/services/videography";
     }
 
     function navigateToPhotography() {
-        window.location.href = "/photography";
+        window.location.href = "/services/photography";
+    }
+
+    function navigateToMarketing() {
+        window.location.href = "/services/marketing";
     }
 
     const pastEvents = [
@@ -70,7 +74,7 @@ const Home = () => {
             <section className={`${styles.secondSection} ${styles.scrollUpAnimation}`}>
                 <ScrollUpDiv>
                     <h1>Bringing Your Vision to Life</h1>
-                    <p>
+                    <p className='font-thin'>
                         MoraSpirit 360 is your all-in-one partner for exceptional event coverage, creative marketing
                         solutions, and innovative web development. From capturing every moment with stunning photography
                         and videography to promoting your event with targeted marketing strategies, we bring your vision
@@ -123,7 +127,7 @@ const Home = () => {
                     <p>Connecting Your Brand with the Right Audience</p>
                     <div className={styles.buttonContainer}>
                         <button className={styles.button} onClick={navigateToRequest}>Request</button>
-                        <button className={styles.button}>Learn more</button>
+                        <button className={styles.button} onClick={navigateToMarketing}>Learn more</button>
                     </div>
                 </ScrollUpDiv>
             </section>
