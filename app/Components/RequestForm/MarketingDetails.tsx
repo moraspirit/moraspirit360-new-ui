@@ -1,0 +1,155 @@
+import React from 'react'
+
+interface marketingDetails {
+    eventName : string,
+    description : string,
+    eventDate : string,
+    startTime : string,
+    count : string,
+    createBy : {
+        own : boolean,
+        _360 : boolean
+    },
+    publish : {
+        own : boolean,
+        _360 : boolean
+    }
+}
+
+interface marketingDetailsProps {
+    marketingDetails : marketingDetails,
+    setMarketingDetails : React.Dispatch<marketingDetails>,
+    handleNext : () => void,
+    handleSubmit : () => void,
+    isLast? : boolean,
+}
+
+const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleSubmit, isLast}) => {
+  return (
+    <>
+        <h1 className=' text-4xl font-bold my-5'>Marketing</h1>
+        <form className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
+            <input 
+                className=' typed-input' 
+                type="text" 
+                name="eventName" 
+                id="eventName" 
+                placeholder='Event Name' 
+                value={marketingDetails.eventName}
+                onChange={(e) => {setMarketingDetails({...marketingDetails, eventName : e.target.value })}}
+                required
+              />
+              <textarea 
+                className=' textarea-input'
+                name="description" 
+                id="description" 
+                rows={4}
+                placeholder='Event Description'
+                value={marketingDetails.description}
+                onChange={(e) => {setMarketingDetails({...marketingDetails, description : e.target.value })}}
+                required
+              >
+              </textarea>
+              <div className=' flex w-full flex-row justify-center items-center '>
+                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Event Date</label>
+                <input 
+                  className=' typed-input flex-1'
+                  type="date" 
+                  name="eventDate" 
+                  id="eventDate" 
+                  value={marketingDetails.eventDate}
+                  onChange={(e) => {setMarketingDetails({...marketingDetails, eventDate : e.target.value})}}
+                />
+              </div>
+              <div className=' flex w-full flex-row justify-center items-center '>
+                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">When Should We Start Marketing</label>
+                <input 
+                  className=' typed-input flex-1'
+                  type='datetime-local' 
+                  name="startTime" 
+                  id="startTime" 
+                  value={marketingDetails.startTime}
+                  onChange={(e) => {setMarketingDetails({...marketingDetails, startTime : e.target.value})}}
+                />
+              </div>
+              <input 
+                className=' typed-input remove-arrow' 
+                type="number" 
+                name="count" 
+                id="count" 
+                placeholder=' Flyer/Video Count' 
+                value={marketingDetails.count}
+                onChange={(e) => {setMarketingDetails({...marketingDetails, count : e.target.value })}}
+                required
+              />
+              <div className=' w-full flex flex-row flex-wrap'>
+                <div className=' w-full flex flex-row gap-3 items-center justify-start my-2'>
+                <input 
+                    className=' checkbox-input' 
+                    type="checkbox" 
+                    name="ownDesigners" 
+                    id="ownDesigners" 
+                    checked={marketingDetails.createBy.own}
+                    onChange={(e) => {setMarketingDetails( {...marketingDetails, createBy : {...marketingDetails.createBy, own : !marketingDetails.createBy.own }})}}
+                />
+                <label className=' form-label' htmlFor="photography">Created By Your Own Designers</label>
+                </div>
+                <div className=' w-full flex flex-row gap-3 items-center justify-start my-2'>
+                <input 
+                    className=' checkbox-input' 
+                    type="checkbox" 
+                    name="360Designers" 
+                    id="360Designers" 
+                    checked={marketingDetails.createBy._360}
+                    onChange={(e) => {setMarketingDetails( {...marketingDetails, createBy : {...marketingDetails.createBy, _360 : !marketingDetails.createBy._360 }})}}
+                />
+                <label className=' form-label' htmlFor="photography">Created By Your 360 Designers</label>
+                </div>
+              </div>
+              <div className=' w-full flex flex-row flex-wrap'>
+                <div className=' w-full flex flex-row gap-3 items-center justify-start my-2'>
+                <input 
+                    className=' checkbox-input' 
+                    type="checkbox" 
+                    name="ownPage" 
+                    id="ownPage" 
+                    checked={marketingDetails.publish.own}
+                    onChange={(e) => {setMarketingDetails( {...marketingDetails, publish : {...marketingDetails.publish, own : !marketingDetails.publish.own }})}}
+                />
+                <label className=' form-label' htmlFor="photography">Publish to Own Page</label>
+                </div>
+                <div className=' w-full flex flex-row gap-3 items-center justify-start my-2'>
+                <input 
+                    className=' checkbox-input' 
+                    type="checkbox" 
+                    name="360Page" 
+                    id="360Page" 
+                    checked={marketingDetails.publish._360}
+                    onChange={(e) => {setMarketingDetails( {...marketingDetails, publish : {...marketingDetails.publish, _360 : !marketingDetails.publish._360 }})}}
+                />
+                <label className=' form-label' htmlFor="photography">Publish to 360 Page</label>
+                </div>
+              </div>
+
+            {
+            isLast ?
+            <button 
+                className=' form-btn'
+                onClick={handleSubmit}
+            >
+                Submit
+            </button> :
+            <button 
+                className=' form-btn'
+                onClick={handleNext}
+            >
+                Next
+            </button>
+            }
+        </form>
+
+    </>
+  )
+}
+
+export default marketingDetails
