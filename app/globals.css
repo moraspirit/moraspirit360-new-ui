@@ -22,10 +22,57 @@ body {
   @apply font-mora-font;
 }
 
+@layer components {
+  .typed-input {
+    @apply w-full h-10 text-lg bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
+  }
+
+  .textarea-input {
+    @apply w-full text-lg bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
+  }
+
+  .checkbox-input {
+    @apply size-5 accent-mora-red
+  }
+
+  .select-input {
+    @apply w-full h-10 text-lg bg-transparent text-gray-500 appearance-none border-b border-gray-500 focus:border-gray-200 outline-none
+  }
+
+  .form-label {
+    @apply text-lg
+  }
+
+  .form-btn {
+    @apply w-[120px] h-[40px] mt-5 border-2 border-white rounded-xl text-lg font-bold hover:bg-mora-red active:translate-y-1
+  }
+
+}
+
 @layer utilities {
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
+
+  .remove-arrow::-webkit-inner-spin-button,
+  .remove-arrow::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  .remove-arrow {
+      -moz-appearance: textfield;
+  }
+
 }
 
 /* Custom scrollbar styles */
