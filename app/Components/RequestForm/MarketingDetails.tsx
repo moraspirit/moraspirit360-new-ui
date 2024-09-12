@@ -28,7 +28,7 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Marketing</h1>
-        <form className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
+        <form id='marketingForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
             <input 
                 className=' typed-input' 
                 type="text" 
@@ -141,7 +141,14 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
             </button> :
             <button 
                 className=' form-btn'
-                onClick={handleNext}
+                onClick={() => {
+                  const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+    
+                  if(marketingForm && marketingForm.checkValidity()){
+                    handleNext()
+                  }
+    
+                }}
             >
                 Next
             </button>

@@ -36,7 +36,7 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
     return (
         <>
             <h1 className=' text-4xl font-bold my-5'>Photography</h1>
-            <form className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
+            <form id='photographyForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
               <input 
                 className=' typed-input' 
                 type="text" 
@@ -193,7 +193,14 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 </button> :
                 <button 
                   className=' form-btn'
-                  onClick={handleNext}
+                  onClick={() => {
+                    const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+      
+                    if(photographyForm && photographyForm.checkValidity()){
+                      handleNext()
+                    }
+      
+                  }}
                 >
                   Next
                 </button>
