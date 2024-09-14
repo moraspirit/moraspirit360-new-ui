@@ -15,7 +15,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
             }`}
         >
             <button className="absolute right-7 top-4 p-3" onClick={onClose}>
-                <FontAwesomeIcon className="text-5xl" icon={faXmark} />
+                <FontAwesomeIcon className="text-5xl"  icon={faXmark} />
             </button>
             <ul className="flex text-3xl flex-col justify-center items-center space-y-4">
                 <li className={path === "/" ? "active" : ""}>
