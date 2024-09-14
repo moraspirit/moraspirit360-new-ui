@@ -6,6 +6,9 @@ import PhotographyDetails from './PhotographyDetails'
 import VideographyDetails from './VideographyDetails'
 import WebServiceDetails from './WebServiceDetails'
 import MarketingDetails from './MarketingDetails'
+import Message from '../Popup/Message'
+import axios from 'axios'
+import WaitingSpinner from '../Popup/WaitingSpinner'
 
 interface services {
     photography : boolean,
@@ -172,6 +175,8 @@ const RequestForm = () => {
     const [shownForm, setShownForm] = useState(0);
     const parentDiv = useRef<HTMLDivElement | null>(null);
     const [formWidth, setFormWidth] = useState(0);
+    const {showMessage, PopupMessage} = Message();
+    const {Spinner, setWaiting} = WaitingSpinner();
 
     useEffect(() => {
         let tempServices = ['personal'];
@@ -193,7 +198,40 @@ const RequestForm = () => {
     }
 
     const handleSubmit = () => {
-        
+
+        const requestData = new FormData();
+        requestData.append('personalDetails', JSON.stringify(personalDetails));
+        requestData.append('services', JSON.stringify(services));
+
+        if(services.photography){
+            requestData.append('photographyDetails', JSON.stringify(photographyDetails));
+            requestData.append('photographyAgenda', photographyDetails.agenda as Blob);
+        }
+
+        if(services.videography){
+            requestData.append('videographyDetails', JSON.stringify(videographyDetails));
+            requestData.append('videographyAgenda', videographyDetails.agenda as Blob);
+        }
+
+        if(services.webService){
+            requestData.append('webServiceDetails', JSON.stringify(webServiceDetails));
+            requestData.append('material', webServiceDetails.material as Blob);
+        }
+
+        if(services.marketing){
+            requestData.append('marketingDetails', JSON.stringify(marketingDetails));
+        }
+
+        setWaiting(true);
+
+        axios.post('/api/service', requestData)
+            .then(res => {
+                showMessage(res.data.message, 'success');
+            }).catch(err => {
+                showMessage(err.response.data.message, 'error');
+            }).finally(() => {
+                setWaiting(false);
+            });
     }
 
   return (
@@ -237,8 +275,11 @@ const RequestForm = () => {
                     <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} />        
                 </div>
             }
+
+            <PopupMessage />
+            <Spinner />
+
         </div>
-        
 
         
     </div>
