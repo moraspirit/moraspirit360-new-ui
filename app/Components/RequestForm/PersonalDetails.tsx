@@ -28,7 +28,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Personal Details</h1>
-        <form className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
+        <form id='personalForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
           <input 
             className=' typed-input' 
             type="text" 
@@ -115,7 +115,14 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
 
           <button 
             className={` form-btn ${(services.marketing || services.photography || services.videography || services.webService) ? '' : 'cursor-not-allowed active:translate-y-0'}`}
-            onClick={handleNext}
+            onClick={() => {
+              const personalForm : HTMLFormElement = document.getElementById('personalForm') as HTMLFormElement;
+
+              if(personalForm && personalForm.checkValidity()){
+                handleNext()
+              }
+
+            }}
             type='submit'
             disabled={!(services.marketing || services.photography || services.videography || services.webService)}
           >

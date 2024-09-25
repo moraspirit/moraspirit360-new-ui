@@ -41,7 +41,7 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Web Service</h1>
-        <form className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
+        <form id='webServiceForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
             <input 
                 className=' typed-input' 
                 type="text" 
@@ -214,7 +214,14 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
             </button> :
             <button 
                 className=' form-btn'
-                onClick={handleNext}
+                onClick={() => {
+                    const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+      
+                    if(webServiceForm && webServiceForm.checkValidity()){
+                      handleNext()
+                    }
+      
+                  }}
             >
                 Next
             </button>
