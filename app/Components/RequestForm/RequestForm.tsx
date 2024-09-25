@@ -279,9 +279,7 @@ const RequestForm = () => {
             <PopupMessage />
             <Spinner />
 
-        </div>
-
-        
+        </div>        
     </div>
   )
 }
