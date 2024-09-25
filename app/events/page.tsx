@@ -4,7 +4,7 @@ import PageHero from "../Components/PageHero/PageHero";
 import ScrollRevealDiv from "../Components/ScrollRevealSection/ScrollRevealDiv";
 
 //pageHero content
-const imgUrl = "https://s3-alpha-sig.figma.com/img/49f8/81da/a0e8b6c7a841c9d17b134e356b76ef18?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DBn2aG3ViyNqXKo9IcdG8XN6MiMnTFi88hSMI3NRgKa8Ih-nZ-fiey9bp13MfXajlO-QIycalhdJ7UJ6KOWGo9whc164SznDxjqqxsInxZhUgs1gjYa5Lh6R2-Q7bhJuvIBQjtls-tJ66Y67Q8PDU1Q14sySznk9CYuK3nsURb--~Q77AVtZXVjDQlGuytvs-ISBVE~8kn3Mvld4cXslpLNE-k~jHAE65fwdpLZFGIh7kO6v1CmOEZWf9x0Pm8iu7mOzgdJvGURzd5P1g~j3wwKvuQNv8MTqXLZn7Mi3OtUD3HmIW3TWZvAWvrODy5oUBcVxmQwKjvJ6GHeNAo~2kQ__";
+const imgUrl = "/eventpage.jpg";
 const title = "360 EVENTS";
 const subTitle = "ELEVATE EVERY OCCATION";
 const description = "Where Exceptional Events Come to Life";

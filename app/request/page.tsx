@@ -1,6 +1,6 @@
 import RequestForm from "../Components/RequestForm/RequestForm";
 
-const imgUrl = "https://s3-alpha-sig.figma.com/img/2ea7/fbc0/42abf1df5b20e13ba880d44753493949?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XfDILOc-5ESQwRvk6vLbvTktRAeU07GDC-bmDc6oqmm399IVMKGogkTwacFsXV2gqpQRwor8p9XgAxvRxhREkcJ26qZCla6RjKN7BRZ6~NcqAcnk~rVatJScwA8plfaVdERwkMX5auGwTTjD0Rp3iqgLwU9LOUPaDXJeCsw~v1jlMBDnqRKi2o93hIX5BATT4~9YfNAzb9G-67PtFfizWYHBDA0-8xEKR2iWojDmCgRoFJzSFyIKDzKKc34Rmu9ESgkQRy9fC9IeWC-TqX8JlLp5JIn6NSbhAYvEE2ax6Y4fKxIuxQ5O1anJp~653-dyIoclKjkqwWhwCL6oIqF94A__"
+const imgUrl = "/repage.jpg"
 
 export default function Home() {
     return (

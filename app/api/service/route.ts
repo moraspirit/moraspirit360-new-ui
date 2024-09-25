@@ -95,7 +95,7 @@ export const POST = async (request : Request) => {
                     <table role="presentation" cellpadding="0" cellspacing="0" style="width: 90%; text-align: left;">
                         <tr>
                             <td>
-                                <img src="https://dms.uom.lk/s/HqaGE222rwGpkk6" alt="Logo" style="display: block; width: 50px; height: auto;" />
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsVoaMD78nh3eDFyLqXemDShBy1NvQOfIwnw&s" alt="Logo" style="display: block; width: 50px; height: auto;" />
                             </td>
                             <td>
                                 <h1 style="color: white; font-weight: bold; margin: 0; padding-left: 15px;">Moraspirit 360</h1>

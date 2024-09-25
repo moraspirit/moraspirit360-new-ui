@@ -5,7 +5,7 @@ import Footer from "@/app/Components/Footer/Footer";
 import React from "react";
 import ScrollUpDiv from "@/app/Components/ScrollRevealSection/ScrollRevealUp";
 
-const imgUrl = "https://s3-alpha-sig.figma.com/img/0462/03ea/62a7721f156f28792937859e3c842c61?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S6rVkFrn93DvzYxSNmvXHnTUc8zn1VpHGxbsx4KLClOy~GoUA2wXqjcjHQge9~0lXaeVOxWnwT2wbpn2z3n1a6NLFwCbLu05HmwCbsRoY5HmyrImjpAwRx5uLmioqrpNhUC2y~j4ULhORCg1fb-DhlS-L4hLP8ZElyU142o8aZaZfdqbBcxTumKH-P~4b1tp9YXMxlzJ72XXkrH8tcOXLSE71L9~vZ6D61yA0h7fSANXAe6YkAmcRbkl~WpT7FNH3AEaAH~iEqi6WvDqjpLHkEj5p4iKe9wLcFuN-fsWd8Ef8nxbJ5Hj~ezF-Cywjywqy5PmHopQSMZx-DtXonXhDA__";
+const imgUrl = "/eventPageBg.png";
 const title = "Our ARTICLES";
 const subTitle = "ELEVATE EVERY OCCASION";
 const description = "Where Exceptional Events Come to Life";
