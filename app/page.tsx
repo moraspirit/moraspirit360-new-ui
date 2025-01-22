@@ -71,7 +71,7 @@ const Home = () => {
 
 
             {/* Second Section */}
-            <section className={`${styles.secondSection} ${styles.scrollUpAnimation}`}>
+            <section className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}>
                 <ScrollUpDiv>
                     <h1>Bringing Your Vision to Life</h1>
                     <p className='font-thin'>
