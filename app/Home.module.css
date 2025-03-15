@@ -178,6 +178,7 @@
   text-align: center; /* Centers the text and button */
   color: white; /* Adjust text color as needed */
   overflow: hidden; /* Ensures the overlay doesn't overflow */
+  height: 100vh;
 }
 
 /* Overlay styles */
@@ -205,7 +206,7 @@
   font-weight: 700;
   line-height: 66.56px;
   text-align: center;
-  margin-bottom: 20px; /* Adjust spacing as needed */
+  margin-bottom: 30px; /* Adjust spacing as needed */
 }
 
 /* Paragraph styles */
@@ -213,9 +214,9 @@
   font-family: 'Inter', sans-serif;
   font-size: 21px;
   font-weight: 350;
-  line-height: 25.41px;
+  line-height: 28px;
   text-align: center;
-  margin-bottom: 30px; /* Adjust spacing as needed */
+  margin-bottom: 50px; /* Adjust spacing as needed */
 }
 
 /* Button styles */
@@ -400,6 +401,12 @@
   opacity: 0;
   transform: translateY(70px);
   animation: scrollUp 0.8s ease-out forwards;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 
