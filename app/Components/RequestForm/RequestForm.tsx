@@ -236,7 +236,7 @@ const RequestForm = () => {
 
   return (
     <div className=' w-full h-full px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
-        <div className={`relative w-full flex-1 overflow-hidden`}>
+        <div className={`relative w-full h-full flex-1 overflow-hidden`}>
             <div 
                 className={` absolute w-full h-full px-6 overflow-y-scroll no-scrollbar flex flex-col items-center transition-[translate] ease-out duration-500`} 
                 style={{translate : `${shownForm == selectedService.indexOf('personal') ? '0' : (shownForm < selectedService.indexOf('personal') ? `${formWidth}px` : `-${formWidth}px`)}`}}

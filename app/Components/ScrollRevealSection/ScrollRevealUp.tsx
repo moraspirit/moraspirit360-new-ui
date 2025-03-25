@@ -21,9 +21,7 @@ const ScrollUpDiv: React.FC<ScrollUpDivProps> = ({ children, delay = 0, classNam
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                } else {
-                    setIsVisible(false);
-                }
+                } 
             });
         }, {
             threshold: 0.1, // Adjust threshold if needed

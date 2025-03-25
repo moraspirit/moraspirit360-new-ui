@@ -23,9 +23,7 @@ const ArticleCard = ({ img, date, title, desc }: EventCardProps) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                } else {
-                    setIsVisible(false);
-                }
+                } 
             });
         }, {
             threshold: 0.1,
@@ -50,7 +48,7 @@ const ArticleCard = ({ img, date, title, desc }: EventCardProps) => {
     return (
         <div
             ref={ref}
-            className={`relative flex flex-col h-[70%%] w-[70%] mx-auto transition-all ease-out duration-1000 rounded-2xl ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+            className={`relative flex flex-col h-[70%%] w-full sm:w-[70%] mx-auto transition-all ease-out duration-1000 rounded-2xl ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >

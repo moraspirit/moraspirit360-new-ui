@@ -1,5 +1,6 @@
 import EventCard from "../Components/EventCard/EventCard";
 import EventGallery from "../Components/EventGallery/EventGallery";
+import Footer from "../Components/Footer/Footer";
 import PageHero from "../Components/PageHero/PageHero";
 import ScrollRevealDiv from "../Components/ScrollRevealSection/ScrollRevealDiv";
 
@@ -72,7 +73,7 @@ export default function Home() {
             <section className=" w-full my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
                     <h1 className="text-3xl sm:text-4xl font-bold">STAY AHEAD</h1>
-                    <h2 className=" text-lg sm:text-xl font-medium">Discover What's Next on the Horizon</h2>
+                    <h2 className=" text-md sm:text-xl font-medium">Discover What's Next on the Horizon</h2>
                 </ScrollRevealDiv>
                 <div className=" w-[80%] mt-10 sm:mt-5 flex flex-col sm:flex-row sm:gap-5 gap-10 flex-1 items-center justify-center">
                     
@@ -88,8 +89,8 @@ export default function Home() {
 
             <section className=" w-full my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
-                    <h1 className=" text-3xl sm:text-4xl font-bold">RELIVE THE HIGHLIGHTS</h1>
-                    <h2 className=" text-lg sm:text-xl font-medium">A Glimpse into Our Unforgettable Moments</h2>
+                    <h1 className=" text-3xl sm:text-4xl text-center font-bold">RELIVE THE HIGHLIGHTS</h1>
+                    <h2 className=" text-md sm:text-xl text-center font-medium">A Glimpse into Our Unforgettable Moments</h2>
                 </ScrollRevealDiv>
                 <div className=" w-[80%] mt-10 sm:mt-5 flex flex-col sm:flex-row sm:gap-5 gap-10 flex-1 items-center justify-center">
                     {
@@ -103,6 +104,8 @@ export default function Home() {
             </section>
 
             <EventGallery eventImg={galleryImg}/>
+
+            <Footer />
         </div>
     );
 }

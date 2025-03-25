@@ -4,14 +4,14 @@ const imgUrl = "/repage.jpg"
 
 export default function Home() {
     return (
-        <div className=" w-full overflow-hidden flex flex-col md:flex-row">
+        <div className=" w-full md:overflow-hidden flex flex-col md:flex-row">
 
-            <div className="h-[100dvh] flex-1">
+            <div className="h-[100vh] flex-1">
                 <div className=" w-full h-full relative">
-                    <div className=" absolute first-letter w-full h-full text-white flex flex-col items-center justify-center gap-2 z-20">
+                    <div className=" absolute first-letter w-full h-full text-white flex flex-col items-center justify-center gap-2 z-20 text-center px-3 sm:px-0">
                         <h1 className=" text-4xl md:text-5xl font-extrabold">Tailor Your Experience</h1>
                         <h2 className=" text-2xl md:text-3xl font-semibold">Request the Services You Need</h2>
-                        <p className=" w-[350px] md:w-[400px] pt-7 text-sm text-center font-light">
+                        <p className="  md:max-w-[400px] pt-7 text-sm text-center font-light">
                             At MoraSpirit 360, we’re committed to delivering exactly what you need. Whether you're looking for event coverage, 
                             marketing expertise, or web development, our easy-to-use request form allows you to select multiple services in one go. 
                             Let us know how we can help bring your vision to life, and we'll take care of the rest.
@@ -23,7 +23,7 @@ export default function Home() {
             </div>
 
 
-            <div className="h-[100dvh] flex-1 overflow-y-scroll overflow-x-hidden">
+            <div className="h-[100vh] flex-1 overflow-y-scroll overflow-x-hidden text-white">
                 <RequestForm />
             </div>
         </div>
