@@ -15,16 +15,16 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="flex-1 flex justify-center mb-4 align-middle">
                         <a href="#" className="text-slate-200">
-                            <img src="facebook.svg" alt="Facebook" className="w-10 h-10" />
+                            <img src="/facebook.svg" alt="Facebook" className="w-10 h-10" />
                         </a>
                         <a href="#" className="text-slate-200">
-                            <img src="instagram.svg" alt="Instagram" className="w-10 h-10" />
+                            <img src="/instagram.svg" alt="Instagram" className="w-10 h-10" />
                         </a>
                         <a href="#" className="text-slate-200">
-                            <img src="youtube.svg" alt="YouTube" className="w-10 h-10" />
+                            <img src="/youtube.svg" alt="YouTube" className="w-10 h-10" />
                         </a>
                         <a href="#" className="text-slate-200">
-                            <img src="twitter.svg" alt="Twitter" className="w-10 h-10" />
+                            <img src="/twitter.svg" alt="Twitter" className="w-10 h-10" />
                         </a>
                     </div>
                     <ul className="flex-1 flex flex-wrap justify-center sm:justify-end items-center mb-6 text-sm font-medium text-slate-200 sm:mb-0">
