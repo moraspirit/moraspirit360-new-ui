@@ -40,7 +40,7 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
 
   return (
     <>
-        <h1 className=' text-4xl font-bold my-5'>Web Service</h1>
+        <h1 className=' text-4xl font-bold my-5 text-center'>Web Service</h1>
         <form id='webServiceForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
             <input 
                 className=' typed-input' 

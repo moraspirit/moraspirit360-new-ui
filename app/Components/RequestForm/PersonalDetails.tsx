@@ -27,7 +27,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
  
   return (
     <>
-        <h1 className=' text-4xl font-bold my-5'>Personal Details</h1>
+        <h1 className=' text-4xl font-bold my-5 text-center'>Personal Details</h1>
         <form id='personalForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
           <input 
             className=' typed-input' 
@@ -67,7 +67,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
           />
 
           <div className=' w-full flex flex-row flex-wrap'>
-            <div className=' w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
+            <div className=' w-full md:w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
               <input 
                 className=' checkbox-input' 
                 type="checkbox" 
@@ -78,7 +78,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
               />
               <label className=' form-label' htmlFor="photography">Photography</label>
             </div>
-            <div className=' w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
+            <div className=' w-full md:w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
               <input 
                 className=' checkbox-input' 
                 type="checkbox" 
@@ -89,7 +89,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
               />
               <label className=' form-label' htmlFor="videography">Videography </label>
             </div>
-            <div className=' w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
+            <div className=' w-full md:w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
               <input 
                 className=' checkbox-input' 
                 type="checkbox" 
@@ -100,7 +100,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
               />
               <label className=' form-label' htmlFor="webService">Web Service</label>
             </div>
-            <div className=' w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
+            <div className=' w-full md:w-1/2 flex flex-row gap-3 items-center justify-start my-2'>
               <input 
                 className=' checkbox-input' 
                 type="checkbox" 
