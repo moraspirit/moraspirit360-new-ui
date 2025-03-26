@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from "next/navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import "../LinkStyle.css";
 
 const DesktopServicesDropdown: React.FC = () => {
@@ -11,15 +13,15 @@ const DesktopServicesDropdown: React.FC = () => {
     const serviceLinks = [
       { 
         name: 'Marketing', 
-        href: '/services/marketing' 
+        href: '/marketing' 
       },
       { 
         name: 'Photography', 
-        href: '/services/photography' 
+        href: '/photography' 
       },
       { 
         name: 'Videography', 
-        href: '/services/videography' 
+        href: '/videography' 
       }
     ];
   
@@ -29,15 +31,12 @@ const DesktopServicesDropdown: React.FC = () => {
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        <div className={`cursor-pointer ${pathname.startsWith('/services') ? 'active' : ''}`}>
+        <div className={`cursor-pointer flex items-center ${pathname.startsWith('/services') ? 'active' : ''}`}>
           Services
-          <motion.span
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="inline-block ml-1 text-xs"
-          >
-            ▼
-          </motion.span>
+          <FontAwesomeIcon 
+            icon={isOpen ? faChevronUp : faChevronDown} 
+            className="ml-1 w-3 h-3"
+          />
         </div>
   
         <AnimatePresence>
