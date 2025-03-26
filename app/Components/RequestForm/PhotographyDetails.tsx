@@ -35,7 +35,7 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
 
     return (
         <>
-            <h1 className=' text-4xl font-bold my-5'>Photography</h1>
+            <h1 className=' text-4xl font-bold my-5 text-center'>Photography</h1>
             <form id='photographyForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
               <input 
                 className=' typed-input' 

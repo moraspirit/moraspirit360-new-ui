@@ -5,6 +5,7 @@ import ScrollRevealDiv from "../app/Components/ScrollRevealSection/ScrollRevealD
 import ScrollUpDiv from "../app/Components/ScrollRevealSection/ScrollRevealUp"
 import EventCard from "../app/Components/EventCard/EventCard";
 import Footer from './Components/Footer/Footer';
+import ScrollLeftDiv from './Components/ScrollRevealSection/ScrollRevealLeft';
 
 const Home = () => {
     const eventCard : React.CSSProperties = {
@@ -94,7 +95,7 @@ const Home = () => {
 
             {/* Photography Section */}
             <section className={`${styles.photographySection} ${styles.section} ${styles.scrollUpAnimation}`}>
-                <ScrollUpDiv>
+                <ScrollLeftDiv>
                     <h1>PHOTOGRAPHY</h1>
                     <p>Turning Every Moment into a Lasting Visual Story</p>
                     <p>Capturing the Essence with Precision and Passion</p>
@@ -103,12 +104,12 @@ const Home = () => {
                         <button className={styles.button} onClick={navigateToPhotography}>Learn more</button>
                     </div>
 
-                </ScrollUpDiv>
+                </ScrollLeftDiv>
             </section>
 
             {/* Videography Section */}
             <section className={`${styles.videographySection} ${styles.section} ${styles.scrollUpAnimation}`}>
-                <ScrollUpDiv>
+                <ScrollLeftDiv>
                     <h1>VIDEOGRAPHY</h1>
                     <p>Crafting Cinematic Experiences that Inspire</p>
                     <p>Bringing Your Vision to Life with Creativity and Technology</p>
@@ -116,12 +117,12 @@ const Home = () => {
                         <button className={styles.button} onClick={navigateToRequest}>Request</button>
                         <button className={styles.button} onClick={navigateToVideography}>Learn more</button>
                     </div>
-                </ScrollUpDiv>
+                </ScrollLeftDiv>
             </section>
 
             {/* Marketing Section */}
             <section className={`${styles.marketingSection} ${styles.section} ${styles.scrollUpAnimation}`}>
-                <ScrollUpDiv>
+                <ScrollLeftDiv>
                     <h1>MARKETING</h1>
                     <p>Strategic Campaigns that Drive Results</p>
                     <p>Connecting Your Brand with the Right Audience</p>
@@ -129,12 +130,12 @@ const Home = () => {
                         <button className={styles.button} onClick={navigateToRequest}>Request</button>
                         <button className={styles.button} onClick={navigateToMarketing}>Learn more</button>
                     </div>
-                </ScrollUpDiv>
+                </ScrollLeftDiv>
             </section>
 
             {/* Web Development Section */}
             <section className={`${styles.webDevelopmentSection} ${styles.section} ${styles.scrollUpAnimation}`}>
-                <ScrollUpDiv>
+                <ScrollLeftDiv>
                     <h1 className='z-50'>WEB DEVELOPMENT</h1>
                     <p>Building Digital Platforms that Empower Your Business</p>
                     <p>Innovative Solutions for the Modern Web</p>
@@ -142,7 +143,7 @@ const Home = () => {
                         <button className={styles.button} onClick={navigateToRequest}>Request</button>
                         <button className={styles.button}>Learn more</button>
                     </div>
-                </ScrollUpDiv>
+                </ScrollLeftDiv>
             </section>
 
             {/* Past Events Section */}

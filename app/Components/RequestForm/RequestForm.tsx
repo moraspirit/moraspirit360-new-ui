@@ -9,6 +9,7 @@ import MarketingDetails from './MarketingDetails'
 import Message from '../Popup/Message'
 import axios from 'axios'
 import WaitingSpinner from '../Popup/WaitingSpinner'
+import { motion } from 'framer-motion'
 
 interface services {
     photography : boolean,
@@ -236,16 +237,16 @@ const RequestForm = () => {
 
   return (
     <div className=' w-full h-full px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
-        <div className={`relative w-full h-full flex-1 overflow-hidden`}>
+        {/* <div className={`relative w-full h-full flex-1 overflow-hidden`}>
             <div 
-                className={` absolute w-full h-full px-6 overflow-y-scroll no-scrollbar flex flex-col items-center transition-[translate] ease-out duration-500`} 
+                className={` relative w-full h-screen sm:px-6 overflow-y-scroll no-scrollbar flex flex-col items-center transition-[translate] ease-out duration-500 ${shownForm == selectedService.indexOf('personal') ? 'z-10' : 'z-0'}`} 
                 style={{translate : `${shownForm == selectedService.indexOf('personal') ? '0' : (shownForm < selectedService.indexOf('personal') ? `${formWidth}px` : `-${formWidth}px`)}`}}
             >
                 <PersonalDetails handleNext={handleNext} services={services} setServices={setServices} personalDetails={personalDetails} setPersonalDetails={setPersonalDetails} />
             </div>
             {   services.photography &&
                 <div 
-                    className={` absolute w-full h-full px-6 overflow-y-scroll no-scrollbar flex flex-col items-center ${shownForm < selectedService.indexOf('photography') ? 'transition-none' : 'transition-[translate]'} ease-out duration-500`} 
+                    className={` relative w-full h-full px-6 overflow-y-scroll no-scrollbar flex flex-col items-center ${shownForm < selectedService.indexOf('photography') ? 'transition-none z-10' : 'transition-[translate] z-0'} ease-out duration-500`} 
                     style={{translate : `${shownForm == selectedService.indexOf('photography') ? '0' : (shownForm < selectedService.indexOf('photography') ? `${formWidth}px` : `-${formWidth}px`)}`}}
                 >
                     <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} />        
@@ -279,7 +280,57 @@ const RequestForm = () => {
             <PopupMessage />
             <Spinner />
 
-        </div>        
+        </div>         */}
+
+        <div className={`w-full h-auto sm:h-screen sm:overflow-y-scroll ${selectedService[shownForm] == 'personal' ? 'block' : 'hidden'}`}>
+            <motion.div
+                initial={{ x : '0'}}
+                animate={{ x : shownForm == selectedService.indexOf('personal') ? '0' : (shownForm < selectedService.indexOf('personal') ? `${formWidth}px` : `-${formWidth}px`)}}
+                transition={{ duration : 0.5}}
+                className=' w-full h-full flex flex-col items-center justify-start '
+            >
+                <PersonalDetails handleNext={handleNext} services={services} setServices={setServices} personalDetails={personalDetails} setPersonalDetails={setPersonalDetails} />
+            </motion.div>
+        </div>
+
+        <div className={`w-full h-auto sm:h-screen sm:overflow-y-scroll no-scrollbar ${selectedService[shownForm] == 'photography' ? 'block' : 'hidden'}`}>
+            <motion.div
+                initial={{ x : '0'}}
+                animate={{ 
+                    x : shownForm == selectedService.indexOf('photography') ? '0' : (shownForm < selectedService.indexOf('photography') ? `${formWidth}px` : `-${formWidth}px`),
+                }}
+                transition={{ duration : 0.5}}
+                className=' w-full h-full flex flex-col items-center justify-start '
+            >
+                <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} />
+            </motion.div>
+        </div>
+
+        <div className={`w-full h-auto sm:h-screen sm:overflow-y-scroll no-scrollbar ${selectedService[shownForm] == 'videography' ? 'block' : 'hidden'}`}>
+            <motion.div
+                initial={{ x : '0'}}
+                animate={{ 
+                    x : shownForm == selectedService.indexOf('videography') ? '0' : (shownForm < selectedService.indexOf('videography') ? `${formWidth}px` : `-${formWidth}px`),
+                }}
+                transition={{ duration : 0.5}}
+                className=' w-full h-full flex flex-col items-center justify-start '
+            >
+                <VideographyDetails isLast={selectedService[selectedService.length - 1] == 'videography'} handleSubmit={handleSubmit} videographyDetails={videographyDetails} setVideographyDetails={setVideographyDetails} handleNext={handleNext} />
+            </motion.div>
+        </div>
+
+        <div className={`w-full h-auto sm:h-screen sm:overflow-y-scroll no-scrollbar ${selectedService[shownForm] == 'webService' ? 'block' : 'hidden'}`}>
+            <motion.div
+                initial={{ x : '0'}}
+                animate={{ 
+                    x : shownForm == selectedService.indexOf('webService') ? '0' : (shownForm < selectedService.indexOf('webService') ? `${formWidth}px` : `-${formWidth}px`),
+                }}
+                transition={{ duration : 0.5}}
+                className=' w-full h-full flex flex-col items-center justify-start '
+            >
+                <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} />
+            </motion.div>
+        </div>
     </div>
   )
 }

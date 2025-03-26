@@ -31,7 +31,7 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
 
   return (
     <>
-        <h1 className=' text-4xl font-bold my-5'>Videography</h1>
+        <h1 className=' text-4xl font-bold my-5 text-center'>Videography</h1>
         <form id='videographyForm' className=' w-full flex flex-col items-center justify-start gap-10' onSubmit={(e) => e.preventDefault()}>
         <div className=' flex w-full flex-row justify-center items-center '>
                 <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Event Date</label>

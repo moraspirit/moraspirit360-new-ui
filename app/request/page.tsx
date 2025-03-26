@@ -1,9 +1,11 @@
+import Footer from "../Components/Footer/Footer";
 import RequestForm from "../Components/RequestForm/RequestForm";
 
 const imgUrl = "/repage.jpg"
 
 export default function Home() {
     return (
+        <>
         <div className=" w-full md:overflow-hidden flex flex-col md:flex-row">
 
             <div className="h-[100vh] flex-1">
@@ -27,5 +29,7 @@ export default function Home() {
                 <RequestForm />
             </div>
         </div>
+        <Footer />
+        </>
     );
 }
