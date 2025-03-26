@@ -7,24 +7,21 @@ const Footer: React.FC = () => {
                 <div className="sm:flex sm:items-center">
                     <div className="flex-1 mb-4 text-sm text-slate-200 sm:mb-0 font-light text-center sm:text-left">
                         <p className="font-medium text-lg mb-1">Contact</p>
-                        <p>077 842 3916</p>
+                        <p>077 580 7701</p>
                         <a href="mailto:moraspirit360@moraspirit.com" className="hover:underline">
                             moraspirit360@moraspirit.com
                         </a>
                         <p>125, 56A Peterson Ln, Colombo, Sri Lanka, Colombo, Sri Lanka</p>
                     </div>
                     <div className="flex-1 flex justify-center mb-4 align-middle">
-                        <a href="#" className="text-slate-200">
+                        <a href="https://www.facebook.com/MoraSpirit360/" className="text-slate-200">
                             <img src="/facebook.svg" alt="Facebook" className="w-10 h-10" />
                         </a>
                         <a href="#" className="text-slate-200">
                             <img src="/instagram.svg" alt="Instagram" className="w-10 h-10" />
                         </a>
-                        <a href="#" className="text-slate-200">
+                        <a href="https://www.youtube.com/@moraspirit360" className="text-slate-200">
                             <img src="/youtube.svg" alt="YouTube" className="w-10 h-10" />
-                        </a>
-                        <a href="#" className="text-slate-200">
-                            <img src="/twitter.svg" alt="Twitter" className="w-10 h-10" />
                         </a>
                     </div>
                     <ul className="flex-1 flex flex-wrap justify-center sm:justify-end items-center mb-6 text-sm font-medium text-slate-200 sm:mb-0">
