@@ -6,6 +6,7 @@ import ScrollUpDiv from "../app/Components/ScrollRevealSection/ScrollRevealUp"
 import EventCard from "../app/Components/EventCard/EventCard";
 import Footer from './Components/Footer/Footer';
 import ScrollLeftDiv from './Components/ScrollRevealSection/ScrollRevealLeft';
+import Image from 'next/image';
 
 const Home = () => {
     const eventCard : React.CSSProperties = {
@@ -58,8 +59,9 @@ const Home = () => {
                 {/* Dark overlay */}
                 <ScrollRevealDiv className=' absolute w-full h-full flex flex-col justify-center items-center z-10 xl:scale-[1.2]'>
                     <div className={styles.overlay}>
-                        <h1 className={`${styles.moraspirit} ${styles.zoomIn}`}>MORASPIRIT</h1>
-                        <h1 className={`${styles.title360} ${styles.zoomIn}`}>360</h1>
+                        {/* <h1 className={`${styles.moraspirit} ${styles.zoomIn}`}>MORASPIRIT</h1>
+                        <h1 className={`${styles.title360} ${styles.zoomIn}`}>360</h1> */}
+                        <Image className=' aspect-square min-w-[150px] md:min-w-[250px] lg:min-w-[300px] xl:min-w-[350px]' src="/white_logo.png" width={200} height={200} alt='MoraSpirit360 logo' />
                         <div className={`${styles.textContainer} ${styles.zoomIn}`}>
                             <p className={styles.weGlorify}>WE GLORIFY</p>
                             <p className={styles.yourMoment}>
