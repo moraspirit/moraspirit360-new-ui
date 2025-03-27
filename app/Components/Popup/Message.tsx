@@ -17,11 +17,11 @@ const Message = () => {
   const PopupMessage:React.FC = () => {
      return (
         <div className={`${show? 'block' : 'hidden'} w-screen top-0 left-0 h-[100dvh] z-[100] flex items-center justify-center fixed`}>
-            <div className=' relative w-full h-full flex items-center justify-center'>
-                <div className='px-10 py-5 flex flex-col gap-3 items-center justify-start bg-black z-10 rounded-xl'>
+            <div className=' relative px-2 sm:px-0 w-full h-full flex items-center justify-center'>
+                <div className=' px-5 md:px-10 py-5 flex flex-col gap-3 items-center justify-start bg-black z-10 rounded-xl'>
                     <h1 className=' text-4xl'>{type == 'error'? 'ERROR' : (type == 'success' ? 'SUCCESS' : '')}</h1>
-                    <p className=' text-lg max-w-[250px]'>{message}</p>
-                    <button className=' form-btn' onClick={()=> setShow(false)}> Okay </button>
+                    <p className=' text-lg mt-2 max-w-[300px] text-justify'>{message}</p>
+                    <button className=' form-btn' onClick={()=> setShow(false)}> Thank You </button>
                 </div>
                 <div className=' absolute w-full h-full bg-white opacity-50 z-0'></div>
             </div>
