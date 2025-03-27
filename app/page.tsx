@@ -42,7 +42,7 @@ const Home = () => {
         description : "Bringing the sprit of cricket to life, MoraSpirit Cricket Fiesta was an action packed softball tournament with fierce competition and excitement."
     },
     {
-        url :"/event/past/3.jpg",
+        url :"/event/past/3.jpeg",
         title : "Food Festival",
         description : "The MoraSpirit Food Festival in August, united with a diverse range of flavors and experiences became a paradise for all sorts of food lovers within the university."
     }
