@@ -92,12 +92,12 @@ export default function Home() {
 
             <section className=" w-full my-6 py-10 text-white flex flex-col items-center justify-start gap-2">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
-                    <h1 className=" text-3xl sm:text-4xl font-bold">RELIVE THE HIGHLIGHTS</h1>
-                    <h2 className=" text-lg sm:text-xl font-medium">A Glimpse into Our Unforgettable Moments</h2>
+                    <h1 className=" text-3xl sm:text-4xl font-bold text-center">RELIVE THE HIGHLIGHTS</h1>
+                    <h2 className=" text-lg sm:text-xl font-medium text-center mb-2">A Glimpse into Our Unforgettable Moments</h2>
                 </ScrollRevealDiv>
                 <ScrollUpDiv>
 
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-10  justify-items-center items-center gap-y-32 gap-x-10">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-15 px-7  justify-items-center items-center gap-y-32 gap-x-10">
 
                         <ArticleCard
                             img="/article/1.jpg"
