@@ -35,12 +35,6 @@ export const generateMetadata = (): Metadata => {
           height: 600,
           alt: "MoraSpirit 360 Logo",
         },
-        {
-          url: "https://moraspirit360.com/photography.jpg",
-          width: 1200,
-          height: 630,
-          alt: "MoraSpirit 360 Photography",
-        },
       ],
     },
     twitter: {
