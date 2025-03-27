@@ -34,19 +34,19 @@ const upcomingEvents = [
 //past events content
 const pastEvents = [
     {
-        url:"/careersday.jpg",
-        title : "SPIRIT UP 2.O",
-        description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
+        url:"/event/past1.jpg",
+        title : "Epilogue 2023",
+        description : "MoraSpirit 360 wrapped up the EXMO exhibition in style with Epilogue 2023, a night filled with mesmerizing performances and unforgettable memories."
     },
     {
-        url : "/nightshow.jpg",
-        title : "SPIRIT UP 2.O",
-        description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
+        url : "/event/past2.jpg",
+        title : "Cricket Fiesta",
+        description : "Bringing the sprit of cricket to life, MoraSpirit Cricket Fiesta was an action packed softball tournament with fierce competition and excitement."
     },
     {
-        url :"/cricket.jpg",
-        title : "SPIRIT UP 2.O",
-        description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
+        url :"/event/past3.jpg",
+        title : "Food Festival",
+        description : "The MoraSpirit Food Festival in August, united with a diverse range of flavors and experiences became a paradise for all sorts of food lovers within the university."
     }
 ]
 
