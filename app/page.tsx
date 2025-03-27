@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "../app/Home.module.css"; // Adjust the import path as necessary
+import styles from "../app/Home.module.css";
 import ScrollRevealDiv from "../app/Components/ScrollRevealSection/ScrollRevealDiv";
 import ScrollUpDiv from "../app/Components/ScrollRevealSection/ScrollRevealUp";
 import EventCard from "../app/Components/EventCard/EventCard";
@@ -19,16 +19,17 @@ const Home = () => {
   }
 
   function navigateToVideography() {
-    window.location.href = "/services/videography";
+    window.location.href = "/videography";
   }
 
   function navigateToPhotography() {
-    window.location.href = "/services/photography";
+    window.location.href = "/photography";
   }
 
-  function navigateToMarketing() {
-    window.location.href = "/services/marketing";
-  }
+    function navigateToMarketing() {
+        window.location.href = "/marketing";
+    }
+
 
   const pastEvents = [
     {
@@ -100,6 +101,24 @@ const Home = () => {
         </ScrollRevealDiv>
       </div>
 
+            {/* Second Section */}
+            <section className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}>
+                <ScrollUpDiv>
+                    <h1>Bringing Your Vision to Life</h1>
+                    <p className="font-thin">
+            MoraSpirit 360 is your all-in-one partner for exceptional event
+            coverage, creative marketing solutions, and innovative web
+            development. From capturing every moment with stunning photography
+            and videography to promoting your event with targeted marketing
+            strategies, we bring your vision to life. Our team of experts
+            combines creativity, technology, and a deep understanding of your
+            needs to deliver results that resonate. Whether it's a corporate
+            event, a sports tournament, or a digital project, MoraSpirit 360 is
+            committed to excellence at every step.
+          </p>
+                    <button className={styles.requestButton} onClick={navigateToRequest}>REQUEST</button>
+                </ScrollUpDiv>
+            </section>
       {/* Second Section */}
       <section
         className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}
