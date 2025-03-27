@@ -11,15 +11,15 @@ const DesktopServicesDropdown: React.FC = () => {
     const serviceLinks = [
       { 
         name: 'Marketing', 
-        href: '/services/marketing' 
+        href: '/marketing' 
       },
       { 
         name: 'Photography', 
-        href: '/services/photography' 
+        href: '/photography' 
       },
       { 
         name: 'Videography', 
-        href: '/services/videography' 
+        href: '/videography' 
       }
     ];
   

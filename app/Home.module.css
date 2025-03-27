@@ -484,11 +484,11 @@
 /* Specific Sections */
 .photographySection {
   margin-top: 100px;
-  background-image: url('/photography.png');
+  background-image: url('/photography.jpg');
 }
 
 .videographySection {
-  background-image: url('/videography.png');
+  background-image: url('/videography.jpg');
 }
 
 .marketingSection {

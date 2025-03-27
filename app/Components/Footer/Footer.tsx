@@ -17,9 +17,6 @@ const Footer: React.FC = () => {
                         <a href="https://www.facebook.com/MoraSpirit360/" className="text-slate-200">
                             <img src="/facebook.svg" alt="Facebook" className="w-10 h-10" />
                         </a>
-                        <a href="#" className="text-slate-200">
-                            <img src="/instagram.svg" alt="Instagram" className="w-10 h-10" />
-                        </a>
                         <a href="https://www.youtube.com/@moraspirit360" className="text-slate-200">
                             <img src="/youtube.svg" alt="YouTube" className="w-10 h-10" />
                         </a>
