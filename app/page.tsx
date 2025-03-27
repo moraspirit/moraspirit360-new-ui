@@ -26,10 +26,9 @@ const Home = () => {
     window.location.href = "/photography";
   }
 
-    function navigateToMarketing() {
-        window.location.href = "/marketing";
-    }
-
+  function navigateToMarketing() {
+    window.location.href = "/marketing";
+  }
 
   const pastEvents = [
     {
@@ -101,11 +100,13 @@ const Home = () => {
         </ScrollRevealDiv>
       </div>
 
-            {/* Second Section */}
-            <section className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}>
-                <ScrollUpDiv>
-                    <h1>Bringing Your Vision to Life</h1>
-                    <p className="font-thin">
+      {/* Second Section */}
+      <section
+        className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}
+      >
+        <ScrollUpDiv>
+          <h1>Bringing Your Vision to Life</h1>
+          <p className="font-thin">
             MoraSpirit 360 is your all-in-one partner for exceptional event
             coverage, creative marketing solutions, and innovative web
             development. From capturing every moment with stunning photography
@@ -116,9 +117,11 @@ const Home = () => {
             event, a sports tournament, or a digital project, MoraSpirit 360 is
             committed to excellence at every step.
           </p>
-                    <button className={styles.requestButton} onClick={navigateToRequest}>REQUEST</button>
-                </ScrollUpDiv>
-            </section>
+          <button className={styles.requestButton} onClick={navigateToRequest}>
+            REQUEST
+          </button>
+        </ScrollUpDiv>
+      </section>
       {/* Second Section */}
       <section
         className={`${styles.secondSection} ${styles.scrollUpAnimation} flex flex-col items-center justify-center`}
