@@ -58,7 +58,7 @@ const ArticleCard = ({ img, date, title, desc }: EventCardProps) => {
                     alt={desc}
                     width={100}
                     height={100}
-                    className={`w-full h-auto transition-transform duration-500 ease-in-out transform ${isHovered ? 'scale-105' : 'scale-100'}`}
+                    className={`w-full aspect-[3/2] object-cover h-auto transition-transform duration-500 ease-in-out transform ${isHovered ? 'scale-105' : 'scale-100'}`}
                 />
                 {/* Overlay */}
                 <div className={`absolute inset-0 bg-black transition-opacity duration-700 ease-out rounded-2xl ${isHovered ? 'opacity-60' : 'opacity-0'}`}></div>

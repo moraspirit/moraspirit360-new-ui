@@ -11,6 +11,7 @@ import axios from 'axios'
 import WaitingSpinner from '../Popup/WaitingSpinner'
 import { motion } from 'framer-motion'
 
+
 interface services {
     photography : boolean,
     videography : boolean,
@@ -225,10 +226,11 @@ const RequestForm = () => {
 
         setWaiting(true);
 
-        axios.post('/api/service', requestData)
+        axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/forms/request`, requestData)
             .then(res => {
                 showMessage(res.data.message, 'success');
             }).catch(err => {
+                console.log(err.response);
                 showMessage(err.response.data.message, 'error');
             }).finally(() => {
                 setWaiting(false);
@@ -331,6 +333,23 @@ const RequestForm = () => {
                 <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} />
             </motion.div>
         </div>
+
+        <div className={`w-full h-auto sm:h-screen sm:overflow-y-scroll no-scrollbar ${selectedService[shownForm] == 'marketing' ? 'block' : 'hidden'}`}>
+            <motion.div
+                initial={{ x : '0'}}
+                animate={{ 
+                    x : shownForm == selectedService.indexOf('marketing') ? '0' : (shownForm < selectedService.indexOf('marketing') ? `${formWidth}px` : `-${formWidth}px`),
+                }}
+                transition={{ duration : 0.5}}
+                className=' w-full h-full flex flex-col items-center justify-start '
+            >
+                <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} />
+            </motion.div>
+        </div>
+        
+        <PopupMessage />
+        <Spinner />
+
     </div>
   )
 }

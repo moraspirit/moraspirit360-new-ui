@@ -20,7 +20,7 @@ export default function EventPage() {
                     className="bg-black w-full h-screen hidden md:flex text-white justify-center px-20 gap-0 items-center">
                     <div className="image w-[70%] h-[50%] flex justify-center items-center relative">
                         <Image
-                            src={"/eventPageMainEVent.png"}
+                            src={"/article/main.jpeg"}
                             alt=""
                             fill={true}
                             objectFit="contain"
@@ -29,11 +29,12 @@ export default function EventPage() {
                     </div>
                     <div className="text w-1/2 flex justify-center flex-col p-10">
                         <span className="text-gray-600">NOVEMBER 24, 2024</span>
-                        <h2>World of Boxing Insights and Stories</h2>
+                        <h2>Japura Defends Crown at Inter-University Championships 2024</h2>
                         <p className="mt-5 text-justify">
-                            Explore the latest in boxing with expert analysis, fighter profiles,
-                            and thrilling match recaps. Stay updated on the sport’s most
-                            exciting developments and stories from the ring.
+                        Showcasing broad athletic talent, Sri Jayewardenepura University triumphed at the Inter University Games, 
+                        securing the Champions title with wins in hockey, tennis, swimming, and carrom, and joint titles in karate. 
+                        Organized by SLUSA The championship, spanning from August 24 to December 15 and hosted by 16 universities, 
+                        was documented by MoraSpirit's extensive media coverage.
                         </p>
                     </div>
                 </div>
@@ -43,42 +44,18 @@ export default function EventPage() {
             <ScrollUpDiv>
 
                 <div
-                    className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-5 px-10 justify-items-center items-center gap-y-32">
+                    className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-5 px-10 justify-items-center items-start gap-y-32">
                     <ArticleCard
-                        img="/EventCard1.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
+                        img="/article/1.jpg"
+                        date="JULY 27, 2024"
+                        title="An opening ceremony to remember: Paris 2024 unfolds gracefully along the river Seine"
+                        desc="The Paris 2024 Olympic Games truly deserves a golden chapter in history. The grand opening ceremony, set along the iconic Seine River, was historic as the first-ever Olympic opening ceremony held outside a stadium."
                     />
                     <ArticleCard
-                        img="/EventCard2.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
-                    />
-                    <ArticleCard
-                        img="/EventCard3.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
-                    />
-                    <ArticleCard
-                        img="/EventCard2.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
-                    />
-                    <ArticleCard
-                        img="/EventCard2.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
-                    />
-                    <ArticleCard
-                        img="/EventCard1.png"
-                        date="NOVEMBER 24, 2024"
-                        title="World of Boxing Insights and Stories"
-                        desc="Explore the latest in boxing with expert analysis, fighter profiles, and thrilling match recaps. Stay updated on the sport’s most exciting developments and stories from the ring."
+                        img="/article/2.png"
+                        date="AUGUST 27, 2024"
+                        title="Sri Lanka's journey in Paralympics: Celebrating Triumphs and Overcoming Challenges"
+                        desc="Sri Lanka's memorable Paralympic history, celebrating victories from their debut in 1996 to capturing gold and bronze medals, and looking forward to the 2024 Paralympics with great expectations for their outstanding athletes."
                     />
                 </div>
             </ScrollUpDiv>
