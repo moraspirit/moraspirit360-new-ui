@@ -34,7 +34,7 @@ const upcomingEvents = [
 //past events content
 const pastEvents = [
     {
-        url:"/event/past/1.jpg",
+        url:"/event/past/1.jpeg",
         title : "Epilogue 2023",
         description : "MoraSpirit 360 wrapped up the EXMO exhibition in style with Epilogue 2023, a night filled with mesmerizing performances and unforgettable memories."
     },
