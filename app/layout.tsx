@@ -88,7 +88,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      <body className={inter.className}>
+        <NavBar />
+        <main>{children}</main>
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YWDK5DB52Q"
@@ -103,10 +105,6 @@ export default function RootLayout({
             gtag('config', 'G-YWDK5DB52Q');
           `}
         </Script>
-      </Head>
-      <body className={inter.className}>
-        <NavBar />
-        <main>{children}</main>
       </body>
     </html>
   );
