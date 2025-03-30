@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const generateMetadata = (): Metadata => {
   return {
     metadataBase: new URL("https://moraspirit360.com"),
-    title: "MoraSpirit 360 - Glorify Your Moments",
+    title: {
+      default: "MoraSpirit 360 - Glorify Your Moments",
+      template: "%s | MoraSpirit 360",
+    },
     description:
       "MoraSpirit 360, a subsidiary of MoraSpirit Initiative, provides expert photography, videography, marketing, and web development services. Glorify your moments with comprehensive event coverage and innovative features.",
     keywords: [
