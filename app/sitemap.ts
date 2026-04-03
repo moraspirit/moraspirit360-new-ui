@@ -39,13 +39,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://moraspirit360.com/phpotography",
+      url: "https://moraspirit360.com/photography",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: "https://moraspirit360.com/videography",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://moraspirit360.com/web-development",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

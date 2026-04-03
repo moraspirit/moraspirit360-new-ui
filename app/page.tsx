@@ -30,6 +30,10 @@ const Home = () => {
     window.location.href = "/marketing";
   }
 
+  function navigateToWebDevelopment() {
+    window.location.href = "/web-development";
+  }
+
   const pastEvents = [
     {
         url:"/event/past/1.jpeg",
@@ -194,7 +198,12 @@ const Home = () => {
             <button className={styles.button} onClick={navigateToRequest}>
               Request
             </button>
-            <button className={styles.button}>Learn more</button>
+            <button
+              className={styles.button}
+              onClick={navigateToWebDevelopment}
+            >
+              Learn more
+            </button>
           </div>
         </ScrollLeftDiv>
       </section>
