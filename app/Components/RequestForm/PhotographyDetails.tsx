@@ -187,17 +187,30 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 isLast ?
                 <button 
                   className=' form-btn'
-                  onClick={handleSubmit}
+                  type='button'
+                  onClick={() => {
+                    const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+      
+                    if(photographyForm && photographyForm.checkValidity()){
+                      handleSubmit();
+                    } else {
+                      photographyForm?.reportValidity();
+                    }
+      
+                  }}
                 >
                   Submit
                 </button> :
                 <button 
                   className=' form-btn'
+                  type='button'
                   onClick={() => {
                     const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
       
                     if(photographyForm && photographyForm.checkValidity()){
                       handleNext()
+                    } else {
+                      photographyForm?.reportValidity();
                     }
       
                   }}

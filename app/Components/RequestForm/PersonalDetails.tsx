@@ -115,15 +115,17 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
 
           <button 
             className={` form-btn ${(services.marketing || services.photography || services.videography || services.webService) ? '' : 'cursor-not-allowed active:translate-y-0'}`}
+            type='button'
             onClick={() => {
               const personalForm : HTMLFormElement = document.getElementById('personalForm') as HTMLFormElement;
 
               if(personalForm && personalForm.checkValidity()){
                 handleNext()
+              } else {
+                personalForm?.reportValidity();
               }
 
             }}
-            type='submit'
             disabled={!(services.marketing || services.photography || services.videography || services.webService)}
           >
             Next

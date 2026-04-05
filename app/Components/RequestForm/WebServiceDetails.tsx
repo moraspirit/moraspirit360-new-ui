@@ -208,17 +208,30 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
             isLast ?
             <button 
                 className=' form-btn'
-                onClick={handleSubmit}
+                type='button'
+                onClick={() => {
+                    const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+      
+                    if(webServiceForm && webServiceForm.checkValidity()){
+                      handleSubmit();
+                    } else {
+                      webServiceForm?.reportValidity();
+                    }
+      
+                  }}
             >
                 Submit
             </button> :
             <button 
                 className=' form-btn'
+                type='button'
                 onClick={() => {
                     const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
       
                     if(webServiceForm && webServiceForm.checkValidity()){
                       handleNext()
+                    } else {
+                      webServiceForm?.reportValidity();
                     }
       
                   }}

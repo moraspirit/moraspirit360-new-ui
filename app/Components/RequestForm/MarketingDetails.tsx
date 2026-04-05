@@ -135,17 +135,30 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
             isLast ?
             <button 
                 className=' form-btn'
-                onClick={handleSubmit}
+                type='button'
+                onClick={() => {
+                  const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+    
+                  if(marketingForm && marketingForm.checkValidity()){
+                    handleSubmit();
+                  } else {
+                    marketingForm?.reportValidity();
+                  }
+    
+                }}
             >
                 Submit
             </button> :
             <button 
                 className=' form-btn'
+                type='button'
                 onClick={() => {
                   const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
     
                   if(marketingForm && marketingForm.checkValidity()){
                     handleNext()
+                  } else {
+                    marketingForm?.reportValidity();
                   }
     
                 }}

@@ -173,7 +173,7 @@ const RequestForm = () => {
     const [videographyDetails, setVideographyDetails] = useState({...defaultVideographyDetails});
     const [webServiceDetails, setWebServiceDetails] = useState({...defaultWebServiceDetails});
     const [marketingDetails, setMarketingDetails] = useState({...defaultMarketingDetails});
-    const [selectedService, setSelectedService] = useState<String[]>(['personal']);
+    const [selectedService, setSelectedService] = useState<string[]>(['personal']);
     const [shownForm, setShownForm] = useState(0);
     const parentDiv = useRef<HTMLDivElement | null>(null);
     const [formWidth, setFormWidth] = useState(0);
@@ -196,10 +196,18 @@ const RequestForm = () => {
     },[parentDiv]);
 
     const handleNext = () => {
-        setShownForm(shownForm + 1);
+        setShownForm((prevShownForm) => prevShownForm + 1);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+        const staticFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+        const endpoint = backendUrl ? `${backendUrl}/forms/request` : staticFormEndpoint;
+
+        if (!endpoint) {
+            showMessage('Form endpoint is not configured. Add NEXT_PUBLIC_FORM_ENDPOINT.', 'error');
+            return;
+        }
 
         const requestData = new FormData();
         requestData.append('personalDetails', JSON.stringify(personalDetails));
@@ -207,34 +215,62 @@ const RequestForm = () => {
 
         if(services.photography){
             requestData.append('photographyDetails', JSON.stringify(photographyDetails));
-            requestData.append('photographyAgenda', photographyDetails.agenda as Blob);
+            if (photographyDetails.agenda) {
+                requestData.append('photographyAgenda', photographyDetails.agenda);
+            }
         }
 
         if(services.videography){
             requestData.append('videographyDetails', JSON.stringify(videographyDetails));
-            requestData.append('videographyAgenda', videographyDetails.agenda as Blob);
+            if (videographyDetails.agenda) {
+                requestData.append('videographyAgenda', videographyDetails.agenda);
+            }
         }
 
         if(services.webService){
             requestData.append('webServiceDetails', JSON.stringify(webServiceDetails));
-            requestData.append('material', webServiceDetails.material as Blob);
+            if (webServiceDetails.material) {
+                requestData.append('material', webServiceDetails.material);
+            }
         }
 
         if(services.marketing){
             requestData.append('marketingDetails', JSON.stringify(marketingDetails));
         }
 
+        if (!backendUrl) {
+            const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+            if (accessKey) {
+                requestData.append('access_key', accessKey);
+            }
+            requestData.append('subject', 'New MoraSpirit 360 Request');
+            requestData.append('from_name', personalDetails.name);
+        }
+
         setWaiting(true);
 
-        axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/forms/request`, requestData)
-            .then(res => {
-                showMessage(res.data.message, 'success');
-            }).catch(err => {
-                console.log(err.response);
-                showMessage(err.response.data.message, 'error');
-            }).finally(() => {
-                setWaiting(false);
+        try {
+            const res = await axios.post(endpoint, requestData, {
+                headers: {
+                    Accept: 'application/json',
+                },
             });
+            const isSuccess = res.data?.success ?? true;
+            if (isSuccess) {
+                showMessage(res.data?.message ?? 'Request submitted successfully.', 'success');
+                return;
+            }
+            showMessage(res.data?.message ?? 'Request submission failed.', 'error');
+        } catch (err) {
+            if (axios.isAxiosError(err)) {
+                const errorMessage = err.response?.data?.message ?? err.message ?? 'Request submission failed.';
+                showMessage(errorMessage, 'error');
+            } else {
+                showMessage('Unexpected error occurred while submitting request.', 'error');
+            }
+        } finally {
+            setWaiting(false);
+        }
     }
 
   return (

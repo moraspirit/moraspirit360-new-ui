@@ -126,17 +126,30 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
             isLast ?
             <button 
               className=' form-btn'
-              onClick={handleSubmit}
+              type='button'
+              onClick={() => {
+                const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
+  
+                if(videographyForm && videographyForm.checkValidity()){
+                  handleSubmit();
+                } else {
+                  videographyForm?.reportValidity();
+                }
+  
+              }}
             >
               Submit
             </button> :
             <button 
               className=' form-btn'
+              type='button'
               onClick={() => {
                 const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
   
                 if(videographyForm && videographyForm.checkValidity()){
                   handleNext()
+                } else {
+                  videographyForm?.reportValidity();
                 }
   
               }}
