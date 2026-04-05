@@ -8,30 +8,37 @@ import Footer from "../../Components/Footer/Footer";
 
 const imgUrl = "/webdevelopment.png";
 const title = "WEB DEVELOPMENT";
-const subTitle = "Building Fast, Reliable Digital Experiences";
-const description = "From idea to launch, we build products people enjoy using.";
+const subTitle = "Building Web, Mobile, and AI-Driven Products";
+const description = "From idea to launch, we engineer scalable digital solutions.";
 
 const webWorks = [
   {
-    title: "University Event Landing Page",
+    title: "University Event Registration Platform",
     category: "Website",
     summary:
-      "A responsive event website with registration flow, speaker highlights, and schedule sections optimized for mobile.",
+      "Designed and developed a responsive event website with online registration, speaker profiles, schedule management, and mobile-first performance optimization.",
     image: "/marketingHero.png",
   },
   {
-    title: "Content & Media Portal",
+    title: "Content and Media Management Portal",
     category: "Web App",
     summary:
-      "A centralized platform for teams to manage media assets, publish updates, and track engagement in one place.",
+      "Built a centralized web app for content teams to upload media, publish announcements, organize categories, and monitor audience engagement in one dashboard.",
     image: "/eventPageBg.png",
   },
   {
-    title: "Online Ticketing Dashboard",
+    title: "Online Ticketing and Analytics Dashboard",
     category: "Dashboard",
     summary:
-      "An internal dashboard for monitoring ticket sales, campaign performance, and event-day check-in readiness.",
+      "Created an operations dashboard to track ticket sales in real time, monitor campaign results, and prepare event-day check-ins with actionable insights.",
     image: "/section1.png",
+  },
+  {
+    title: "Campus Club Web Portal",
+    category: "Portal",
+    summary:
+      "Developed a modern portal for student organizations to publish updates, showcase events, manage member inquiries, and streamline communication workflows.",
+    image: "/webdevelopment.png",
   },
 ];
 
@@ -56,9 +63,11 @@ export default function Home() {
           </h1>
           <div className="w-full sm:w-[70%] mt-6 text-center">
             <p className="text-sm sm:text-xl font-light">
-              MoraSpirit 360 delivers custom websites and web applications that
-              are modern, scalable, and built around your goals. We focus on
-              clean user experience, performance, and reliability from day one.
+              MoraSpirit 360 goes beyond websites. We design and develop
+              high-performance web platforms, mobile apps, custom software
+              systems, and AI-enabled solutions powered by agentic workflows.
+              Every build is tailored to your goals with a strong focus on user
+              experience, speed, security, and long-term scalability.
             </p>
           </div>
           <button
@@ -76,7 +85,7 @@ export default function Home() {
             OUR WEB WORK
           </h1>
           <h2 className="text-base sm:text-xl mt-2 text-center">
-            Projects that show how we design and build for impact
+            Selected web projects that highlight design, performance, and impact
           </h2>
         </ScrollRevealDiv>
 
