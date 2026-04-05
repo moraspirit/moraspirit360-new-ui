@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { digitalProjects } from "./(services)/digital-solutions/projectData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: "https://moraspirit360.com",
       lastModified: new Date(),
@@ -51,10 +52,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://moraspirit360.com/web-development",
+      url: "https://moraspirit360.com/digital-solutions",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://moraspirit360.com/web-development",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ];
+
+  const projectRoutes: MetadataRoute.Sitemap = digitalProjects.map(
+    (project) => ({
+      url: `https://moraspirit360.com/digital-solutions/projects/${project.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
+  return [...staticRoutes, ...projectRoutes];
 }

@@ -31,7 +31,7 @@ const Home = () => {
   }
 
   function navigateToWebDevelopment() {
-    window.location.href = "/web-development";
+    window.location.href = "/digital-solutions";
   }
 
   const pastEvents = [
@@ -109,14 +109,15 @@ const Home = () => {
           <h1>Bringing Your Vision to Life</h1>
           <p className="font-thin">
             MoraSpirit 360 is your all-in-one partner for exceptional event
-            coverage, creative marketing solutions, and innovative web
-            development. From capturing every moment with stunning photography
-            and videography to promoting your event with targeted marketing
-            strategies, we bring your vision to life. Our team of experts
-            combines creativity, technology, and a deep understanding of your
-            needs to deliver results that resonate. Whether it's a corporate
-            event, a sports tournament, or a digital project, MoraSpirit 360 is
-            committed to excellence at every step.
+            coverage, creative marketing solutions, and end-to-end digital
+            product engineering. From capturing every moment with stunning
+            photography and videography to building web platforms, mobile apps,
+            software systems, and AI-enabled experiences, we bring your vision
+            to life. Our team combines creativity, technology, and a deep
+            understanding of your goals to deliver outcomes that resonate.
+            Whether it's a corporate event, a sports tournament, or a digital
+            initiative, MoraSpirit 360 is committed to excellence at every
+            step.
           </p>
           <button className={styles.requestButton} onClick={navigateToRequest}>
             REQUEST
@@ -186,14 +187,14 @@ const Home = () => {
         </ScrollLeftDiv>
       </section>
 
-      {/* Web Development Section */}
+      {/* Digital Solutions Section */}
       <section
         className={`${styles.webDevelopmentSection} ${styles.section} ${styles.scrollUpAnimation}`}
       >
         <ScrollLeftDiv>
-          <h1 className="z-50">WEB DEVELOPMENT</h1>
-          <p>Building Digital Platforms that Empower Your Business</p>
-          <p>Innovative Solutions for the Modern Web</p>
+          <h1 className="z-50">DIGITAL SOLUTIONS</h1>
+          <p>Web, Mobile, Software, and AI Agentic Products</p>
+          <p>Scalable Engineering for Modern Business Needs</p>
           <div className={styles.buttonContainer}>
             <button className={styles.button} onClick={navigateToRequest}>
               Request

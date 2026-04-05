@@ -18,8 +18,8 @@ const MobileServicesDropdown: React.FC<ServicesDropdownProps> = ({ onServiceSele
       href: '/marketing' 
     },
     { 
-      name: 'Web Development', 
-      href: '/web-development' 
+      name: 'Digital Solutions', 
+      href: '/digital-solutions' 
     },
     { 
       name: 'Photography', 
