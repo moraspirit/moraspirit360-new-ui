@@ -21,6 +21,8 @@ interface videographyDetailsProps {
 }
 
 const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const today = new Date().toISOString().split('T')[0];
+
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Videography</h1>
@@ -32,6 +34,7 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={videographyDetails.eventDate}
                   onChange={(e) => {setVideographyDetails({...videographyDetails, eventDate : e.target.value})}}
                 />

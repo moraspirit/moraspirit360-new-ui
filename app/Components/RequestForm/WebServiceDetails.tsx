@@ -30,6 +30,8 @@ interface webServiceDetailsProps {
 }
 
 const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const today = new Date().toISOString().split('T')[0];
+
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Web Service</h1>
@@ -62,6 +64,7 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                   type="date" 
                   name="completionDate" 
                   id="completionDate" 
+                  min={today}
                   value={webServiceDetails.completionDate}
                   onChange={(e) => {setWebServiceDetails({...webServiceDetails, completionDate : e.target.value})}}
                   required

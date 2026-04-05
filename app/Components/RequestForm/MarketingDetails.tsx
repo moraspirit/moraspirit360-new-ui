@@ -26,6 +26,10 @@ interface marketingDetailsProps {
 }
 
 const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  const nowLocal = `${today}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Marketing</h1>
@@ -58,6 +62,7 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={marketingDetails.eventDate}
                   onChange={(e) => {setMarketingDetails({...marketingDetails, eventDate : e.target.value})}}
                 />
@@ -69,6 +74,7 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                   type='datetime-local' 
                   name="startTime" 
                   id="startTime" 
+                  min={nowLocal}
                   value={marketingDetails.startTime}
                   onChange={(e) => {setMarketingDetails({...marketingDetails, startTime : e.target.value})}}
                 />

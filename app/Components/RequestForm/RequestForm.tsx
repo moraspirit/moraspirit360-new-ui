@@ -11,6 +11,7 @@ import axios from 'axios'
 import WaitingSpinner from '../Popup/WaitingSpinner'
 import { motion } from 'framer-motion'
 
+const getTodayDate = () => new Date().toISOString().split('T')[0];
 
 interface services {
     photography : boolean,
@@ -102,7 +103,7 @@ const defaultPersonalDetails : personalDetails = {
 
 const defaultPhotographyDetails : photographyDetails = {
     eventType : '',
-    eventDate : '2024-01-01',
+    eventDate : getTodayDate(),
     location : '',
     mapLocation : '',
     startTime : '00:00',
@@ -116,7 +117,7 @@ const defaultPhotographyDetails : photographyDetails = {
 }
 
 const defaultVideographyDetails : videographyDetails = {
-    eventDate : '2024-01-01',
+    eventDate : getTodayDate(),
     location : '',
     mapLocation : '',
     startTime : '00:00',
@@ -128,7 +129,7 @@ const defaultVideographyDetails : videographyDetails = {
 const defaultWebServiceDetails : webServiceDetails = {
     projectName : '',
     description : '',
-    completionDate : '2024-01-01',
+    completionDate : getTodayDate(),
     systemType : {
         website : false,
         mobileApp : false,

@@ -25,6 +25,8 @@ interface photographyDetailsProps {
 }
 
 const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+    const today = new Date().toISOString().split('T')[0];
+
     return (
         <>
             <h1 className=' text-4xl font-bold my-5 text-center'>Photography</h1>
@@ -46,6 +48,7 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={photographyDetails.eventDate}
                   onChange={(e) => {setPhotographyDetails({...photographyDetails, eventDate : e.target.value})}}
                   required
