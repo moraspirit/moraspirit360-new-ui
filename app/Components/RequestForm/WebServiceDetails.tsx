@@ -24,11 +24,12 @@ interface webServiceDetailsProps {
     webServiceDetails : webServiceDetails,
     setWebServiceDetails : React.Dispatch<webServiceDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleSubmit, isLast}) => {
+const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleBack, handleSubmit, isLast}) => {
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Web Service</h1>
@@ -185,41 +186,50 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 <option value="onetime">One-time</option>
                 <option value="milestones">Milestones</option>
             </select>
-            {
-            isLast ?
-            <button 
-                className=' form-btn'
-                type='button'
-                onClick={() => {
-                    const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
-      
-                    if(webServiceForm && webServiceForm.checkValidity()){
-                      handleSubmit();
-                    } else {
-                      webServiceForm?.reportValidity();
-                    }
-      
-                  }}
-            >
-                Submit
-            </button> :
-            <button 
-                className=' form-btn'
-                type='button'
-                onClick={() => {
-                    const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
-      
-                    if(webServiceForm && webServiceForm.checkValidity()){
-                      handleNext()
-                    } else {
-                      webServiceForm?.reportValidity();
-                    }
-      
-                  }}
-            >
-                Next
-            </button>
-            }
+            <div className='w-full flex items-center justify-between gap-4'>
+                <button
+                    className='form-btn w-full bg-transparent border border-white/50'
+                    type='button'
+                    onClick={handleBack}
+                >
+                    Back
+                </button>
+                {
+                isLast ?
+                <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                        const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+        
+                        if(webServiceForm && webServiceForm.checkValidity()){
+                          handleSubmit();
+                        } else {
+                          webServiceForm?.reportValidity();
+                        }
+        
+                      }}
+                >
+                    Submit
+                </button> :
+                <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                        const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+        
+                        if(webServiceForm && webServiceForm.checkValidity()){
+                          handleNext()
+                        } else {
+                          webServiceForm?.reportValidity();
+                        }
+        
+                      }}
+                >
+                    Next
+                </button>
+                }
+            </div>
         </form>
 
     </>

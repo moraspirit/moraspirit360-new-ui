@@ -19,11 +19,12 @@ interface photographyDetailsProps {
     photographyDetails : photographyDetails,
     setPhotographyDetails : React.Dispatch<photographyDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleSubmit, isLast}) => {
+const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
     return (
         <>
             <h1 className=' text-4xl font-bold my-5 text-center'>Photography</h1>
@@ -163,41 +164,50 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
               >
               </textarea>
               
-              {
-                isLast ?
-                <button 
-                  className=' form-btn'
+              <div className='w-full flex items-center justify-between gap-4'>
+                <button
+                  className='form-btn w-full bg-transparent border border-white/50'
                   type='button'
-                  onClick={() => {
-                    const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
-      
-                    if(photographyForm && photographyForm.checkValidity()){
-                      handleSubmit();
-                    } else {
-                      photographyForm?.reportValidity();
-                    }
-      
-                  }}
+                  onClick={handleBack}
                 >
-                  Submit
-                </button> :
-                <button 
-                  className=' form-btn'
-                  type='button'
-                  onClick={() => {
-                    const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
-      
-                    if(photographyForm && photographyForm.checkValidity()){
-                      handleNext()
-                    } else {
-                      photographyForm?.reportValidity();
-                    }
-      
-                  }}
-                >
-                  Next
+                  Back
                 </button>
-              }
+                {
+                  isLast ?
+                  <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                      const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+        
+                      if(photographyForm && photographyForm.checkValidity()){
+                        handleSubmit();
+                      } else {
+                        photographyForm?.reportValidity();
+                      }
+        
+                    }}
+                  >
+                    Submit
+                  </button> :
+                  <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                      const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+        
+                      if(photographyForm && photographyForm.checkValidity()){
+                        handleNext()
+                      } else {
+                        photographyForm?.reportValidity();
+                      }
+        
+                    }}
+                  >
+                    Next
+                  </button>
+                }
+              </div>
             </form>
         </>
   )

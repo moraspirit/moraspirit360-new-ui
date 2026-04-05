@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 
 interface services {
   photography : boolean,
@@ -35,15 +35,18 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
             name="name" 
             id="name" 
             placeholder='Name' 
+            value={personalDetails.name}
             onChange={(e) => {setPersonalDetails({...personalDetails, name : e.target.value })}}
             required
           />
           <input 
             className=' typed-input remove-arrow' 
-            type="number" 
+            type="tel" 
             name="contact" 
             id="contact" 
             placeholder='Contact' 
+            inputMode='tel'
+            value={personalDetails.contact}
             onChange={(e) => {setPersonalDetails({...personalDetails, contact : e.target.value })}}
             required
           />
@@ -53,6 +56,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
             name="email" 
             id="email" 
             placeholder='Email'
+            value={personalDetails.email}
             onChange={(e) => {setPersonalDetails({...personalDetails, email : e.target.value })}}
             required
           />
@@ -62,6 +66,7 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
             name="organization" 
             id="organization" 
             placeholder='Organization'
+            value={personalDetails.organization}
             onChange={(e) => {setPersonalDetails({...personalDetails, organization : e.target.value })}}
             required
           />

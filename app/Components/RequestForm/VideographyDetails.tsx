@@ -15,11 +15,12 @@ interface videographyDetailsProps {
     videographyDetails : videographyDetails,
     setVideographyDetails : React.Dispatch<videographyDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleSubmit, isLast}) => {
+const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Videography</h1>
@@ -102,41 +103,50 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                 required
               >
               </textarea>
-          {
-            isLast ?
-            <button 
-              className=' form-btn'
+          <div className='w-full flex items-center justify-between gap-4'>
+            <button
+              className='form-btn w-full bg-transparent border border-white/50'
               type='button'
-              onClick={() => {
-                const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
-  
-                if(videographyForm && videographyForm.checkValidity()){
-                  handleSubmit();
-                } else {
-                  videographyForm?.reportValidity();
-                }
-  
-              }}
+              onClick={handleBack}
             >
-              Submit
-            </button> :
-            <button 
-              className=' form-btn'
-              type='button'
-              onClick={() => {
-                const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
-  
-                if(videographyForm && videographyForm.checkValidity()){
-                  handleNext()
-                } else {
-                  videographyForm?.reportValidity();
-                }
-  
-              }}
-            >
-              Next
+              Back
             </button>
-          }
+            {
+              isLast ?
+              <button 
+                className=' form-btn w-full'
+                type='button'
+                onClick={() => {
+                  const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
+    
+                  if(videographyForm && videographyForm.checkValidity()){
+                    handleSubmit();
+                  } else {
+                    videographyForm?.reportValidity();
+                  }
+    
+                }}
+              >
+                Submit
+              </button> :
+              <button 
+                className=' form-btn w-full'
+                type='button'
+                onClick={() => {
+                  const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
+    
+                  if(videographyForm && videographyForm.checkValidity()){
+                    handleNext()
+                  } else {
+                    videographyForm?.reportValidity();
+                  }
+    
+                }}
+              >
+                Next
+              </button>
+            }
+          </div>
         </form>
 
     </>

@@ -160,6 +160,14 @@ const defaultMarketingDetails : marketingDetails = {
     }
 }
 
+const serviceLabels: Record<string, string> = {
+    personal: 'Personal Details',
+    photography: 'Photography',
+    videography: 'Videography',
+    webService: 'Web Service',
+    marketing: 'Marketing',
+};
+
 const RequestForm = () => {
     const [services, setServices] = useState({...defaultServices});
     const [personalDetails, setPersonalDetails] = useState({...defaultPersonalDetails});
@@ -189,8 +197,18 @@ const RequestForm = () => {
         setFormWidth(parent.clientWidth);
     },[parentDiv]);
 
+    useEffect(() => {
+        if (shownForm > selectedService.length - 1) {
+            setShownForm(Math.max(selectedService.length - 1, 0));
+        }
+    }, [selectedService, shownForm]);
+
     const handleNext = () => {
         setShownForm((prevShownForm) => prevShownForm + 1);
+    }
+
+    const handleBack = () => {
+        setShownForm((prevShownForm) => Math.max(prevShownForm - 1, 0));
     }
 
     const handleSubmit = async () => {
@@ -258,6 +276,28 @@ const RequestForm = () => {
 
   return (
     <div className=' w-full h-full px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
+        <div className='w-full mt-4'>
+            <div className='flex items-center justify-between gap-3 text-xs sm:text-sm text-zinc-300'>
+                <p>Step {Math.min(shownForm + 1, selectedService.length)} of {selectedService.length}</p>
+                <p className='font-medium text-white'>{serviceLabels[selectedService[shownForm] ?? 'personal']}</p>
+            </div>
+            {shownForm > 0 && (
+                <button
+                    type='button'
+                    className='mt-3 px-4 py-2 rounded-lg border border-white/40 text-white text-sm hover:bg-white/10 transition-colors'
+                    onClick={handleBack}
+                >
+                    Back
+                </button>
+            )}
+            <div className='w-full mt-2 h-2 bg-zinc-700 rounded-full overflow-hidden'>
+                <div
+                    className='h-full bg-red-500 transition-all duration-300'
+                    style={{ width: `${(Math.min(shownForm + 1, selectedService.length) / selectedService.length) * 100}%` }}
+                />
+            </div>
+        </div>
+
         {/* <div className={`relative w-full h-full flex-1 overflow-hidden`}>
             <div 
                 className={` relative w-full h-screen sm:px-6 overflow-y-scroll no-scrollbar flex flex-col items-center transition-[translate] ease-out duration-500 ${shownForm == selectedService.indexOf('personal') ? 'z-10' : 'z-0'}`} 
@@ -323,7 +363,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} />
+                <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -336,7 +376,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <VideographyDetails isLast={selectedService[selectedService.length - 1] == 'videography'} handleSubmit={handleSubmit} videographyDetails={videographyDetails} setVideographyDetails={setVideographyDetails} handleNext={handleNext} />
+                <VideographyDetails isLast={selectedService[selectedService.length - 1] == 'videography'} handleSubmit={handleSubmit} videographyDetails={videographyDetails} setVideographyDetails={setVideographyDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -349,7 +389,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} />
+                <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -362,7 +402,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} />
+                <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
         

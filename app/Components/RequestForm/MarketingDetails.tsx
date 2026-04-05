@@ -20,11 +20,12 @@ interface marketingDetailsProps {
     marketingDetails : marketingDetails,
     setMarketingDetails : React.Dispatch<marketingDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean,
 }
 
-const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleSubmit, isLast}) => {
+const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleBack, handleSubmit, isLast}) => {
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Marketing</h1>
@@ -131,41 +132,50 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                 </div>
               </div>
 
-            {
-            isLast ?
-            <button 
-                className=' form-btn'
+            <div className='w-full flex items-center justify-between gap-4'>
+              <button
+                className='form-btn w-full bg-transparent border border-white/50'
                 type='button'
-                onClick={() => {
-                  const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
-    
-                  if(marketingForm && marketingForm.checkValidity()){
-                    handleSubmit();
-                  } else {
-                    marketingForm?.reportValidity();
-                  }
-    
-                }}
-            >
-                Submit
-            </button> :
-            <button 
-                className=' form-btn'
-                type='button'
-                onClick={() => {
-                  const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
-    
-                  if(marketingForm && marketingForm.checkValidity()){
-                    handleNext()
-                  } else {
-                    marketingForm?.reportValidity();
-                  }
-    
-                }}
-            >
-                Next
-            </button>
-            }
+                onClick={handleBack}
+              >
+                Back
+              </button>
+              {
+              isLast ?
+              <button 
+                  className=' form-btn w-full'
+                  type='button'
+                  onClick={() => {
+                    const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+      
+                    if(marketingForm && marketingForm.checkValidity()){
+                      handleSubmit();
+                    } else {
+                      marketingForm?.reportValidity();
+                    }
+      
+                  }}
+              >
+                  Submit
+              </button> :
+              <button 
+                  className=' form-btn w-full'
+                  type='button'
+                  onClick={() => {
+                    const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+      
+                    if(marketingForm && marketingForm.checkValidity()){
+                      handleNext()
+                    } else {
+                      marketingForm?.reportValidity();
+                    }
+      
+                  }}
+              >
+                  Next
+              </button>
+              }
+            </div>
         </form>
 
     </>
