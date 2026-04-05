@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model RequestSubmission {
+  id                     String   @id @default(cuid())
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  name                   String
+  contact                String
+  email                  String
+  organization           String
+
+  photography            Boolean  @default(false)
+  videography            Boolean  @default(false)
+  webService             Boolean  @default(false)
+  marketing              Boolean  @default(false)
+
+  photographyDetails     Json?
+  videographyDetails     Json?
+  webServiceDetails      Json?
+  marketingDetails       Json?
+
+  photographyAgendaPath  String?
+  videographyAgendaPath  String?
+  materialPath           String?
+}

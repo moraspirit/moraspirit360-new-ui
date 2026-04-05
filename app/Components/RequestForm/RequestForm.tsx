@@ -200,14 +200,7 @@ const RequestForm = () => {
     }
 
     const handleSubmit = async () => {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-        const staticFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
-        const endpoint = backendUrl ? `${backendUrl}/forms/request` : staticFormEndpoint;
-
-        if (!endpoint) {
-            showMessage('Form endpoint is not configured. Add NEXT_PUBLIC_FORM_ENDPOINT.', 'error');
-            return;
-        }
+        const endpoint = '/api/forms/request';
 
         const requestData = new FormData();
         requestData.append('personalDetails', JSON.stringify(personalDetails));
@@ -236,15 +229,6 @@ const RequestForm = () => {
 
         if(services.marketing){
             requestData.append('marketingDetails', JSON.stringify(marketingDetails));
-        }
-
-        if (!backendUrl) {
-            const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-            if (accessKey) {
-                requestData.append('access_key', accessKey);
-            }
-            requestData.append('subject', 'New MoraSpirit 360 Request');
-            requestData.append('from_name', personalDetails.name);
         }
 
         setWaiting(true);
