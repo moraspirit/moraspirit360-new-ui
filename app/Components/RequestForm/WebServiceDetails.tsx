@@ -16,7 +16,6 @@ interface webServiceDetails {
     userCount : string,
     lookAndFeel : string,
     example : string,
-    material : File | null,
     budget : string,
     paymentSchedule : string,
 }
@@ -30,14 +29,6 @@ interface webServiceDetailsProps {
 }
 
 const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleSubmit, isLast}) => {
-
-    const handleInputFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-        const fileInput = e.target! as HTMLInputElement;
-        if(fileInput.files && fileInput.files.length > 0){
-          setWebServiceDetails({...webServiceDetails, material : fileInput.files[0]});
-        }
-      }
-
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Web Service</h1>
@@ -174,16 +165,6 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, example : e.target.value })}}
                 required
             />
-            <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Existing Material or Documentation</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="material" 
-                  id="material" 
-                  onChange={handleInputFile}
-                />
-            </div>
             <input 
                 className=' typed-input remove-arrow' 
                 type="number" 

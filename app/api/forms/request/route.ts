@@ -1,5 +1,3 @@
-import { mkdir, writeFile } from 'fs/promises';
-import path from 'path';
 import { randomUUID } from 'crypto';
 import { NextResponse } from 'next/server';
 import type { Prisma } from '@prisma/client';
@@ -35,26 +33,6 @@ const toInputJson = (value: Record<string, unknown> | null): Prisma.InputJsonVal
   return value as Prisma.InputJsonValue;
 };
 
-const sanitizeFilename = (filename: string) => {
-  const extension = path.extname(filename || '').toLowerCase();
-  const safeExtension = extension.replace(/[^a-z0-9.]/g, '') || '.bin';
-  return `${Date.now()}-${randomUUID()}${safeExtension}`;
-};
-
-const saveUploadedFile = async (file: File, requestId: string, fieldName: string) => {
-  const arrayBuffer = await file.arrayBuffer();
-  const buffer = Buffer.from(arrayBuffer);
-
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'requests', requestId);
-  await mkdir(uploadDir, { recursive: true });
-
-  const generatedName = `${fieldName}-${sanitizeFilename(file.name)}`;
-  const destination = path.join(uploadDir, generatedName);
-  await writeFile(destination, buffer);
-
-  return `/uploads/requests/${requestId}/${generatedName}`;
-};
-
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -71,25 +49,6 @@ export async function POST(request: Request) {
     }
 
     const requestId = randomUUID();
-
-    const photographyAgenda = formData.get('photographyAgenda');
-    const videographyAgenda = formData.get('videographyAgenda');
-    const material = formData.get('material');
-
-    const photographyAgendaPath =
-      photographyAgenda instanceof File && photographyAgenda.size > 0
-        ? await saveUploadedFile(photographyAgenda, requestId, 'photography-agenda')
-        : null;
-
-    const videographyAgendaPath =
-      videographyAgenda instanceof File && videographyAgenda.size > 0
-        ? await saveUploadedFile(videographyAgenda, requestId, 'videography-agenda')
-        : null;
-
-    const materialPath =
-      material instanceof File && material.size > 0
-        ? await saveUploadedFile(material, requestId, 'material')
-        : null;
 
     const photographyDetails = parseJsonField<Record<string, unknown>>(formData.get('photographyDetails'));
     const videographyDetails = parseJsonField<Record<string, unknown>>(formData.get('videographyDetails'));
@@ -111,15 +70,16 @@ export async function POST(request: Request) {
         videographyDetails: toInputJson(videographyDetails),
         webServiceDetails: toInputJson(webServiceDetails),
         marketingDetails: toInputJson(marketingDetails),
-        photographyAgendaPath: photographyAgendaPath ?? undefined,
-        videographyAgendaPath: videographyAgendaPath ?? undefined,
-        materialPath: materialPath ?? undefined,
       },
     });
 
     return NextResponse.json({ message: 'Request submitted successfully.', success: true }, { status: 201 });
   } catch (error) {
     console.error('Failed to save request form:', error);
-    return NextResponse.json({ message: 'Failed to submit request.', success: false }, { status: 500 });
+    const message =
+      process.env.NODE_ENV === 'development' && error instanceof Error
+        ? `Failed to submit request: ${error.message}`
+        : 'Failed to submit request.';
+    return NextResponse.json({ message, success: false }, { status: 500 });
   }
 }

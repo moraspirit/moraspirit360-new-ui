@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface photographyDetails {
     eventType : string,
@@ -7,7 +7,6 @@ interface photographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     attendees : string,
     photographers : string,
     imageUsage : string,
@@ -25,14 +24,6 @@ interface photographyDetailsProps {
 }
 
 const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleSubmit, isLast}) => {
-
-  const handleAgendaFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-    const fileInput = e.target! as HTMLInputElement;
-    if(fileInput.files && fileInput.files.length > 0){
-      setPhotographyDetails({...photographyDetails, agenda : fileInput.files[0]});
-    }
-  }
-
     return (
         <>
             <h1 className=' text-4xl font-bold my-5 text-center'>Photography</h1>
@@ -102,17 +93,6 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                   placeholder='endTime'
                   value={photographyDetails.endTime}
                   onChange={(e) => {setPhotographyDetails({...photographyDetails, endTime : e.target.value })}}
-                  required
-                />
-              </div>
-              <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Agenda of the event</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="agenda" 
-                  id="agenda" 
-                  onChange={handleAgendaFile}
                   required
                 />
               </div>

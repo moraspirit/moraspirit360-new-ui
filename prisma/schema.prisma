@@ -27,7 +27,4 @@ model RequestSubmission {
   webServiceDetails      Json?
   marketingDetails       Json?
 
-  photographyAgendaPath  String?
-  videographyAgendaPath  String?
-  materialPath           String?
 }

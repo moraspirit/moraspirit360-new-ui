@@ -7,7 +7,6 @@ interface videographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     requirment : string,
     description : string,
 }
@@ -21,14 +20,6 @@ interface videographyDetailsProps {
 }
 
 const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleSubmit, isLast}) => {
-
-    const handleAgendaFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-        const fileInput = e.target! as HTMLInputElement;
-        if(fileInput.files && fileInput.files.length > 0){
-          setVideographyDetails({...videographyDetails, agenda : fileInput.files[0]});
-        }
-      }
-
   return (
     <>
         <h1 className=' text-4xl font-bold my-5 text-center'>Videography</h1>
@@ -86,17 +77,6 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                   placeholder='endTime'
                   value={videographyDetails.endTime}
                   onChange={(e) => {setVideographyDetails({...videographyDetails, endTime : e.target.value })}}
-                />
-              </div>
-              <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Agenda of the event</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="agenda" 
-                  id="agenda" 
-                  onChange={handleAgendaFile}
-                  required
                 />
               </div>
               <select 

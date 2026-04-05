@@ -33,7 +33,6 @@ interface photographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     attendees : string,
     photographers : string,
     imageUsage : string,
@@ -48,7 +47,6 @@ interface videographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     requirment : string,
     description : string,
 }
@@ -68,7 +66,6 @@ interface webServiceDetails {
     userCount : string,
     lookAndFeel : string,
     example : string,
-    material : File | null,
     budget : string,
     paymentSchedule : string,
 }
@@ -110,7 +107,6 @@ const defaultPhotographyDetails : photographyDetails = {
     mapLocation : '',
     startTime : '00:00',
     endTime : '00:00',
-    agenda : null,
     attendees : '',
     photographers : '',
     imageUsage : '',
@@ -125,7 +121,6 @@ const defaultVideographyDetails : videographyDetails = {
     mapLocation : '',
     startTime : '00:00',
     endTime : '00:00',
-    agenda : null,
     requirment : '',
     description : ''
 }
@@ -145,7 +140,6 @@ const defaultWebServiceDetails : webServiceDetails = {
     userCount : '',
     lookAndFeel : '',
     example : '',
-    material : null,
     budget : '',
     paymentSchedule : '',
 }
@@ -208,23 +202,14 @@ const RequestForm = () => {
 
         if(services.photography){
             requestData.append('photographyDetails', JSON.stringify(photographyDetails));
-            if (photographyDetails.agenda) {
-                requestData.append('photographyAgenda', photographyDetails.agenda);
-            }
         }
 
         if(services.videography){
             requestData.append('videographyDetails', JSON.stringify(videographyDetails));
-            if (videographyDetails.agenda) {
-                requestData.append('videographyAgenda', videographyDetails.agenda);
-            }
         }
 
         if(services.webService){
             requestData.append('webServiceDetails', JSON.stringify(webServiceDetails));
-            if (webServiceDetails.material) {
-                requestData.append('material', webServiceDetails.material);
-            }
         }
 
         if(services.marketing){
@@ -238,13 +223,27 @@ const RequestForm = () => {
                 headers: {
                     Accept: 'application/json',
                 },
+                validateStatus: () => true,
             });
-            const isSuccess = res.data?.success ?? true;
+
+            const isSuccess =
+                res.status >= 200 &&
+                res.status < 300 &&
+                typeof res.data === 'object' &&
+                res.data !== null &&
+                (res.data.success ?? true);
+
             if (isSuccess) {
                 showMessage(res.data?.message ?? 'Request submitted successfully.', 'success');
                 return;
             }
-            showMessage(res.data?.message ?? 'Request submission failed.', 'error');
+
+            const failedMessage =
+                (typeof res.data === 'object' && res.data !== null && 'message' in res.data
+                    ? String(res.data.message)
+                    : null) ?? `Request failed (HTTP ${res.status}).`;
+
+            showMessage(failedMessage, 'error');
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const errorMessage = err.response?.data?.message ?? err.message ?? 'Request submission failed.';
