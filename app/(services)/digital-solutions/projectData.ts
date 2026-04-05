@@ -171,4 +171,144 @@ export const digitalProjects: ProjectDetail[] = [
     outcome:
       "The engineering stack became more maintainable, secure, and ready for future feature expansion across the MoraSpirit ecosystem.",
   },
+  {
+    slug: "spirit-of-hope-2025-charity-platform",
+    title: "Spirit of Hope 2025 Charity Platform",
+    category: "Full-Stack Platform",
+    summary:
+      "Built a charity campaign platform with a Next.js frontend and Express + MySQL backend to support sponsorship communication and donor contact workflows.",
+    image: "/eventpage.jpg",
+    challenge:
+      "The campaign needed a clear digital presence to communicate impact, explain sponsorship options, and collect structured supporter inquiries.",
+    solution:
+      "We developed a full-stack website with purpose-led sections, sponsorship tiers, donation guidance, and a backend contact capture API.",
+    features: [
+      "Next.js campaign website with modern responsive UI",
+      "Express API with MySQL-backed contact form storage",
+      "Structured sections for sponsorship and donation flows",
+      "Deploy-ready project split into client and server services",
+    ],
+    outcome:
+      "The team gained a reliable campaign platform that improves outreach clarity and streamlines inquiry handling for humanitarian work.",
+  },
+  {
+    slug: "spiritx-2025-hackathon-website",
+    title: "SpiritX 2025 Hackathon Website",
+    category: "Event Website",
+    summary:
+      "Developed the official hackathon website for SpiritX 2025 with event storytelling, timelines, awards, FAQs, and registration-focused structure.",
+    image: "/marketingHero.png",
+    challenge:
+      "A large hackathon needed a high-impact event site that could present details clearly and drive participant action quickly.",
+    solution:
+      "We built a fast, SEO-aware Next.js site with modular sections for agenda, challenge context, materials, contact points, and event metadata.",
+    features: [
+      "Single-page event journey with key sections and CTAs",
+      "Structured metadata and discoverability enhancements",
+      "Interactive UI components for timeline and FAQs",
+      "Scalable component-driven architecture for future events",
+    ],
+    outcome:
+      "SpiritX received a polished event web presence that improved information access and strengthened participant experience.",
+  },
+  {
+    slug: "interuni-live-scores-broadcasting-platform",
+    title: "InterUni Live Scores Broadcasting Platform",
+    category: "Sports Platform",
+    summary:
+      "Delivered a university sports portal for score updates, points tables, draws, and event summaries across inter-university competitions.",
+    image: "/section1.png",
+    challenge:
+      "Sports followers needed one place for real-time match context and standings during high-volume inter-university events.",
+    solution:
+      "We built a web platform that combines live updates, summary panels, and ranking views backed by a database-driven update workflow.",
+    features: [
+      "Live score and summary display views",
+      "Points table and event draw modules",
+      "Database-backed update pipeline",
+      "Tournament-focused multi-page information architecture",
+    ],
+    outcome:
+      "The platform improved visibility of competition progress and gave teams and supporters a centralized source of match intelligence.",
+  },
+  {
+    slug: "moraspirit-mobile-app-android",
+    title: "MoraSpirit Mobile App (Android)",
+    category: "Mobile Application",
+    summary:
+      "Built and maintained the native Android MoraSpirit app covering articles, events, match updates, points tables, timetables, and live content access.",
+    image: "/repage.jpg",
+    challenge:
+      "Users needed on-the-go access to MoraSpirit sports content in a unified app rather than fragmented web-only touchpoints.",
+    solution:
+      "We implemented a native Android app architecture with dedicated modules for media, events, points, schedules, and API-driven updates.",
+    features: [
+      "Native Android modules for sports data and content feeds",
+      "Articles, events, matches, and timetable experiences",
+      "Points and ranking views for inter-university campaigns",
+      "Firebase messaging support and API integration",
+    ],
+    outcome:
+      "MoraSpirit strengthened mobile engagement and made sports information more accessible to users throughout active campaigns.",
+  },
+  {
+    slug: "expo-mobile-proof-of-concept",
+    title: "Expo Mobile Proof of Concept",
+    category: "Mobile Prototype",
+    summary:
+      "Created an Expo-based React Native foundation to rapidly prototype MoraSpirit mobile experiences and accelerate future cross-platform development.",
+    image: "/EventCard2.png",
+    challenge:
+      "The team needed a faster way to test mobile UX concepts before committing to broader app implementation decisions.",
+    solution:
+      "We set up an Expo workflow with reusable project scaffolding and early component experimentation for quick iteration cycles.",
+    features: [
+      "React Native + Expo project foundation",
+      "Rapid iteration setup for UI experimentation",
+      "Cross-platform development workflow support",
+      "Prototype-ready component structure",
+    ],
+    outcome:
+      "The prototype path reduced experimentation cost and helped validate mobile direction with quicker development feedback loops.",
+  },
+  {
+    slug: "react-live-scoreboard-system",
+    title: "React Live Scoreboard System",
+    category: "Realtime Interface",
+    summary:
+      "Built a live leaderboard interface for time-based score tracking with animated ranking transitions and quick operator input support.",
+    image: "/EventCard3.png",
+    challenge:
+      "Event teams required a simple but engaging way to display live ranking changes during competitive sessions.",
+    solution:
+      "We developed a React scoreboard app with rank calculation, timed refresh behavior, and smooth visual transitions for top performers.",
+    features: [
+      "Animated top-rank leaderboard rendering",
+      "Manual score input and update workflow",
+      "Live rank recalculation and refresh cycle",
+      "Event-display friendly visual layout",
+    ],
+    outcome:
+      "The system enabled clearer real-time score communication and improved audience visibility of competition progress.",
+  },
+  {
+    slug: "payload-cms-content-service",
+    title: "Payload CMS Content Service",
+    category: "CMS Backend",
+    summary:
+      "Engineered a Payload CMS backend for structured content operations, including posts, projects, categories, tags, media, and role-aware access policies.",
+    image: "/marketing.jpeg",
+    challenge:
+      "Content teams needed a maintainable CMS with cleaner permission control and extensible collection architecture.",
+    solution:
+      "We implemented a Payload-based service with custom collection definitions, permission bit logic, and content lifecycle controls.",
+    features: [
+      "Collection architecture for posts, projects, and media",
+      "Role and permission-bit based access control",
+      "Draft and publish workflow enforcement",
+      "Headless-ready content service structure",
+    ],
+    outcome:
+      "The organization gained a flexible content platform that improves governance and supports future publishing scale.",
+  },
 ];
