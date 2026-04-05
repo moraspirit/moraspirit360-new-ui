@@ -17,7 +17,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Website",
     summary:
       "Designed and developed a responsive event website with online registration, speaker profiles, schedule management, and mobile-first performance optimization.",
-    image: "/eventpage.jpg",
+    image: "/eventpage.avif",
     challenge:
       "The organizers needed one platform for announcements, registrations, and event schedules that worked reliably on mobile devices.",
     solution:
@@ -37,7 +37,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Web App",
     summary:
       "Built a centralized web app for content teams to upload media, publish announcements, organize categories, and monitor audience engagement in one dashboard.",
-    image: "/eventPageBg.png",
+    image: "/eventPageBg.avif",
     challenge:
       "Content operations were fragmented across multiple tools, creating delays in publishing and poor visibility for teams.",
     solution:
@@ -57,7 +57,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Dashboard",
     summary:
       "Created an operations dashboard to track ticket sales in real time, monitor campaign results, and prepare event-day check-ins with actionable insights.",
-    image: "/section1.png",
+    image: "/section1.avif",
     challenge:
       "The event operations team needed real-time visibility into ticket sales and campaign performance before event day.",
     solution:
@@ -77,7 +77,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Portal",
     summary:
       "Developed a modern portal for student organizations to publish updates, showcase events, manage member inquiries, and streamline communication workflows.",
-    image: "/webdevelopment.png",
+    image: "/webdevelopment.avif",
     challenge:
       "Student organizations needed a simple digital hub to communicate updates and manage event-related interactions.",
     solution:
@@ -97,7 +97,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Marketing Website",
     summary:
       "Designed and developed a modern, mobile-first website to showcase services, campaigns, and event storytelling with fast load times and clear conversion paths.",
-    image: "/webdevelopment.png",
+    image: "/webdevelopment.avif",
     challenge:
       "The team needed one polished digital front door to present services clearly, build trust quickly, and drive inbound requests from different audience segments.",
     solution:
@@ -117,7 +117,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Operations Web App",
     summary:
       "Built a role-aware internal web app to manage recruitment, members, roles, pillars, forms, and flyers from a unified administrative interface.",
-    image: "/eventPageBg.png",
+    image: "/eventPageBg.avif",
     challenge:
       "Operational work was spread across manual processes, making it hard to coordinate recruitment, member records, and cross-pillar responsibilities at scale.",
     solution:
@@ -137,7 +137,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Backend Service",
     summary:
       "Engineered a dedicated identity and access layer with JWT authentication, role-based access control, permission overrides, and secure account lifecycle flows.",
-    image: "/section1.png",
+    image: "/section1.avif",
     challenge:
       "A growing organization needed strong access governance so the right people could manage the right functions without introducing security or process risks.",
     solution:
@@ -157,7 +157,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Platform Engineering",
     summary:
       "Implemented a service-oriented backend architecture with an API gateway and domain-based core services for forms, members, tasks, complaints, and flyers.",
-    image: "/marketingHero.png",
+    image: "/marketingHero.avif",
     challenge:
       "As platform capabilities expanded, the team needed clean service boundaries, consistent security controls, and easier scaling across multiple backend domains.",
     solution:
@@ -177,7 +177,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Full-Stack Platform",
     summary:
       "Built a charity campaign platform with a Next.js frontend and Express + MySQL backend to support sponsorship communication and donor contact workflows.",
-    image: "/eventpage.jpg",
+    image: "/eventpage.avif",
     challenge:
       "The campaign needed a clear digital presence to communicate impact, explain sponsorship options, and collect structured supporter inquiries.",
     solution:
@@ -197,7 +197,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Event Website",
     summary:
       "Developed the official hackathon website for SpiritX 2025 with event storytelling, timelines, awards, FAQs, and registration-focused structure.",
-    image: "/marketingHero.png",
+    image: "/marketingHero.avif",
     challenge:
       "A large hackathon needed a high-impact event site that could present details clearly and drive participant action quickly.",
     solution:
@@ -217,7 +217,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Sports Platform",
     summary:
       "Delivered a university sports portal for score updates, points tables, draws, and event summaries across inter-university competitions.",
-    image: "/section1.png",
+    image: "/section1.avif",
     challenge:
       "Sports followers needed one place for real-time match context and standings during high-volume inter-university events.",
     solution:
@@ -237,7 +237,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Mobile Application",
     summary:
       "Built and maintained the native Android MoraSpirit app covering articles, events, match updates, points tables, timetables, and live content access.",
-    image: "/repage.jpg",
+    image: "/repage.avif",
     challenge:
       "Users needed on-the-go access to MoraSpirit sports content in a unified app rather than fragmented web-only touchpoints.",
     solution:
@@ -257,7 +257,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Mobile Prototype",
     summary:
       "Created an Expo-based React Native foundation to rapidly prototype MoraSpirit mobile experiences and accelerate future cross-platform development.",
-    image: "/EventCard2.png",
+    image: "/EventCard2.avif",
     challenge:
       "The team needed a faster way to test mobile UX concepts before committing to broader app implementation decisions.",
     solution:
@@ -277,7 +277,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "Realtime Interface",
     summary:
       "Built a live leaderboard interface for time-based score tracking with animated ranking transitions and quick operator input support.",
-    image: "/EventCard3.png",
+    image: "/EventCard3.avif",
     challenge:
       "Event teams required a simple but engaging way to display live ranking changes during competitive sessions.",
     solution:
@@ -297,7 +297,7 @@ export const digitalProjects: ProjectDetail[] = [
     category: "CMS Backend",
     summary:
       "Engineered a Payload CMS backend for structured content operations, including posts, projects, categories, tags, media, and role-aware access policies.",
-    image: "/marketing.jpeg",
+    image: "/marketing.avif",
     challenge:
       "Content teams needed a maintainable CMS with cleaner permission control and extensible collection architecture.",
     solution:

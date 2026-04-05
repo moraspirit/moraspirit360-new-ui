@@ -6,7 +6,7 @@ import ScrollUpDiv from "../../Components/ScrollRevealSection/ScrollRevealUp";
 import Footer from "../../Components/Footer/Footer";
 import { digitalProjects } from "./projectData";
 
-const imgUrl = "/webdevelopment.png";
+const imgUrl = "/webdevelopment.avif";
 const title = "DIGITAL SOLUTIONS";
 const subTitle = "Building Web, Mobile, and AI-Driven Products";
 const description =

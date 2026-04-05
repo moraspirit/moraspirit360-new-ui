@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer/Footer";
 import ScrollUpDiv from "@/app/Components/ScrollRevealSection/ScrollRevealUp";
 
 //pageHero content
-const imgUrl = "/marketingHero.png"
+const imgUrl = "/marketingHero.avif"
 const title = "MARKETING";
 const subTitle = "Turning Every Moment into a Lasting Visual Story";
 const description = "Capturing the Essence with Precision and Passion";
@@ -15,17 +15,17 @@ const description = "Capturing the Essence with Precision and Passion";
 //past events content
 const pastEvents = [
     {
-        url:"/careersday.jpg",
+        url:"/careersday.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     },
     {
-        url : "/nightshow.jpg",
+        url : "/nightshow.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     },
     {
-        url :"/cricket.jpg",
+        url :"/cricket.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     }
@@ -100,13 +100,13 @@ export default function Home() {
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-15 px-7  justify-items-center items-center gap-y-32 gap-x-10">
 
                         <ArticleCard
-                            img="/article/1.jpg"
+                            img="/article/1.avif"
                             date="JULY 27, 2024"
                             title="An opening ceremony to remember: Paris 2024 unfolds gracefully along the river Seine"
                             desc="The Paris 2024 Olympic Games truly deserves a golden chapter in history. The grand opening ceremony, set along the iconic Seine River, was historic as the first-ever Olympic opening ceremony held outside a stadium."
                         />
                         <ArticleCard
-                            img="/article/2.png"
+                            img="/article/2.avif"
                             date="AUGUST 27, 2024"
                             title="Sri Lanka's journey in Paralympics: Celebrating Triumphs and Overcoming Challenges"
                             desc="Sri Lanka's memorable Paralympic history, celebrating victories from their debut in 1996 to capturing gold and bronze medals, and looking forward to the 2024 Paralympics with great expectations for their outstanding athletes."

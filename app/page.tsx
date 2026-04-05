@@ -36,17 +36,17 @@ const Home = () => {
 
   const pastEvents = [
     {
-        url:"/event/past/1.jpeg",
+        url:"/event/past/1.avif",
         title : "Epilogue 2023",
         description : "MoraSpirit 360 wrapped up the EXMO exhibition in style with Epilogue 2023, a night filled with mesmerizing performances and unforgettable memories."
     },
     {
-        url : "/event/past/2.jpg",
+        url : "/event/past/2.avif",
         title : "Cricket Fiesta",
         description : "Bringing the sprit of cricket to life, MoraSpirit Cricket Fiesta was an action packed softball tournament with fierce competition and excitement."
     },
     {
-        url :"/event/past/3.jpeg",
+        url :"/event/past/3.avif",
         title : "Food Festival",
         description : "The MoraSpirit Food Festival in August, united with a diverse range of flavors and experiences became a paradise for all sorts of food lovers within the university."
     }
@@ -63,7 +63,7 @@ const Home = () => {
               "@type": "Organization",
               name: "MoraSpirit 360",
               url: "https://moraspirit360.com",
-              logo: "https://moraspirit360.com/360Logo.jpg",
+              logo: "https://moraspirit360.com/360Logo.avif",
               sameAs: [
                 "https://www.facebook.com/MoraSpirit360/",
                 "https://x.com/moraspiritNews",
@@ -86,7 +86,7 @@ const Home = () => {
                         <h1 className={`${styles.title360} ${styles.zoomIn}`}>360</h1> */}
             <Image
               className=" aspect-square min-w-[150px] md:min-w-[250px] lg:min-w-[300px] xl:min-w-[350px]"
-              src="/white_logo.png"
+              src="/white_logo.avif"
               width={200}
               height={200}
               alt="MoraSpirit360 logo"
