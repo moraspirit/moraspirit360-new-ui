@@ -39,6 +39,14 @@ body {
     @apply w-full h-10 text-lg bg-transparent text-gray-500 appearance-none border-b border-gray-500 focus:border-gray-200 outline-none
   }
 
+  .select-input-placeholder {
+    @apply text-gray-500
+  }
+
+  .select-input-selected {
+    @apply text-white border-red-500
+  }
+
   .form-label {
     @apply text-lg
   }

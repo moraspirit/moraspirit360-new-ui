@@ -147,13 +147,14 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 required
               />
             <select 
-                className=' select-input' 
+                className={`select-input ${webServiceDetails.lookAndFeel ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="lookAndFeel" 
                 id="lookAndFeel"
                 value={webServiceDetails.lookAndFeel}
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, lookAndFeel : e.target.value })}}
+                required
             >
-                <option value="">Look And Feel </option>
+                <option value="" disabled>Look And Feel </option>
                 <option value="modern">Modern</option>
                 <option value="professional">Professional</option>
                 <option value="fun">Fun</option>
@@ -179,13 +180,14 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, budget : e.target.value })}}
               />
             <select 
-                className=' select-input' 
+                className={`select-input ${webServiceDetails.paymentSchedule ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="paymentSchedule" 
                 id="paymentSchedule"
                 value={webServiceDetails.paymentSchedule}
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, paymentSchedule : e.target.value })}}
+                required
             >
-                <option value="">Preffered Payment Schedule </option>
+                <option value="" disabled>Preffered Payment Schedule </option>
                 <option value="onetime">One-time</option>
                 <option value="milestones">Milestones</option>
             </select>

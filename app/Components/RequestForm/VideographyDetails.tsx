@@ -84,13 +84,14 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                 />
               </div>
               <select 
-                className=' select-input' 
+                className={`select-input ${videographyDetails.requirment ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="needPublish" 
                 id="needPublish"
                 value={videographyDetails.requirment}
                 onChange={(e) => {setVideographyDetails({...videographyDetails, requirment : e.target.value })}}
+                required
               >
-                <option value="">Select Your Requirment</option>
+                <option value="" disabled>Select Your Requirment</option>
                 <option value="videography">Videography</option>
                 <option value="liveStream">Live Stream</option>
                 <option value="both">Both</option>

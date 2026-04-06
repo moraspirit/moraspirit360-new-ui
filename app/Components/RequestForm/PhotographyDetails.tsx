@@ -121,13 +121,14 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 required
               />
               <select 
-                className=' select-input' 
+                className={`select-input ${photographyDetails.imageUsage ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="imageUsage" 
                 id="imageUsage" 
                 value={photographyDetails.imageUsage}
                 onChange={(e) => {setPhotographyDetails({...photographyDetails, imageUsage : e.target.value })}}
+                required
               >
-                <option value="">HOW WOULD YOU LIKE TO USE THE IMAGES?</option>
+                <option value="" disabled>HOW WOULD YOU LIKE TO USE THE IMAGES?</option>
                 <option value="personal">For personal use only (print and social media)</option>
                 <option value="web">For web only promotion including a credit line</option>
                 <option value="printAndWeb">For print and web promotion without credit line</option>
@@ -144,13 +145,14 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 required
               />
               <select 
-                className=' select-input' 
+                className={`select-input ${photographyDetails.needPublish ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="needPublish" 
                 id="needPublish"
                 value={photographyDetails.needPublish}
                 onChange={(e) => {setPhotographyDetails({...photographyDetails, needPublish : e.target.value })}}
+                required
               >
-                <option value="">Are you comfortable with uploading the album to out 360 page ?</option>
+                <option value="" disabled>Are you comfortable with uploading the album to out 360 page ?</option>
                 <option value="yes">YES</option>
                 <option value="no">NO</option>
               </select>
