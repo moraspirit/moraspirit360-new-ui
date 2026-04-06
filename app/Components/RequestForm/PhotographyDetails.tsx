@@ -106,8 +106,16 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 name="attendees" 
                 id="attendees" 
                 placeholder=' Number of Event Attendees' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={photographyDetails.attendees}
-                onChange={(e) => {setPhotographyDetails({...photographyDetails, attendees : e.target.value })}}
+                onChange={(e) => {
+                  setPhotographyDetails({
+                    ...photographyDetails,
+                    attendees : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
                 required
               />
               <input 
@@ -116,8 +124,16 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                 name="photographers" 
                 id="photographers" 
                 placeholder='Number of Photographers Need' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={photographyDetails.photographers}
-                onChange={(e) => {setPhotographyDetails({...photographyDetails, photographers : e.target.value })}}
+                onChange={(e) => {
+                  setPhotographyDetails({
+                    ...photographyDetails,
+                    photographers : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
                 required
               />
               <select 

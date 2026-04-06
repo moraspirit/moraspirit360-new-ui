@@ -45,9 +45,16 @@ const PersonalDetails : React.FC<personalDetailsProps> = ({personalDetails, setP
             name="contact" 
             id="contact" 
             placeholder='Contact' 
-            inputMode='tel'
+            inputMode='numeric'
+            pattern='[0-9]+'
+            maxLength={15}
             value={personalDetails.contact}
-            onChange={(e) => {setPersonalDetails({...personalDetails, contact : e.target.value })}}
+            onChange={(e) => {
+              setPersonalDetails({
+                ...personalDetails,
+                contact : e.target.value.replace(/\D/g, ''),
+              });
+            }}
             required
           />
           <input 

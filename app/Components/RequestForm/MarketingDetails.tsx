@@ -85,8 +85,16 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                 name="count" 
                 id="count" 
                 placeholder=' Flyer/Video Count' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={marketingDetails.count}
-                onChange={(e) => {setMarketingDetails({...marketingDetails, count : e.target.value })}}
+                onChange={(e) => {
+                  setMarketingDetails({
+                    ...marketingDetails,
+                    count : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
                 required
               />
               <div className=' w-full flex flex-row flex-wrap'>

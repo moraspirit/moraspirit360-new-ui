@@ -142,8 +142,16 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 name="userCount" 
                 id="userCount" 
                 placeholder=' Number of Users Do You Expect' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={webServiceDetails.userCount}
-                onChange={(e) => {setWebServiceDetails({...webServiceDetails, userCount : e.target.value })}}
+                onChange={(e) => {
+                  setWebServiceDetails({
+                    ...webServiceDetails,
+                    userCount : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
                 required
               />
             <select 
@@ -176,8 +184,16 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 name="budget" 
                 id="budget" 
                 placeholder=' Estimated Budget Range' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={webServiceDetails.budget}
-                onChange={(e) => {setWebServiceDetails({...webServiceDetails, budget : e.target.value })}}
+                onChange={(e) => {
+                  setWebServiceDetails({
+                    ...webServiceDetails,
+                    budget : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
               />
             <select 
                 className={`select-input ${webServiceDetails.paymentSchedule ? 'select-input-selected' : 'select-input-placeholder'}`} 
