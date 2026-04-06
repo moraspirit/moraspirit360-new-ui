@@ -289,13 +289,13 @@
   }
 
   .secondSection p {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 24px;
   }
 
   .secondSection .requestButton {
-    font-size: 14px;
-    padding: 6px 20px;
+    font-size: 16px;
+    padding: 8px 24px;
   }
 }
 
@@ -310,13 +310,13 @@
   }
 
   .secondSection p {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   .secondSection .requestButton {
-    font-size: 12px;
-    padding: 4px 15px;
+    font-size: 15px;
+    padding: 8px 20px;
   }
 }
 
@@ -511,13 +511,12 @@
   }
 
   .section p {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 24px;
   }
   .section .button {
-    font-size: 12px;
-    padding: 4px 15px;
+    font-size: 15px;
+    padding: 8px 20px;
   }
 }
-
 
