@@ -31,11 +31,11 @@ const getStore = (): Map<string, Bucket> => {
 };
 
 const cleanupExpiredEntries = (store: Map<string, Bucket>, now: number): void => {
-  for (const [key, bucket] of store.entries()) {
+  store.forEach((bucket, key) => {
     if (bucket.resetAt <= now) {
       store.delete(key);
     }
-  }
+  });
 };
 
 export const getClientIp = (request: Request): string => {
