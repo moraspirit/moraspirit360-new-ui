@@ -7,7 +7,7 @@ import ClientFeedback from "../../Components/ClientFeedback/ClientFeedback";
 
 
 //pageHero content
-const imgUrl = "/camera.jpg";
+const imgUrl = "/camera.avif";
 const title = "PHOTOGRAPHY";
 const subTitle = "Turning Every Moment into a Lasting Visual Story";
 const description = "Capturing the Essence with Precision and Passion";
@@ -15,17 +15,17 @@ const description = "Capturing the Essence with Precision and Passion";
 //upcoming events content
 const upcomingEvents = [
     {
-        url:"/careersday.jpg",
+        url:"/careersday.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     },
     {
-        url : "/Band.jpg",
+        url : "/Band.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     },
     {
-        url :"/exmo.jpg",
+        url :"/exmo.avif",
         title : "SPIRIT UP 2.O",
         description : "UNIVERSITY ESPORTS CHALLENGE 2024, E-WAR is now open for REGISTRATION. BE A GAME CHANGER, as fear should never overshadow your dreams."
     }
@@ -34,17 +34,17 @@ const upcomingEvents = [
 //past events content
 const pastEvents = [
     {
-        url:"/event/past/1.jpeg",
+        url:"/event/past/1.avif",
         title : "Epilogue 2023",
         description : "MoraSpirit 360 wrapped up the EXMO exhibition in style with Epilogue 2023, a night filled with mesmerizing performances and unforgettable memories."
     },
     {
-        url : "/event/past/2.jpg",
+        url : "/event/past/2.avif",
         title : "Cricket Fiesta",
         description : "Bringing the sprit of cricket to life, MoraSpirit Cricket Fiesta was an action packed softball tournament with fierce competition and excitement."
     },
     {
-        url :"/event/past/3.jpeg",
+        url :"/event/past/3.avif",
         title : "Food Festival",
         description : "The MoraSpirit Food Festival in August, united with a diverse range of flavors and experiences became a paradise for all sorts of food lovers within the university."
     }
@@ -52,14 +52,14 @@ const pastEvents = [
 
 // gallery content
 const galleryImg = [
-    "/cups.jpg",
-    "/Band.jpg",
-    "/exmo.jpg",
-    "/nightshow.jpg",
-    "/cups.jpg",
-    "/careersday.jpg",
-    "/band.jpg",
-    "/nightshow.jpg"
+    "/cups.avif",
+    "/Band.avif",
+    "/exmo.avif",
+    "/nightshow.avif",
+    "/cups.avif",
+    "/careersday.avif",
+    "/band.avif",
+    "/nightshow.avif"
 ]
 
 //client feed back content

@@ -11,6 +11,7 @@ import axios from 'axios'
 import WaitingSpinner from '../Popup/WaitingSpinner'
 import { motion } from 'framer-motion'
 
+const getTodayDate = () => new Date().toISOString().split('T')[0];
 
 interface services {
     photography : boolean,
@@ -33,7 +34,6 @@ interface photographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     attendees : string,
     photographers : string,
     imageUsage : string,
@@ -48,7 +48,6 @@ interface videographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     requirment : string,
     description : string,
 }
@@ -68,7 +67,6 @@ interface webServiceDetails {
     userCount : string,
     lookAndFeel : string,
     example : string,
-    material : File | null,
     budget : string,
     paymentSchedule : string,
 }
@@ -105,12 +103,11 @@ const defaultPersonalDetails : personalDetails = {
 
 const defaultPhotographyDetails : photographyDetails = {
     eventType : '',
-    eventDate : '2024-01-01',
+    eventDate : getTodayDate(),
     location : '',
     mapLocation : '',
     startTime : '00:00',
     endTime : '00:00',
-    agenda : null,
     attendees : '',
     photographers : '',
     imageUsage : '',
@@ -120,12 +117,11 @@ const defaultPhotographyDetails : photographyDetails = {
 }
 
 const defaultVideographyDetails : videographyDetails = {
-    eventDate : '2024-01-01',
+    eventDate : getTodayDate(),
     location : '',
     mapLocation : '',
     startTime : '00:00',
     endTime : '00:00',
-    agenda : null,
     requirment : '',
     description : ''
 }
@@ -133,7 +129,7 @@ const defaultVideographyDetails : videographyDetails = {
 const defaultWebServiceDetails : webServiceDetails = {
     projectName : '',
     description : '',
-    completionDate : '2024-01-01',
+    completionDate : getTodayDate(),
     systemType : {
         website : false,
         mobileApp : false,
@@ -145,7 +141,6 @@ const defaultWebServiceDetails : webServiceDetails = {
     userCount : '',
     lookAndFeel : '',
     example : '',
-    material : null,
     budget : '',
     paymentSchedule : '',
 }
@@ -166,6 +161,14 @@ const defaultMarketingDetails : marketingDetails = {
     }
 }
 
+const serviceLabels: Record<string, string> = {
+    personal: 'Personal Details',
+    photography: 'Photography',
+    videography: 'Videography',
+    webService: 'Web Service',
+    marketing: 'Marketing',
+};
+
 const RequestForm = () => {
     const [services, setServices] = useState({...defaultServices});
     const [personalDetails, setPersonalDetails] = useState({...defaultPersonalDetails});
@@ -173,7 +176,7 @@ const RequestForm = () => {
     const [videographyDetails, setVideographyDetails] = useState({...defaultVideographyDetails});
     const [webServiceDetails, setWebServiceDetails] = useState({...defaultWebServiceDetails});
     const [marketingDetails, setMarketingDetails] = useState({...defaultMarketingDetails});
-    const [selectedService, setSelectedService] = useState<String[]>(['personal']);
+    const [selectedService, setSelectedService] = useState<string[]>(['personal']);
     const [shownForm, setShownForm] = useState(0);
     const parentDiv = useRef<HTMLDivElement | null>(null);
     const [formWidth, setFormWidth] = useState(0);
@@ -195,11 +198,22 @@ const RequestForm = () => {
         setFormWidth(parent.clientWidth);
     },[parentDiv]);
 
+    useEffect(() => {
+        if (shownForm > selectedService.length - 1) {
+            setShownForm(Math.max(selectedService.length - 1, 0));
+        }
+    }, [selectedService, shownForm]);
+
     const handleNext = () => {
-        setShownForm(shownForm + 1);
+        setShownForm((prevShownForm) => prevShownForm + 1);
     }
 
-    const handleSubmit = () => {
+    const handleBack = () => {
+        setShownForm((prevShownForm) => Math.max(prevShownForm - 1, 0));
+    }
+
+    const handleSubmit = async () => {
+        const endpoint = '/api/forms/request';
 
         const requestData = new FormData();
         requestData.append('personalDetails', JSON.stringify(personalDetails));
@@ -207,17 +221,14 @@ const RequestForm = () => {
 
         if(services.photography){
             requestData.append('photographyDetails', JSON.stringify(photographyDetails));
-            requestData.append('photographyAgenda', photographyDetails.agenda as Blob);
         }
 
         if(services.videography){
             requestData.append('videographyDetails', JSON.stringify(videographyDetails));
-            requestData.append('videographyAgenda', videographyDetails.agenda as Blob);
         }
 
         if(services.webService){
             requestData.append('webServiceDetails', JSON.stringify(webServiceDetails));
-            requestData.append('material', webServiceDetails.material as Blob);
         }
 
         if(services.marketing){
@@ -226,19 +237,68 @@ const RequestForm = () => {
 
         setWaiting(true);
 
-        axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/forms/request`, requestData)
-            .then(res => {
-                showMessage(res.data.message, 'success');
-            }).catch(err => {
-                console.log(err.response);
-                showMessage(err.response.data.message, 'error');
-            }).finally(() => {
-                setWaiting(false);
+        try {
+            const res = await axios.post(endpoint, requestData, {
+                headers: {
+                    Accept: 'application/json',
+                },
+                validateStatus: () => true,
             });
+
+            const isSuccess =
+                res.status >= 200 &&
+                res.status < 300 &&
+                typeof res.data === 'object' &&
+                res.data !== null &&
+                (res.data.success ?? true);
+
+            if (isSuccess) {
+                showMessage(res.data?.message ?? 'Request submitted successfully.', 'success');
+                return;
+            }
+
+            const failedMessage =
+                (typeof res.data === 'object' && res.data !== null && 'message' in res.data
+                    ? String(res.data.message)
+                    : null) ?? `Request failed (HTTP ${res.status}).`;
+
+            showMessage(failedMessage, 'error');
+        } catch (err) {
+            if (axios.isAxiosError(err)) {
+                const errorMessage = err.response?.data?.message ?? err.message ?? 'Request submission failed.';
+                showMessage(errorMessage, 'error');
+            } else {
+                showMessage('Unexpected error occurred while submitting request.', 'error');
+            }
+        } finally {
+            setWaiting(false);
+        }
     }
 
   return (
     <div className=' w-full h-full px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
+        <div className='w-full mt-4'>
+            <div className='flex items-center justify-between gap-3 text-xs sm:text-sm text-zinc-300'>
+                <p>Step {Math.min(shownForm + 1, selectedService.length)} of {selectedService.length}</p>
+                <p className='font-medium text-white'>{serviceLabels[selectedService[shownForm] ?? 'personal']}</p>
+            </div>
+            {shownForm > 0 && (
+                <button
+                    type='button'
+                    className='mt-3 px-4 py-2 rounded-lg border border-white/40 text-white text-sm hover:bg-white/10 transition-colors'
+                    onClick={handleBack}
+                >
+                    Back
+                </button>
+            )}
+            <div className='w-full mt-2 h-2 bg-zinc-700 rounded-full overflow-hidden'>
+                <div
+                    className='h-full bg-red-500 transition-all duration-300'
+                    style={{ width: `${(Math.min(shownForm + 1, selectedService.length) / selectedService.length) * 100}%` }}
+                />
+            </div>
+        </div>
+
         {/* <div className={`relative w-full h-full flex-1 overflow-hidden`}>
             <div 
                 className={` relative w-full h-screen sm:px-6 overflow-y-scroll no-scrollbar flex flex-col items-center transition-[translate] ease-out duration-500 ${shownForm == selectedService.indexOf('personal') ? 'z-10' : 'z-0'}`} 
@@ -304,7 +364,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} />
+                <PhotographyDetails isLast={selectedService[selectedService.length - 1] == 'photography'} handleSubmit={handleSubmit} photographyDetails={photographyDetails} setPhotographyDetails={setPhotographyDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -317,7 +377,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <VideographyDetails isLast={selectedService[selectedService.length - 1] == 'videography'} handleSubmit={handleSubmit} videographyDetails={videographyDetails} setVideographyDetails={setVideographyDetails} handleNext={handleNext} />
+                <VideographyDetails isLast={selectedService[selectedService.length - 1] == 'videography'} handleSubmit={handleSubmit} videographyDetails={videographyDetails} setVideographyDetails={setVideographyDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -330,7 +390,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} />
+                <WebServiceDetails isLast={selectedService[selectedService.length - 1] == 'webService'} handleSubmit={handleSubmit} webServiceDetails={webServiceDetails} setWebServiceDetails={setWebServiceDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
 
@@ -343,7 +403,7 @@ const RequestForm = () => {
                 transition={{ duration : 0.5}}
                 className=' w-full h-full flex flex-col items-center justify-start '
             >
-                <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} />
+                <MarketingDetails isLast={selectedService[selectedService.length - 1] == 'marketing'} handleSubmit={handleSubmit} marketingDetails={marketingDetails} setMarketingDetails={setMarketingDetails} handleNext={handleNext} handleBack={handleBack} />
             </motion.div>
         </div>
         

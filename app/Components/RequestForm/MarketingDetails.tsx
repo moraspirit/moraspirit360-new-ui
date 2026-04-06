@@ -20,11 +20,16 @@ interface marketingDetailsProps {
     marketingDetails : marketingDetails,
     setMarketingDetails : React.Dispatch<marketingDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean,
 }
 
-const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleSubmit, isLast}) => {
+const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, setMarketingDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  const nowLocal = `${today}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
   return (
     <>
         <h1 className=' text-4xl font-bold my-5'>Marketing</h1>
@@ -57,6 +62,7 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={marketingDetails.eventDate}
                   onChange={(e) => {setMarketingDetails({...marketingDetails, eventDate : e.target.value})}}
                 />
@@ -68,6 +74,7 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                   type='datetime-local' 
                   name="startTime" 
                   id="startTime" 
+                  min={nowLocal}
                   value={marketingDetails.startTime}
                   onChange={(e) => {setMarketingDetails({...marketingDetails, startTime : e.target.value})}}
                 />
@@ -131,28 +138,50 @@ const marketingDetails : React.FC<marketingDetailsProps> = ({marketingDetails, s
                 </div>
               </div>
 
-            {
-            isLast ?
-            <button 
-                className=' form-btn'
-                onClick={handleSubmit}
-            >
-                Submit
-            </button> :
-            <button 
-                className=' form-btn'
-                onClick={() => {
-                  const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
-    
-                  if(marketingForm && marketingForm.checkValidity()){
-                    handleNext()
-                  }
-    
-                }}
-            >
-                Next
-            </button>
-            }
+            <div className='w-full flex items-center justify-between gap-4'>
+              <button
+                className='form-btn w-full bg-transparent border border-white/50'
+                type='button'
+                onClick={handleBack}
+              >
+                Back
+              </button>
+              {
+              isLast ?
+              <button 
+                  className=' form-btn w-full'
+                  type='button'
+                  onClick={() => {
+                    const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+      
+                    if(marketingForm && marketingForm.checkValidity()){
+                      handleSubmit();
+                    } else {
+                      marketingForm?.reportValidity();
+                    }
+      
+                  }}
+              >
+                  Submit
+              </button> :
+              <button 
+                  className=' form-btn w-full'
+                  type='button'
+                  onClick={() => {
+                    const marketingForm : HTMLFormElement = document.getElementById('marketingForm') as HTMLFormElement;
+      
+                    if(marketingForm && marketingForm.checkValidity()){
+                      handleNext()
+                    } else {
+                      marketingForm?.reportValidity();
+                    }
+      
+                  }}
+              >
+                  Next
+              </button>
+              }
+            </div>
         </form>
 
     </>

@@ -16,7 +16,6 @@ interface webServiceDetails {
     userCount : string,
     lookAndFeel : string,
     example : string,
-    material : File | null,
     budget : string,
     paymentSchedule : string,
 }
@@ -25,18 +24,13 @@ interface webServiceDetailsProps {
     webServiceDetails : webServiceDetails,
     setWebServiceDetails : React.Dispatch<webServiceDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleSubmit, isLast}) => {
-
-    const handleInputFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-        const fileInput = e.target! as HTMLInputElement;
-        if(fileInput.files && fileInput.files.length > 0){
-          setWebServiceDetails({...webServiceDetails, material : fileInput.files[0]});
-        }
-      }
+const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails, setWebServiceDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <>
@@ -70,6 +64,7 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                   type="date" 
                   name="completionDate" 
                   id="completionDate" 
+                  min={today}
                   value={webServiceDetails.completionDate}
                   onChange={(e) => {setWebServiceDetails({...webServiceDetails, completionDate : e.target.value})}}
                   required
@@ -174,16 +169,6 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, example : e.target.value })}}
                 required
             />
-            <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Existing Material or Documentation</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="material" 
-                  id="material" 
-                  onChange={handleInputFile}
-                />
-            </div>
             <input 
                 className=' typed-input remove-arrow' 
                 type="number" 
@@ -204,28 +189,50 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 <option value="onetime">One-time</option>
                 <option value="milestones">Milestones</option>
             </select>
-            {
-            isLast ?
-            <button 
-                className=' form-btn'
-                onClick={handleSubmit}
-            >
-                Submit
-            </button> :
-            <button 
-                className=' form-btn'
-                onClick={() => {
-                    const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
-      
-                    if(webServiceForm && webServiceForm.checkValidity()){
-                      handleNext()
-                    }
-      
-                  }}
-            >
-                Next
-            </button>
-            }
+            <div className='w-full flex items-center justify-between gap-4'>
+                <button
+                    className='form-btn w-full bg-transparent border border-white/50'
+                    type='button'
+                    onClick={handleBack}
+                >
+                    Back
+                </button>
+                {
+                isLast ?
+                <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                        const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+        
+                        if(webServiceForm && webServiceForm.checkValidity()){
+                          handleSubmit();
+                        } else {
+                          webServiceForm?.reportValidity();
+                        }
+        
+                      }}
+                >
+                    Submit
+                </button> :
+                <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                        const webServiceForm : HTMLFormElement = document.getElementById('webServiceForm') as HTMLFormElement;
+        
+                        if(webServiceForm && webServiceForm.checkValidity()){
+                          handleNext()
+                        } else {
+                          webServiceForm?.reportValidity();
+                        }
+        
+                      }}
+                >
+                    Next
+                </button>
+                }
+            </div>
         </form>
 
     </>

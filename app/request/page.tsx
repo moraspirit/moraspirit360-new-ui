@@ -1,7 +1,7 @@
 import Footer from "../Components/Footer/Footer";
 import RequestForm from "../Components/RequestForm/RequestForm";
 
-const imgUrl = "/repage.jpg"
+const imgUrl = "/repage.avif"
 
 export default function Home() {
     return (

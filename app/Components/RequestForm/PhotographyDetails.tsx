@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface photographyDetails {
     eventType : string,
@@ -7,7 +7,6 @@ interface photographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     attendees : string,
     photographers : string,
     imageUsage : string,
@@ -20,18 +19,13 @@ interface photographyDetailsProps {
     photographyDetails : photographyDetails,
     setPhotographyDetails : React.Dispatch<photographyDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleSubmit, isLast}) => {
-
-  const handleAgendaFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-    const fileInput = e.target! as HTMLInputElement;
-    if(fileInput.files && fileInput.files.length > 0){
-      setPhotographyDetails({...photographyDetails, agenda : fileInput.files[0]});
-    }
-  }
+const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDetails, setPhotographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+    const today = new Date().toISOString().split('T')[0];
 
     return (
         <>
@@ -54,6 +48,7 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={photographyDetails.eventDate}
                   onChange={(e) => {setPhotographyDetails({...photographyDetails, eventDate : e.target.value})}}
                   required
@@ -102,17 +97,6 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
                   placeholder='endTime'
                   value={photographyDetails.endTime}
                   onChange={(e) => {setPhotographyDetails({...photographyDetails, endTime : e.target.value })}}
-                  required
-                />
-              </div>
-              <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Agenda of the event</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="agenda" 
-                  id="agenda" 
-                  onChange={handleAgendaFile}
                   required
                 />
               </div>
@@ -183,28 +167,50 @@ const PhotographyDetails : React.FC<photographyDetailsProps> = ({photographyDeta
               >
               </textarea>
               
-              {
-                isLast ?
-                <button 
-                  className=' form-btn'
-                  onClick={handleSubmit}
+              <div className='w-full flex items-center justify-between gap-4'>
+                <button
+                  className='form-btn w-full bg-transparent border border-white/50'
+                  type='button'
+                  onClick={handleBack}
                 >
-                  Submit
-                </button> :
-                <button 
-                  className=' form-btn'
-                  onClick={() => {
-                    const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
-      
-                    if(photographyForm && photographyForm.checkValidity()){
-                      handleNext()
-                    }
-      
-                  }}
-                >
-                  Next
+                  Back
                 </button>
-              }
+                {
+                  isLast ?
+                  <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                      const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+        
+                      if(photographyForm && photographyForm.checkValidity()){
+                        handleSubmit();
+                      } else {
+                        photographyForm?.reportValidity();
+                      }
+        
+                    }}
+                  >
+                    Submit
+                  </button> :
+                  <button 
+                    className=' form-btn w-full'
+                    type='button'
+                    onClick={() => {
+                      const photographyForm : HTMLFormElement = document.getElementById('photographyForm') as HTMLFormElement;
+        
+                      if(photographyForm && photographyForm.checkValidity()){
+                        handleNext()
+                      } else {
+                        photographyForm?.reportValidity();
+                      }
+        
+                    }}
+                  >
+                    Next
+                  </button>
+                }
+              </div>
             </form>
         </>
   )

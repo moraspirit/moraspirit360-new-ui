@@ -34,7 +34,7 @@ export const generateMetadata = (): Metadata => {
       siteName: "MoraSpirit 360",
       images: [
         {
-          url: "https://moraspirit360.com/360Logo.jpg",
+          url: "https://moraspirit360.com/360Logo.avif",
           width: 800,
           height: 600,
           alt: "MoraSpirit 360 Logo",
@@ -49,9 +49,9 @@ export const generateMetadata = (): Metadata => {
       description:
         "Capture and glorify your events with MoraSpirit 360's premium photography, videography, marketing, and web development services.",
       images: [
-        "https://moraspirit360.com/photography.jpg",
-        "https://moraspirit360.com/marketingHero.png",
-        "https://moraspirit360.com/videographyHero.jpg",
+        "https://moraspirit360.com/photography.avif",
+        "https://moraspirit360.com/marketingHero.avif",
+        "https://moraspirit360.com/videographyHero.avif",
       ],
     },
     alternates: {
@@ -68,7 +68,7 @@ export const generateMetadata = (): Metadata => {
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
+      apple: "/apple-touch-icon.avif",
     },
     authors: [
       {

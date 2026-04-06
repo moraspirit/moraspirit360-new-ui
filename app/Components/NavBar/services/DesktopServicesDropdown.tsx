@@ -16,6 +16,10 @@ const DesktopServicesDropdown: React.FC = () => {
         href: '/marketing' 
       },
       { 
+        name: 'Digital Solutions', 
+        href: '/digital-solutions' 
+      },
+      { 
         name: 'Photography', 
         href: '/photography' 
       },

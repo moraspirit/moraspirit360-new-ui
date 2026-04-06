@@ -30,19 +30,23 @@ const Home = () => {
     window.location.href = "/marketing";
   }
 
+  function navigateToWebDevelopment() {
+    window.location.href = "/digital-solutions";
+  }
+
   const pastEvents = [
     {
-        url:"/event/past/1.jpeg",
+        url:"/event/past/1.avif",
         title : "Epilogue 2023",
         description : "MoraSpirit 360 wrapped up the EXMO exhibition in style with Epilogue 2023, a night filled with mesmerizing performances and unforgettable memories."
     },
     {
-        url : "/event/past/2.jpg",
+        url : "/event/past/2.avif",
         title : "Cricket Fiesta",
         description : "Bringing the sprit of cricket to life, MoraSpirit Cricket Fiesta was an action packed softball tournament with fierce competition and excitement."
     },
     {
-        url :"/event/past/3.jpeg",
+        url :"/event/past/3.avif",
         title : "Food Festival",
         description : "The MoraSpirit Food Festival in August, united with a diverse range of flavors and experiences became a paradise for all sorts of food lovers within the university."
     }
@@ -59,7 +63,7 @@ const Home = () => {
               "@type": "Organization",
               name: "MoraSpirit 360",
               url: "https://moraspirit360.com",
-              logo: "https://moraspirit360.com/360Logo.jpg",
+              logo: "https://moraspirit360.com/360Logo.avif",
               sameAs: [
                 "https://www.facebook.com/MoraSpirit360/",
                 "https://x.com/moraspiritNews",
@@ -82,7 +86,7 @@ const Home = () => {
                         <h1 className={`${styles.title360} ${styles.zoomIn}`}>360</h1> */}
             <Image
               className=" aspect-square min-w-[150px] md:min-w-[250px] lg:min-w-[300px] xl:min-w-[350px]"
-              src="/white_logo.png"
+              src="/white_logo.avif"
               width={200}
               height={200}
               alt="MoraSpirit360 logo"
@@ -105,14 +109,15 @@ const Home = () => {
           <h1>Bringing Your Vision to Life</h1>
           <p className="font-thin">
             MoraSpirit 360 is your all-in-one partner for exceptional event
-            coverage, creative marketing solutions, and innovative web
-            development. From capturing every moment with stunning photography
-            and videography to promoting your event with targeted marketing
-            strategies, we bring your vision to life. Our team of experts
-            combines creativity, technology, and a deep understanding of your
-            needs to deliver results that resonate. Whether it's a corporate
-            event, a sports tournament, or a digital project, MoraSpirit 360 is
-            committed to excellence at every step.
+            coverage, creative marketing solutions, and end-to-end digital
+            product engineering. From capturing every moment with stunning
+            photography and videography to building web platforms, mobile apps,
+            software systems, and AI-enabled experiences, we bring your vision
+            to life. Our team combines creativity, technology, and a deep
+            understanding of your goals to deliver outcomes that resonate.
+            Whether it's a corporate event, a sports tournament, or a digital
+            initiative, MoraSpirit 360 is committed to excellence at every
+            step.
           </p>
           <button className={styles.requestButton} onClick={navigateToRequest}>
             REQUEST
@@ -182,19 +187,24 @@ const Home = () => {
         </ScrollLeftDiv>
       </section>
 
-      {/* Web Development Section */}
+      {/* Digital Solutions Section */}
       <section
         className={`${styles.webDevelopmentSection} ${styles.section} ${styles.scrollUpAnimation}`}
       >
         <ScrollLeftDiv>
-          <h1 className="z-50">WEB DEVELOPMENT</h1>
-          <p>Building Digital Platforms that Empower Your Business</p>
-          <p>Innovative Solutions for the Modern Web</p>
+          <h1 className="z-50">DIGITAL SOLUTIONS</h1>
+          <p>Web, Mobile, Software, and AI Agentic Products</p>
+          <p>Scalable Engineering for Modern Business Needs</p>
           <div className={styles.buttonContainer}>
             <button className={styles.button} onClick={navigateToRequest}>
               Request
             </button>
-            <button className={styles.button}>Learn more</button>
+            <button
+              className={styles.button}
+              onClick={navigateToWebDevelopment}
+            >
+              Learn more
+            </button>
           </div>
         </ScrollLeftDiv>
       </section>

@@ -7,7 +7,6 @@ interface videographyDetails {
     mapLocation : string,
     startTime : string,
     endTime : string,
-    agenda : File | null,
     requirment : string,
     description : string,
 }
@@ -16,18 +15,13 @@ interface videographyDetailsProps {
     videographyDetails : videographyDetails,
     setVideographyDetails : React.Dispatch<videographyDetails>,
     handleNext : () => void,
+    handleBack : () => void,
     handleSubmit : () => void,
     isLast? : boolean;
 }
 
-const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleSubmit, isLast}) => {
-
-    const handleAgendaFile = (e : React.ChangeEvent<HTMLInputElement>) => {
-        const fileInput = e.target! as HTMLInputElement;
-        if(fileInput.files && fileInput.files.length > 0){
-          setVideographyDetails({...videographyDetails, agenda : fileInput.files[0]});
-        }
-      }
+const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDetails, setVideographyDetails, handleNext, handleBack, handleSubmit, isLast}) => {
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <>
@@ -40,6 +34,7 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                   type="date" 
                   name="eventDate" 
                   id="eventDate" 
+                  min={today}
                   value={videographyDetails.eventDate}
                   onChange={(e) => {setVideographyDetails({...videographyDetails, eventDate : e.target.value})}}
                 />
@@ -88,17 +83,6 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                   onChange={(e) => {setVideographyDetails({...videographyDetails, endTime : e.target.value })}}
                 />
               </div>
-              <div className=' flex w-full flex-row justify-center items-center '>
-                <label className=' text-gray-500 text-lg flex-1' htmlFor="date">Agenda of the event</label>
-                <input 
-                  className=' typed-input flex-1'
-                  type="file" 
-                  name="agenda" 
-                  id="agenda" 
-                  onChange={handleAgendaFile}
-                  required
-                />
-              </div>
               <select 
                 className=' select-input' 
                 name="needPublish" 
@@ -122,28 +106,50 @@ const VideographyDetails : React.FC<videographyDetailsProps> = ({videographyDeta
                 required
               >
               </textarea>
-          {
-            isLast ?
-            <button 
-              className=' form-btn'
-              onClick={handleSubmit}
+          <div className='w-full flex items-center justify-between gap-4'>
+            <button
+              className='form-btn w-full bg-transparent border border-white/50'
+              type='button'
+              onClick={handleBack}
             >
-              Submit
-            </button> :
-            <button 
-              className=' form-btn'
-              onClick={() => {
-                const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
-  
-                if(videographyForm && videographyForm.checkValidity()){
-                  handleNext()
-                }
-  
-              }}
-            >
-              Next
+              Back
             </button>
-          }
+            {
+              isLast ?
+              <button 
+                className=' form-btn w-full'
+                type='button'
+                onClick={() => {
+                  const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
+    
+                  if(videographyForm && videographyForm.checkValidity()){
+                    handleSubmit();
+                  } else {
+                    videographyForm?.reportValidity();
+                  }
+    
+                }}
+              >
+                Submit
+              </button> :
+              <button 
+                className=' form-btn w-full'
+                type='button'
+                onClick={() => {
+                  const videographyForm : HTMLFormElement = document.getElementById('videographyForm') as HTMLFormElement;
+    
+                  if(videographyForm && videographyForm.checkValidity()){
+                    handleNext()
+                  } else {
+                    videographyForm?.reportValidity();
+                  }
+    
+                }}
+              >
+                Next
+              </button>
+            }
+          </div>
         </form>
 
     </>
