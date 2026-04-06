@@ -276,7 +276,7 @@ const RequestForm = () => {
     }
 
   return (
-    <div className=' w-full h-full px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
+    <div className='w-full h-full px-4 sm:px-10 flex flex-col items-center justify-start text-white gap-5' ref={parentDiv}>
         <div className='w-full mt-4'>
             <div className='flex items-center justify-between gap-3 text-xs sm:text-sm text-zinc-300'>
                 <p>Step {Math.min(shownForm + 1, selectedService.length)} of {selectedService.length}</p>

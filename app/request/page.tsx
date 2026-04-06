@@ -6,9 +6,9 @@ const imgUrl = "/repage.avif"
 export default function Home() {
     return (
         <>
-        <div className=" w-full md:overflow-hidden flex flex-col md:flex-row">
+        <div className="w-full md:overflow-hidden flex flex-col md:flex-row">
 
-            <div className="h-[100vh] flex-1">
+            <div className="h-[70dvh] md:h-[100dvh] flex-1">
                 <div className=" w-full h-full relative">
                     <div className=" absolute first-letter w-full h-full text-white flex flex-col items-center justify-center gap-2 z-20 text-center px-3 sm:px-0">
                         <h1 className=" text-4xl md:text-5xl font-extrabold">Tailor Your Experience</h1>
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
 
-            <div className="h-[100vh] flex-1 overflow-y-scroll overflow-x-hidden text-white">
+            <div className="min-h-[100dvh] md:h-[100dvh] flex-1 md:overflow-y-scroll overflow-x-hidden text-white">
                 <RequestForm />
             </div>
         </div>

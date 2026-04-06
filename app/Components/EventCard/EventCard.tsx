@@ -52,7 +52,7 @@ const EventCard : React.FC<eventCardProps> = ({ imgUrl, delay = 0, title = '', d
   
   return (
     <div 
-      className={` relative  w-[387px] aspect-[3/4]  transition-all ease-out duration-1000 rounded-2xl ${isVisible? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} 
+      className={` relative w-full max-w-[387px] aspect-[3/4] transition-all ease-out duration-1000 rounded-2xl ${isVisible? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} 
       style={{...cardStyle, transitionDelay : `${delay}ms`}} 
       ref={ref}
       onMouseEnter={handleMouseEnter}

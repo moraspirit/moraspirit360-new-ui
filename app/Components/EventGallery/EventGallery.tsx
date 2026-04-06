@@ -16,7 +16,7 @@ const EventGallery : React.FC<eventGalleryProps> = ({eventImg}) => {
     useEffect(() => {
         setEvents(eventImg.slice(0,6));
         setLoaded(6);
-    },[])
+    },[eventImg])
 
     const loadMore = () => {
         setEvents(eventImg.slice(0, loaded + 6));
@@ -33,7 +33,7 @@ const EventGallery : React.FC<eventGalleryProps> = ({eventImg}) => {
         <ScrollRevealDiv className="w-full flex flex-col items-center">
             <h1 className=" text-3xl sm:text-4xl text-center font-bold">EXPLORE OUR JOURNEY</h1>
         </ScrollRevealDiv>
-        <div className=" w-[80%] mt-10 grid grid-col-1 sm:grid-cols-3 gap-5 ">
+        <div className="w-[90%] sm:w-[80%] mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
             {
                 events.map((imgUrl, index) => {
                     return (
