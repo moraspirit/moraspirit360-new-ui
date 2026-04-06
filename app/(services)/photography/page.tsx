@@ -98,11 +98,11 @@ export default function Home() {
             <PageHero imgUrl={imgUrl} title={title} subTitle={subTitle} description={description} />
             <section className=" w-full mt-10 mb-5 my-6 py-10 text-white flex flex-col items-center justify-start gap-2 ">
                 <ScrollRevealDiv className="w-full flex flex-col items-center">
-                    <h1 className=" text-2xl mb-5 sm:text-7xl tracking-widest font-bold">STORIES IN MOTION</h1>
+                    <h1 className="text-3xl mb-5 sm:text-7xl tracking-widest font-bold text-center px-4">STORIES IN MOTION</h1>
 
                     <div
-                        className=" w-[65%] sm:mt-5 flex text-center justify-center">
-                        <p className="text-sm sm:text-xl font-light">At MoraSpirit 360, we believe that every moment deserves to be
+                        className="w-[90%] sm:w-[65%] sm:mt-5 flex text-center justify-center">
+                        <p className="text-base sm:text-xl font-light leading-relaxed">At MoraSpirit 360, we believe that every moment deserves to be
                             captured with precision,
                             creativity, and a touch of cinematic magic. Our videography services are designed to
                             transform

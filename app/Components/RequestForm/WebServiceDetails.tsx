@@ -142,18 +142,27 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 name="userCount" 
                 id="userCount" 
                 placeholder=' Number of Users Do You Expect' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={webServiceDetails.userCount}
-                onChange={(e) => {setWebServiceDetails({...webServiceDetails, userCount : e.target.value })}}
+                onChange={(e) => {
+                  setWebServiceDetails({
+                    ...webServiceDetails,
+                    userCount : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
                 required
               />
             <select 
-                className=' select-input' 
+                className={`select-input ${webServiceDetails.lookAndFeel ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="lookAndFeel" 
                 id="lookAndFeel"
                 value={webServiceDetails.lookAndFeel}
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, lookAndFeel : e.target.value })}}
+                required
             >
-                <option value="">Look And Feel </option>
+                <option value="" disabled>Look And Feel </option>
                 <option value="modern">Modern</option>
                 <option value="professional">Professional</option>
                 <option value="fun">Fun</option>
@@ -175,17 +184,26 @@ const WebServiceDetails : React.FC<webServiceDetailsProps> = ({webServiceDetails
                 name="budget" 
                 id="budget" 
                 placeholder=' Estimated Budget Range' 
+                inputMode='numeric'
+                min={0}
+                step={1}
                 value={webServiceDetails.budget}
-                onChange={(e) => {setWebServiceDetails({...webServiceDetails, budget : e.target.value })}}
+                onChange={(e) => {
+                  setWebServiceDetails({
+                    ...webServiceDetails,
+                    budget : e.target.value.replace(/\D/g, ''),
+                  });
+                }}
               />
             <select 
-                className=' select-input' 
+                className={`select-input ${webServiceDetails.paymentSchedule ? 'select-input-selected' : 'select-input-placeholder'}`} 
                 name="paymentSchedule" 
                 id="paymentSchedule"
                 value={webServiceDetails.paymentSchedule}
                 onChange={(e) => {setWebServiceDetails({...webServiceDetails, paymentSchedule : e.target.value })}}
+                required
             >
-                <option value="">Preffered Payment Schedule </option>
+                <option value="" disabled>Preffered Payment Schedule </option>
                 <option value="onetime">One-time</option>
                 <option value="milestones">Milestones</option>
             </select>

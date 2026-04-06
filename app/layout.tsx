@@ -34,7 +34,7 @@ export const generateMetadata = (): Metadata => {
       siteName: "MoraSpirit 360",
       images: [
         {
-          url: "https://moraspirit360.com/360Logo.avif",
+          url: "https://moraspirit360.com/white_logo.avif",
           width: 800,
           height: 600,
           alt: "MoraSpirit 360 Logo",
@@ -51,7 +51,7 @@ export const generateMetadata = (): Metadata => {
       images: [
         "https://moraspirit360.com/photography.avif",
         "https://moraspirit360.com/marketingHero.avif",
-        "https://moraspirit360.com/videographyHero.avif",
+        "https://moraspirit360.com/VideographyHero.avif",
       ],
     },
     alternates: {
@@ -68,7 +68,7 @@ export const generateMetadata = (): Metadata => {
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon.ico",
-      apple: "/apple-touch-icon.avif",
+      apple: "/white_logo.avif",
     },
     authors: [
       {

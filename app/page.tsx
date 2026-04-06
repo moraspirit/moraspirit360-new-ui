@@ -63,7 +63,7 @@ const Home = () => {
               "@type": "Organization",
               name: "MoraSpirit 360",
               url: "https://moraspirit360.com",
-              logo: "https://moraspirit360.com/360Logo.avif",
+              logo: "https://moraspirit360.com/white_logo.avif",
               sameAs: [
                 "https://www.facebook.com/MoraSpirit360/",
                 "https://x.com/moraspiritNews",
