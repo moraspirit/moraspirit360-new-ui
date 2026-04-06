@@ -60,7 +60,7 @@ const ClientFeedback: React.FC = () => {
                             <h5 className="mb-2 text-xl font-bold text-center tracking-tight text-mora-red">
                                 {card.speaker}
                             </h5>
-                            <p className="font-normal text-sm text-gray-400 text-center">
+                            <p className="font-normal text-base md:text-lg text-gray-400 text-center leading-relaxed">
                                 {card.content}
                             </p>
                         </div>

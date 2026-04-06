@@ -212,9 +212,9 @@
 /* Paragraph styles */
 .secondSection p {
   font-family: 'Inter', sans-serif;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 350;
-  line-height: 28px;
+  line-height: 34px;
   text-align: center;
   margin-bottom: 50px; /* Adjust spacing as needed */
 }
@@ -437,9 +437,9 @@
 
 .section p {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 350;
-  line-height: 22px;
+  line-height: 30px;
   margin-bottom: 10px;
 }
 
@@ -519,4 +519,3 @@
     padding: 8px 20px;
   }
 }
-

@@ -24,11 +24,11 @@ body {
 
 @layer components {
   .typed-input {
-    @apply w-full h-10 text-lg bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
+    @apply w-full h-12 text-xl bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
   }
 
   .textarea-input {
-    @apply w-full text-lg bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
+    @apply w-full text-xl bg-transparent placeholder-gray-500 border-b border-gray-500 focus:border-gray-200 outline-none transition-all ease-out duration-300
   }
 
   .checkbox-input {
@@ -36,7 +36,7 @@ body {
   }
 
   .select-input {
-    @apply w-full h-10 text-lg bg-transparent text-gray-500 appearance-none border-b border-gray-500 focus:border-gray-200 outline-none
+    @apply w-full h-12 text-xl bg-transparent text-gray-500 appearance-none border-b border-gray-500 focus:border-gray-200 outline-none
   }
 
   .select-input-placeholder {
@@ -48,11 +48,11 @@ body {
   }
 
   .form-label {
-    @apply text-lg
+    @apply text-xl
   }
 
   .form-btn {
-    @apply w-[120px] h-[40px] mt-5 border-2 border-white rounded-xl text-lg font-bold hover:bg-mora-red active:translate-y-1
+    @apply w-[140px] h-[46px] mt-5 border-2 border-white rounded-xl text-xl font-bold hover:bg-mora-red active:translate-y-1
   }
 
 }
