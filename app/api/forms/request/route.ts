@@ -2,6 +2,7 @@ import { randomUUID } from 'crypto';
 import { NextResponse } from 'next/server';
 import type { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -33,8 +34,39 @@ const toInputJson = (value: Record<string, unknown> | null): Prisma.InputJsonVal
   return value as Prisma.InputJsonValue;
 };
 
+const RATE_LIMIT_MAX = Math.max(Number(process.env.FORM_SUBMIT_RATE_LIMIT_MAX ?? 5), 1);
+const RATE_LIMIT_WINDOW_SECONDS = Math.max(
+  Number(process.env.FORM_SUBMIT_RATE_LIMIT_WINDOW_SECONDS ?? 300),
+  1,
+);
+
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+    const rateLimit = checkRateLimit({
+      key: `forms:request:${clientIp}`,
+      limit: RATE_LIMIT_MAX,
+      windowSeconds: RATE_LIMIT_WINDOW_SECONDS,
+    });
+
+    if (rateLimit.limited) {
+      return NextResponse.json(
+        {
+          message: 'Too many submissions. Please wait a few minutes before trying again.',
+          success: false,
+        },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(rateLimit.retryAfterSeconds),
+            'X-RateLimit-Limit': String(RATE_LIMIT_MAX),
+            'X-RateLimit-Remaining': String(rateLimit.remaining),
+            'X-RateLimit-Reset': String(Math.floor(rateLimit.resetAt / 1000)),
+          },
+        },
+      );
+    }
+
     const formData = await request.formData();
 
     const personalDetails = parseJsonField<PersonalDetails>(formData.get('personalDetails'));
@@ -73,7 +105,17 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({ message: 'Request submitted successfully.', success: true }, { status: 201 });
+    return NextResponse.json(
+      { message: 'Request submitted successfully.', success: true },
+      {
+        status: 201,
+        headers: {
+          'X-RateLimit-Limit': String(RATE_LIMIT_MAX),
+          'X-RateLimit-Remaining': String(rateLimit.remaining),
+          'X-RateLimit-Reset': String(Math.floor(rateLimit.resetAt / 1000)),
+        },
+      },
+    );
   } catch (error) {
     console.error('Failed to save request form:', error);
     const message =
