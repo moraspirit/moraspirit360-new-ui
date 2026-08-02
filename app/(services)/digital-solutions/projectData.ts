@@ -22,6 +22,550 @@ export type ProjectDetail = {
 
 export const digitalProjects: ProjectDetail[] = [
   {
+    slug: "epilogue-online-ticketing-and-qr-verification",
+    title: "Epilogue Online Ticketing & QR Verification System",
+    category: "Ticketing Platform",
+    summary:
+      "How MoraSpirit 360 built a secure end-to-end ticketing pipeline for Epilogue '26 — from online reservation to gate-day QR checks.",
+    image: "/digital_solution/epilogue-ticketing.avif",
+    article: [
+      {
+        type: "paragraph",
+        text: "Selling thousands of concert tickets is only half the problem. The harder half is making sure every ticket that reaches the gate is authentic, issued correctly, and impossible to forge or reuse. For Epilogue '26, MoraSpirit 360 built a complete online ticketing and QR verification system that covers purchase, payment review, e-ticket delivery, and live event-day scanning.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-ticketing-1.avif",
+        alt: "Online ticket reservation form on epilogue.moraspirit.com",
+      },
+      {
+        type: "paragraph",
+        text: "Online ticket reservation form on epilogue.moraspirit.com",
+      },
+      {
+        type: "heading",
+        text: "At a Glance",
+      },
+      {
+        type: "meta",
+        rows: [
+          {
+            label: "Project",
+            value: "Epilogue Online Ticketing & QR Verification",
+          },
+          {
+            label: "Purpose",
+            value:
+              "Secure ticket sales, e-ticket issuance, and real-time gate/member verification for Epilogue '26.",
+          },
+          {
+            label: "Live Surfaces",
+            value:
+              "epilogue.moraspirit.com (purchase) · ticket.moraspirit.com (admin, gate & member scanners)",
+          },
+          {
+            label: "Audience",
+            value:
+              "University of Moratuwa undergraduates, alumni, and event operations staff",
+          },
+          {
+            label: "Ticket Tiers",
+            value:
+              "Standard (Rs. 1,400) · Premium (Rs. 1,800) · Alumni (Rs. 2,500) · Limited Premium Bundles",
+          },
+          {
+            label: "Technology",
+            value:
+              "Node.js, Express, SQLite, HMAC-signed QR codes, Sharp, Nodemailer, Google Sheets/Drive, browser QR scanners",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Project Overview",
+      },
+      {
+        type: "paragraph",
+        text: "The Epilogue ticketing system is a purpose-built operations platform for a large campus music festival. Buyers reserve tickets through a guided online form, upload a bank payment slip, and wait for organizer approval. Once approved, the system generates cryptographically signed QR e-tickets and delivers them by email.",
+      },
+      {
+        type: "paragraph",
+        text: "On event day, staff use dedicated mobile web portals — Gate Entrance and Member Verification — to scan tickets in real time. Fake, unissued, or already-used tickets are blocked instantly, with security alerts sent to organizers when fraud patterns appear.",
+      },
+      {
+        type: "heading",
+        text: "The Challenge",
+      },
+      {
+        type: "paragraph",
+        text: "Traditional campus ticket sales often rely on spreadsheets, screenshots of bank transfers, and paper stubs. That approach breaks down when attendance grows into the thousands, when alumni and student tiers need different pricing, and when counterfeit QR images start circulating on social media.",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue needed a system that could:",
+      },
+      {
+        type: "list",
+        items: [
+          "Accept online reservations with payment-slip uploads.",
+          "Support Standard, Premium, Alumni, and limited bundle pricing.",
+          "Issue branded e-tickets that are hard to forge.",
+          "Verify tickets at the gate within seconds using phones — not dedicated hardware.",
+          "Prevent double entry while still allowing multi-ticket purchases.",
+          "Give admins a live view of sales, issuance, and scan activity.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "The Solution",
+      },
+      {
+        type: "paragraph",
+        text: "MoraSpirit 360 designed a full pipeline: public reservation on the festival website, a secure backend for approval and issuance, and browser-based scanners for event day. Every issued ticket carries an HMAC-signed token. Scanners verify the signature before trusting any buyer details, so a copied or edited QR cannot pass as valid.",
+      },
+      {
+        type: "heading",
+        text: "Buyer Journey",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "1. Online Reservation",
+      },
+      {
+        type: "paragraph",
+        text: "From epilogue.moraspirit.com, buyers open the Ticket Reservation modal and enter name, contact number, email, university index number, batch, faculty, and department. Students choose Standard and/or Premium quantities; Alumni buyers are routed to the Alumni ticket tier automatically.",
+      },
+      {
+        type: "paragraph",
+        text: "A live calculated total updates as quantities change. Buyers then upload a payment slip (JPEG, PNG, WEBP, or PDF, max 5MB) before submitting. The backend stores the request, syncs details to Google Sheets, and uploads the slip to Google Drive for finance review.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "2. Approval & E-Ticket Issuance",
+      },
+      {
+        type: "paragraph",
+        text: "Organizers review pending requests in the Admin Console. After payment confirmation, the system generates a unique ticket ID, creates an HMAC-signed QR token, and renders a branded e-ticket image. Alumni tickets use dedicated Early Bird / Final design templates; general tickets use an SVG template converted to a high-quality image.",
+      },
+      {
+        type: "paragraph",
+        text: "Confirmed tickets are emailed to the buyer with the e-ticket attached. Multi-ticket purchases receive individual QR codes (sub-tokens), so each person in a group can be checked in separately.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-ticketing-3.avif",
+        alt: "Alumni e-ticket design with QR placement for gate scanning",
+      },
+      {
+        type: "paragraph",
+        text: "Alumni e-ticket design with QR placement for gate scanning",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "3. Event-Day Verification",
+      },
+      {
+        type: "paragraph",
+        text: "Two scanner portals handle the door:",
+      },
+      {
+        type: "list",
+        items: [
+          "Gate Entrance Portal — verifies authenticity and shows buyer details. Re-scans are logged but do not block soft re-entry checks at the perimeter.",
+          "Member Verification Portal — the strict check-in step. Valid tickets can be marked as entered; duplicate scans are rejected and trigger security alerts.",
+        ],
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-ticketing-4.avif",
+        alt: "Gate Entrance Portal — mobile QR scanner UI",
+        variant: "phone",
+      },
+      {
+        type: "paragraph",
+        text: "Gate Entrance Portal — mobile QR scanner UI",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-ticketing-5.avif",
+        alt: "Admin Console authentication screen",
+      },
+      {
+        type: "paragraph",
+        text: "Admin Console authentication screen",
+      },
+      {
+        type: "heading",
+        text: "Key Features",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Cryptographic QR Tokens",
+      },
+      {
+        type: "paragraph",
+        text: "Each ticket token is signed with HMAC-SHA256. Scanners reject any QR whose signature does not match, even if the ticket ID looks plausible. Timing-safe comparison protects against simple timing attacks.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Anti-Fraud & Duplicate Protection",
+      },
+      {
+        type: "paragraph",
+        text: "Fake tickets, unissued tickets, and already-checked-in sub-tokens return clear statuses to staff. Critical cases — forged QRs and duplicate entry attempts — dispatch real-time security alert emails with scanner name, buyer details, and timestamps.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Admin Operations Console",
+      },
+      {
+        type: "paragraph",
+        text: "A PIN-protected dashboard lets organizers sync from Google Sheets, trigger backups, test SMTP, monitor ticket counts, and manage issuance. The admin surface is intentionally separated onto ticket.moraspirit.com so public marketing traffic and operations traffic stay cleanly split.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Premium Bundle Offers",
+      },
+      {
+        type: "paragraph",
+        text: "Limited Premium bundles (5 tickets at a discounted package price, capped inventory) were tracked server-side. Bundle availability and sell-out state could be exposed to the website so marketing components appear and disappear automatically as inventory changes.",
+      },
+      {
+        type: "heading",
+        text: "System Architecture",
+      },
+      {
+        type: "paragraph",
+        text: "The backend is a Node.js / Express service with SQLite for ticket state, scan logs, and operational ledgers. Supporting services handle QR generation, e-ticket rendering (Sharp), SMTP delivery (Nodemailer), and Google Sheets / Drive sync for finance and backup workflows.",
+      },
+      {
+        type: "paragraph",
+        text: "Static festival marketing content is served from epilogue.moraspirit.com. Scanner and admin routes on that host redirect to ticket.moraspirit.com, keeping verification tools on a dedicated operations domain.",
+      },
+      {
+        type: "heading",
+        text: "Technology Stack",
+      },
+      {
+        type: "table",
+        headers: ["Technology", "Contribution"],
+        rows: [
+          [
+            "Node.js + Express",
+            "API server, scanners, admin routes, rate limiting",
+          ],
+          [
+            "SQLite (better-sqlite3)",
+            "Tickets, scan logs, bundle stats, operational ledger",
+          ],
+          ["HMAC-SHA256 QR tokens", "Forge-resistant ticket authentication"],
+          ["qr-scanner (browser)", "Camera-based scanning on phones and tablets"],
+          [
+            "Sharp",
+            "E-ticket image composition and Alumni template overlays",
+          ],
+          ["Nodemailer", "E-ticket delivery and security alerts"],
+          [
+            "Google Sheets / Drive",
+            "Payment review workflow and slip storage",
+          ],
+          [
+            "Multer + Helmet + CORS",
+            "Upload handling and baseline API hardening",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Technical Highlights",
+      },
+      {
+        type: "list",
+        items: [
+          "End-to-end flow from payment slip upload to emailed e-ticket",
+          "HMAC-signed QR codes with high error-correction for print/phone glare",
+          "Separate Gate and Member scanner roles for perimeter vs check-in",
+          "Sub-token support for multi-ticket purchases",
+          "Real-time fake/duplicate security email alerts",
+          "Google Sheets sync and Drive slip archival for finance teams",
+          "Domain split between marketing site and operations scanners",
+          "Rate-limited scan endpoints for event-day traffic spikes",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Outcome",
+      },
+      {
+        type: "paragraph",
+        text: "The Epilogue ticketing stack gave MoraSpirit 360 a reliable way to sell and verify festival tickets without paper stubs or fragile spreadsheet workflows. Buyers received branded digital tickets; door staff verified authenticity in seconds; and organizers retained a clear audit trail from payment to entry.",
+      },
+      {
+        type: "paragraph",
+        text: "Together with the public festival website, the system formed the operational backbone of Epilogue '26 — connecting excitement online to a controlled, trustworthy experience at the gate.",
+      },
+      {
+        type: "heading",
+        text: "About MoraSpirit",
+      },
+      {
+        type: "paragraph",
+        text: "Founded in 2009 by University of Moratuwa undergraduates, MoraSpirit began as a university sports media platform and has grown into a student-run initiative behind events, campaigns, and digital products across the university — Epilogue among them. MoraSpirit 360 continues that work by engineering the digital systems that make large campus experiences possible.",
+      },
+    ],
+  },
+  {
+    slug: "epilogue-26-official-website",
+    title: "Epilogue '26 Official Website",
+    category: "Festival Website",
+    summary:
+      "A cinematic, conversion-focused festival website for epilogue.moraspirit.com — built to introduce the night, showcase the lineup, and drive ticket sales.",
+    image: "/digital_solution/epilogue-official-website.avif",
+    article: [
+      {
+        type: "paragraph",
+        text: "Epilogue '26 needed more than an event landing page. It needed a digital stage — a site that could carry the atmosphere of a university music festival, introduce headliners with cinematic motion, and convert visitors into ticket buyers. The result is epilogue.moraspirit.com: a React + Vite experience designed by MoraSpirit 360 as the public face of Epilogue.",
+      },
+      {
+        type: "heading",
+        text: "At a Glance",
+      },
+      {
+        type: "meta",
+        rows: [
+          { label: "Project", value: "Epilogue '26 Official Website" },
+          { label: "Live URL", value: "https://epilogue.moraspirit.com" },
+          {
+            label: "Purpose",
+            value:
+              "Festival storytelling, lineup reveal, gallery, and online ticket reservation entry point.",
+          },
+          {
+            label: "Organizer",
+            value: "MoraSpirit 360 — University of Moratuwa",
+          },
+          {
+            label: "Event",
+            value:
+              "Epilogue '26 · July 28, 2026 · Venue: Lagaan · 6:00 PM onwards",
+          },
+          {
+            label: "Technology",
+            value:
+              "React 19, Vite, Tailwind CSS, MUI Icons, react-kino scroll scenes, Three.js / R3F, Lottie",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Project Overview",
+      },
+      {
+        type: "paragraph",
+        text: "The Epilogue website is a single-page festival experience. Visitors land on a dark, neon-accented hero with the Epilogue brand, a short promise of the night, a live countdown, and a full-bleed concert atmosphere. From there, scroll-driven sections reveal the headlining act, artist lineup, photo gallery, festival story, and organizer presence — with Buy Tickets available throughout.",
+      },
+      {
+        type: "paragraph",
+        text: "Ticket purchase is not a separate website. A reservation modal opens in place, collecting buyer details and payment slips before handing off to the ticketing backend. That keeps marketing and conversion in one continuous journey.",
+      },
+      {
+        type: "heading",
+        text: "The Challenge",
+      },
+      {
+        type: "paragraph",
+        text: "Festival sites often fail in one of two ways: they look generic, or they look impressive but are hard to use on a phone in a rush. Epilogue needed both presence and clarity — a first viewport that feels like the event, plus an obvious path to buy tickets.",
+      },
+      {
+        type: "paragraph",
+        text: "The build also had to:",
+      },
+      {
+        type: "list",
+        items: [
+          "Present Epilogue as a brand-first experience, not a generic event template.",
+          "Highlight Daddy as the main-stage headliner and tease the wider artist lineup.",
+          "Stay fast and readable on mobile devices.",
+          "Integrate Koko Pay Later and the online reservation flow without breaking immersion.",
+          "Support immersive motion (loader, parallax, scroll scenes) without sacrificing accessibility basics.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "The Solution",
+      },
+      {
+        type: "paragraph",
+        text: "MoraSpirit 360 engineered a cinematic single-page app with a deliberate section sequence: Loader → Hero → Lineup → Gallery → Experience → Organizer → Footer, plus Lightbox and Ticket Form overlays. Motion is used to create hierarchy and arrival — not noise — while ticket CTAs remain persistent in the navigation.",
+      },
+      {
+        type: "heading",
+        text: "Website Experience",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Immersive Opening",
+      },
+      {
+        type: "paragraph",
+        text: "A branded loader builds anticipation before the page splits open into the hero. The hero pairs background concert video with a 3D-parallax artist cutout, floating brand mark, short supporting line, and a glass-panel countdown. Event date, venue, and start time sit as secondary logistics — never overpowering the brand.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Headlining & Artist Lineup",
+      },
+      {
+        type: "paragraph",
+        text: "As visitors scroll, the hero yields to the Headlining section featuring Daddy — complete with portrait treatment, Main Stage badge, and band story. Below, the Artist Lineup section continues the narrative with clue-style cards and copy that keeps curiosity high while the full roster builds excitement for the night.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-official-website-2.avif",
+        alt: "Headlining section featuring Daddy and the Artist Lineup reveal",
+      },
+      {
+        type: "paragraph",
+        text: "Headlining section featuring Daddy and the Artist Lineup reveal",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Gallery & Experience",
+      },
+      {
+        type: "paragraph",
+        text: "A gallery of festival and MoraSpirit imagery opens in a lightbox for closer viewing. The Experience section answers “What is Epilogue?” through three focused stories — The Festival, The Vibe, and The Community — grounding the spectacle in the University of Moratuwa audience and MoraSpirit 360’s organizing role.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-official-website-3.avif",
+        alt: "Experience section — festival story, vibe, and community",
+      },
+      {
+        type: "paragraph",
+        text: "Experience section — festival story, vibe, and community",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Ticket Reservation Modal",
+      },
+      {
+        type: "paragraph",
+        text: "Buy Tickets opens a dark-themed reservation form without leaving the page. Buyers enter contact and university details, choose Standard (Rs. 1,400) and Premium (Rs. 1,800) quantities — or Alumni pricing when applicable — see a live calculated total, and upload a payment slip. Koko Pay Later remains available from the nav as an alternate payment path.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-official-website-4.avif",
+        alt: "In-page ticket reservation modal with tier selection and live total",
+      },
+      {
+        type: "paragraph",
+        text: "In-page ticket reservation modal with tier selection and live total",
+      },
+      {
+        type: "heading",
+        text: "Key Features",
+      },
+      {
+        type: "list",
+        items: [
+          "Brand-led cinematic hero with video atmosphere and artist parallax",
+          "Scroll-pinned scene transitions using react-kino",
+          "Persistent Buy Tickets CTA and Koko Pay Later entry point",
+          "Headlining spotlight for Daddy and clue-driven artist lineup",
+          "Lightbox gallery for immersive media browsing",
+          "Experience storytelling for festival, vibe, and community",
+          "Organizer / social presence for MoraSpirit channels",
+          "Responsive layout tuned for desktop spectacle and mobile access",
+          "Reveal-on-scroll animations for section arrival",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Design Direction",
+      },
+      {
+        type: "paragraph",
+        text: "The visual language is night-festival: deep charcoal surfaces, neon green accents, glass panels, and high-contrast type. The first viewport is one composition — brand, one supporting line, countdown/CTA energy, and a dominant visual plane — rather than a dashboard of competing promos. Motion reinforces arrival: loader split, floating brand, cursor glow, and parallax depth on fine-pointer devices.",
+      },
+      {
+        type: "heading",
+        text: "Technology Stack",
+      },
+      {
+        type: "table",
+        headers: ["Technology", "Contribution"],
+        rows: [
+          ["React 19", "Component-based UI and modal/overlay state"],
+          ["Vite", "Fast local development and optimized production builds"],
+          [
+            "Tailwind CSS",
+            "Responsive layout, dark festival theme, utility styling",
+          ],
+          [
+            "react-kino",
+            "Pinned scroll scenes and hero progress-driven animation",
+          ],
+          [
+            "Three.js / React Three Fiber",
+            "Immersive 3D-capable visual layer where used",
+          ],
+          ["MUI Icons", "Consistent iconography across experience sections"],
+          ["Lottie", "Lightweight motion assets for branded moments"],
+          [
+            "Static deploy + CDN hosting",
+            "Public delivery via epilogue.moraspirit.com",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Technical Highlights",
+      },
+      {
+        type: "list",
+        items: [
+          "Single-page architecture with lazy overlays for lightbox and ticket form",
+          "Progress-driven hero animation tied to scroll pin duration",
+          "Intersection Observer reveal system for section storytelling",
+          "Mobile menu, reduced-motion awareness, and overflow locking for overlays",
+          "Build pipeline that publishes frontend assets alongside the ticketing stack",
+          "Clear separation: marketing site for storytelling, ticket domain for ops scanners",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Outcome",
+      },
+      {
+        type: "paragraph",
+        text: "epilogue.moraspirit.com became the public front door for Epilogue '26 — a site that sells the night as much as it sells the ticket. Visitors meet the brand first, discover the lineup through cinematic sections, and can start a reservation without breaking the experience.",
+      },
+      {
+        type: "paragraph",
+        text: "Paired with the online ticketing and QR verification system, the website completes the digital loop: attract, convert, issue, and verify — all under the MoraSpirit 360 umbrella.",
+      },
+      {
+        type: "heading",
+        text: "About MoraSpirit",
+      },
+      {
+        type: "paragraph",
+        text: "Founded in 2009 by University of Moratuwa undergraduates, MoraSpirit began as a university sports media platform and has grown into a broader student-run initiative behind events, campaigns, and digital platforms. MoraSpirit 360 builds the product experiences — including Epilogue’s official website — that turn campus moments into lasting digital stories.",
+      },
+    ],
+  },
+  {
     slug: "epilogue-runner",
     title: "Epilogue Runner",
     category: "Interactive Browser Game",
