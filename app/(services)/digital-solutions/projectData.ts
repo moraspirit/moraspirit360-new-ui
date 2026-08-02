@@ -1,16 +1,715 @@
+export type ArticleBlock =
+  | { type: "heading"; level?: 2 | 3; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "meta"; rows: { label: string; value: string }[] }
+  | { type: "table"; headers: string[]; rows: string[][] }
+  | { type: "image"; src: string; alt: string }
+  | { type: "video"; title: string; url: string; description?: string };
+
 export type ProjectDetail = {
   slug: string;
   title: string;
   category: string;
   summary: string;
   image: string;
-  challenge: string;
-  solution: string;
-  features: string[];
-  outcome: string;
+  challenge?: string;
+  solution?: string;
+  features?: string[];
+  outcome?: string;
+  article?: ArticleBlock[];
 };
 
 export const digitalProjects: ProjectDetail[] = [
+  {
+    slug: "epilogue-quiz",
+    title: "Epilogue Quiz: Race the Levels, Claim the Crown",
+    category: "Interactive Quiz Platform",
+    summary:
+      "Transforming Festival Excitement into an Interactive Digital Experience",
+    image: "/digital_solution/epilogue-quiz.avif",
+    article: [
+      {
+        type: "paragraph",
+        text: "Every great event deserves a memorable beginning. For Epilogue '26, that beginning was Epilogue Quiz—a live, puzzle-based competition that turned excitement into an interactive experience.",
+      },
+      
+      {
+        type: "heading",
+        text: "At a Glance",
+      },
+      {
+        type: "meta",
+        rows: [
+          { label: "Project", value: "Epilogue Quiz" },
+          {
+            label: "Purpose",
+            value:
+              "A live, puzzle-based competition designed to build excitement before Epilogue '26.",
+          },
+          {
+            label: "Prize",
+            value:
+              "One free Epilogue '26 ticket for the first participant to complete every level.",
+          },
+          {
+            label: "Audience",
+            value:
+              "University of Moratuwa undergraduates with a valid university index number.",
+          },
+          {
+            label: "Technology",
+            value:
+              "Next.js 16, React 19, TypeScript, Tailwind CSS, Prisma, MySQL, Redis, and JWT Authentication.",
+          },
+          {
+            label: "Live Demo",
+            value: "epilogue-quiz-game-web-app.vercel.app",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Project Overview",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Quiz is a web-based competition designed exclusively for University of Moratuwa undergraduates. Built to enhance engagement before Epilogue '26, the platform challenged participants to solve sequential puzzles while competing against one another in real time.",
+      },
+      {
+        type: "paragraph",
+        text: "Unlike conventional online quizzes, progression depended entirely on performance. Each correct answer unlocked the next challenge, encouraging continuous participation and creating anticipation throughout the festival countdown.",
+      },
+      {
+        type: "heading",
+        text: "The Challenge",
+      },
+      {
+        type: "paragraph",
+        text: "The objective extended beyond distributing free tickets. MoraSpirit wanted to create a meaningful digital experience that would maintain excitement before the festival while encouraging students to interact with the event in a memorable way.",
+      },
+      {
+        type: "paragraph",
+        text: "The solution needed to:",
+      },
+      {
+        type: "list",
+        items: [
+          "Increase engagement before the event.",
+          "Encourage repeat participation.",
+          "Ensure fairness and transparency.",
+          "Support hundreds of simultaneous users.",
+          "Provide administrators with complete control over the competition.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "The Solutions",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Quiz combined gamification with a modern web application to deliver an engaging user experience.",
+      },
+      {
+        type: "paragraph",
+        text: "Participants registered using their university index number before beginning a sequence of puzzle-based questions. Every correct answer unlocked the following level, while incorrect responses required players to continue solving the current challenge before progressing.",
+      },
+      {
+        type: "paragraph",
+        text: "The competition rewarded not only knowledge but also consistency, speed, and determination, creating a truly competitive environment.",
+      },
+      {
+        type: "heading",
+        text: "Player Experience",
+      },
+      {
+        type: "paragraph",
+        text: "The application was designed to be simple, intuitive, and accessible across devices.",
+      },
+      {
+        type: "paragraph",
+        text: "Players could:",
+      },
+      {
+        type: "list",
+        items: [
+          "Register within seconds.",
+          "Begin the first challenge immediately.",
+          "Progress through sequential levels.",
+          "Resume their progress at any time.",
+          "Track their final score after completing the competition",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Key Features",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Sequential Progression",
+      },
+      {
+        type: "paragraph",
+        text: "Questions are unlocked one at a time. Progression is validated on the server, preventing players from bypassing levels or submitting answers out of sequence.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Puzzle-Based Answer Interface",
+      },
+      {
+        type: "paragraph",
+        text: "Instead of a traditional text field, answers are entered letter by letter using an interactive interface inspired by crossword puzzles, making each challenge more engaging and intuitive.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Live Leaderboard",
+      },
+      {
+        type: "paragraph",
+        text: "A real-time leaderboard allows participants to monitor the competition while protecting personal information by displaying only the owner's university index number.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-quiz-2.avif",
+        alt: "Epilogue Quiz live leaderboard",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Administrative Dashboard",
+      },
+      {
+        type: "paragraph",
+        text: "A dedicated dashboard enables organizers to monitor registrations, manage questions, track participant progress, reorder levels, and oversee the competition in real time.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-quiz-3.avif",
+        alt: "Epilogue Quiz administrative dashboard",
+      },
+      {
+        type: "heading",
+        text: "Security and Fair Play",
+      },
+      {
+        type: "paragraph",
+        text: "Fairness was a fundamental design principle throughout the platform.",
+      },
+      {
+        type: "paragraph",
+        text: "Every answer submitted by a participant is verified on the server rather than within the browser, preventing manipulation of the competition. Only the first participant to successfully complete every level is declared the winner, ensuring a transparent and trustworthy competition.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-quiz-4.avif",
+        alt: "Epilogue Quiz puzzle challenge interface",
+      },
+      {
+        type: "heading",
+        text: "Technology Stack",
+      },
+      {
+        type: "paragraph",
+        text: "The application was developed using modern technologies to ensure scalability, reliability, and maintainability.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Fronted",
+      },
+      {
+        type: "list",
+        items: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS"],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Backend",
+      },
+      {
+        type: "list",
+        items: ["Prisma ORM", "MySQL", "Redis"],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Authentication and Security",
+      },
+      {
+        type: "list",
+        items: [
+          "JWT Authentication",
+          "bcrypt Password Hashing",
+          "Password Reset Workflow",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Outcomes",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Quiz successfully transformed the anticipation surrounding Epilogue '26 into an engaging digital experience. By combining competition, gamification, and modern web technologies, the platform encouraged students to return, compete with friends, and remain connected with the festival before the main event.",
+      },
+      {
+        type: "paragraph",
+        text: "More than a quiz, it demonstrated how thoughtful digital experiences can strengthen community engagement while delivering a secure, scalable, and enjoyable platform.",
+      },
+      {
+        type: "heading",
+        text: "Play Now",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Quiz is live for anyone heading to Epilogue '26. Register and start the first level — and remember, only one player finishes first. Tickets for the night itself are available at epilogue.moraspirit.com.",
+      },
+      {
+        type: "heading",
+        text: "About MoraSpirit",
+      },
+      {
+        type: "paragraph",
+        text: "Founded in 2009 by a group of University of Moratuwa undergraduates, MoraSpirit began as a platform for university sports media coverage and has since grown into a broader student-run initiative behind events, campaigns, and digital platforms across the university — Epilogue among them.",
+      },
+    ],
+  },
+  {
+    slug: "epilogue-ctf-where-curiosity-meets-cybersecurity",
+    title: "Epilogue CTF: Where Curiosity Meets Cybersecurity",
+    category: "Interactive Cybersecurity Challenge",
+    summary:
+      "An immersive Capture The Flag experience that challenged participants to think beyond the obvious.",
+    image: "/digital_solution/epilogue-ctf.avif",
+    article: [
+      {
+        type: "meta",
+        rows: [
+          { label: "Project", value: "Epilogue CTF – Access Terminal" },
+          { label: "Category", value: "Interactive Cybersecurity Challenge" },
+          { label: "Industry", value: "Cybersecurity & Web Development" },
+          {
+            label: "Technology Stack",
+            value: "Next.js, React, TypeScript, Tailwind CSS",
+          },
+          {
+            label: "Development Practices",
+            value:
+              "Component-Based Architecture, Responsive Design, Version Control",
+          },
+          { label: "Repository", value: "GitHub" },
+          { label: "Walkthrough", value: "YouTube Video (Attached Below)" },
+        ],
+      },
+      {
+        type: "heading",
+        text: "Breaking the Traditional CTF Experience",
+      },
+      {
+        type: "paragraph",
+        text: "Cybersecurity is more than writing code or running security tools; it’s about observation, critical thinking, and solving problems creatively. Epilogue CTF was designed around this philosophy, transforming a traditional Capture the Flag challenge into an immersive digital experience inspired by the atmosphere of the Epilogue '26 concert.",
+      },
+      {
+        type: "paragraph",
+        text: "Instead of presenting participants with straightforward tasks, the platform encouraged them to investigate every detail, question assumptions, and uncover hidden clues through careful exploration.",
+      },
+
+      {
+        type: "heading",
+        text: "A Cyberpunk-Inspired Interface",
+      },
+      {
+        type: "paragraph",
+        text: "From the moment users enter the platform, they are immersed in a futuristic cyberpunk inspired interface. Neon green accents, terminal style typography, animated visual elements, and a carefully crafted layout create the feeling of accessing a restricted system rather than visiting a conventional website.",
+      },
+      {
+        type: "paragraph",
+        text: "This distinctive design was intentionally created to strengthen the storytelling aspect of the challenge while making the overall experience memorable and engaging.",
+      },
+      {
+        type: "heading",
+        text: "Designed to Challenge, Not to Guide",
+      },
+      {
+        type: "paragraph",
+        text: "Unlike conventional learning platforms, Epilogue CTF provides minimal instructions. Participants are encouraged to inspect, analyze and think critically, with each discovery leading naturally to the next stage of the challenge.",
+      },
+      {
+        type: "paragraph",
+        text: "The platform rewards curiosity, logical reasoning and attention to detail while discouraging brute-force techniques, reinforcing the core principles of ethical hacking and cybersecurity.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-ctf-2.avif",
+        alt: "Epilogue CTF directives and rules screen",
+      },
+      {
+        type: "heading",
+        text: "Built with Modern Web Technologies",
+      },
+      {
+        type: "paragraph",
+        text: "The platform was engineered using a modern web technology stack that ensures both performance and maintainability.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Technology Stack",
+      },
+      {
+        type: "list",
+        items: [
+          "Next.js – High-performance web framework",
+          "React – Interactive component-based interface",
+          "TypeScript – Type-safe development",
+          "Tailwind CSS – Responsive and modern styling",
+          "Git & GitHub – Version control and collaborative development",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Modern software engineering practices such as reusable components, responsive design, and optimized rendering contributed to a seamless user experience across multiple devices.",
+      },
+      {
+        type: "heading",
+        text: "More Than a Challenge",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue CTF demonstrates how cybersecurity education can be transformed into an engaging digital experience. By combining immersive storytelling, thoughtful user experience, and modern web technologies, the project creates an environment where participants learn through exploration rather than instruction.",
+      },
+      {
+        type: "paragraph",
+        text: "It stands as an example of how creative design and technical excellence can come together to deliver an unforgettable cybersecurity challenge.",
+      },
+      {
+        type: "heading",
+        text: "🎥 Watch the Complete Walkthrough",
+      },
+      {
+        type: "video",
+        title: "🎬 Video Walkthrough",
+        description:
+          "For participants who would like to understand the challenge-solving process after attempting the CTF, a complete walkthrough is available below.",
+        url: "https://youtu.be/Lf9a3CMNVow",
+      },
+    ],
+  },
+  {
+    slug: "engineering-an-immersive-web-experience-for-epilogue-26",
+    title: "Engineering an Immersive Web Experience for Epilogue '26",
+    category: "Interactive Event Portal",
+    summary:
+      "The Epilogue digital experience consists of two React-based web applications designed to deliver an engaging and visually immersive user journey. Together, these applications introduce visitors to the event through cinematic animations before guiding them into an interactive event portal that centralizes event related experiences.",
+    image: "/digital_solution/epilogue-immersive-web-experience.avif",
+    article: [
+      {
+        type: "heading",
+        text: "Overview",
+      },
+      {
+        type: "paragraph",
+        text: "The Epilogue digital experience consists of two React-based web applications designed to deliver an engaging and visually immersive user journey. Together, these applications introduce visitors to the event through cinematic animations before guiding them into an interactive event portal that centralizes event related experiences.",
+      },
+      {
+        type: "heading",
+        text: "Interactive Landing Experience",
+      },
+      {
+        type: "paragraph",
+        text: "The first application serves as the introductory experience for Epilogue '26. Rather than presenting static content, it uses animated transitions and 3D visual effects to create an immersive entry point. Key elements include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Logo reveal animation",
+          "Cyber tunnel transition",
+          "Floating particle effects",
+          '"Games Coming Soon" presentation',
+          "Performance-aware rendering for smoother animations",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "This approach creates an engaging first impression while maintaining responsive performance across different devices.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-immersive-1.avif",
+        alt: "Epilogue interactive landing experience with Games Coming Soon",
+      },
+      {
+        type: "heading",
+        text: "Interactive Event Portal",
+      },
+      {
+        type: "paragraph",
+        text: "The second application expands the experience through a screen-based interface that guides users across multiple sections of the platform.",
+      },
+      {
+        type: "paragraph",
+        text: "The application is organized into dedicated screens, including:",
+      },
+      {
+        type: "list",
+        items: [
+          "Arrival",
+          "Artists",
+          "Event Details",
+          "Interactive Hub",
+          "Creative Showcase",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Animated transitions between screens provide a continuous user experience while maintaining a consistent visual identity throughout the application.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-immersive-2.avif",
+        alt: "Epilogue interactive event portal screen",
+      },
+      {
+        type: "heading",
+        text: "Modern Frontend Development",
+      },
+      {
+        type: "paragraph",
+        text: "Both repositories demonstrate a modern frontend development workflow built around reusable React components and modular project organization.",
+      },
+      {
+        type: "paragraph",
+        text: "The projects separate functionality into independent UI components, allowing each visual element and screen to be developed and maintained independently while keeping the overall application structure organized.",
+      },
+
+      {
+        type: "heading",
+        text: "Animation Driven User Experience",
+      },
+      {
+        type: "paragraph",
+        text: "Animation plays a central role throughout both applications.",
+      },
+      {
+        type: "paragraph",
+        text: "The projects utilize motion libraries and custom visual components to create:",
+      },
+      {
+        type: "list",
+        items: [
+          "Smooth screen transitions",
+          "Animated UI elements",
+          "Dynamic visual effects",
+          "Continuous scene progression",
+          "Interactive landing animations",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Rather than functioning as decorative elements, these animations guide users through the digital experience and improve overall engagement.",
+      },
+      {
+        type: "heading",
+        text: "Technology Stack",
+      },
+      {
+        type: "table",
+        headers: ["Technology", "Contribution"],
+        rows: [
+          ["React", "Component-based frontend development"],
+          ["Vite", "Fast development environment and optimized builds"],
+          ["TypeScript", "Type safety in the event portal application"],
+          ["Three.js", "3D graphics and immersive visual effects"],
+          ["React Three Fiber", "React-based rendering for Three.js scenes"],
+          ["Framer Motion / Motion", "UI animations and smooth transitions"],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Technical Highlights",
+      },
+      {
+        type: "list",
+        items: [
+          "Modular React component architecture",
+          "Screen-based navigation flow",
+          "Real-time animated visual effects",
+          "Three.js powered 3D scenes",
+          "Performance-aware rendering",
+          "Interactive landing experience",
+          "Animated transition system",
+          "Modern frontend development workflow",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "simplifying-student-submissions-with-google-apps-script",
+    title: "Simplifying Student Submissions with Google Apps Script",
+    category: "Cloud-Based Submission Platform",
+    summary:
+      "Building an automated, cloud-based submission platform for efficient file collection and management.",
+    image: "/digital_solution/articles/student-submissions-1.avif",
+    article: [
+      {
+        type: "heading",
+        text: "Overview",
+      },
+      {
+        type: "paragraph",
+        text: "Managing student submissions through email or messaging platforms often leads to disorganized files, inconsistent naming, and increased administrative effort. To address these challenges, this project introduces a web-based submission system powered by Google Apps Script, providing a streamlined workflow for collecting student information and uploaded files in one centralized platform.",
+      },
+      {
+        type: "paragraph",
+        text: "The application combines a responsive frontend with Google Workspace services to automate data collection, file storage, and record management without requiring a traditional backend server.",
+      },
+
+      {
+        type: "heading",
+        text: "User Friendly Submission Experience",
+      },
+      {
+        type: "paragraph",
+        text: "The frontend provides a clean and responsive interface where students can submit their information with minimal effort.",
+      },
+      {
+        type: "paragraph",
+        text: "The form collects essential details including:",
+      },
+      {
+        type: "list",
+        items: [
+          "Student Name",
+          "Index Number",
+          "Faculty",
+          "Department",
+          "Email Address",
+          "Contact Number",
+          "Image Upload",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "To improve usability, the application includes drag-and-drop file uploads, client-side validation, and clear submission feedback, creating a smooth user experience across different devices.",
+      },
+      {
+        type: "heading",
+        text: "Google Workspace Integration",
+      },
+      {
+        type: "paragraph",
+        text: "Rather than relying on a dedicated backend server, the application leverages Google Apps Script to connect seamlessly with Google Workspace services.",
+      },
+      {
+        type: "paragraph",
+        text: "Once a submission is received, the system automatically:",
+      },
+      {
+        type: "list",
+        items: [
+          "Uploads files to Google Drive",
+          "Stores submission details in Google Sheets",
+          "Generates shareable file links",
+          "Maintains organized submission records",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "This serverless approach reduces deployment complexity while utilizing Google’s cloud infrastructure for secure data management.",
+      },
+      
+      {
+        type: "image",
+        src: "/digital_solution/articles/student-submissions-3.avif",
+        alt: "Google Sheets submission records",
+      },
+      {
+        type: "heading",
+        text: "Technical Implementation",
+      },
+      {
+        type: "paragraph",
+        text: "The application follows a lightweight architecture using web technologies together with Google Apps Script.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Frontend",
+      },
+      {
+        type: "list",
+        items: ["HTML5", "CSS3", "JavaScript"],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Backend",
+      },
+      {
+        type: "list",
+        items: ["Google Apps Script"],
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Cloud Services",
+      },
+      {
+        type: "list",
+        items: ["Google Sheets", "Google Drive"],
+      },
+      {
+        type: "heading",
+        text: "Key Features",
+      },
+      {
+        type: "list",
+        items: [
+          "Responsive submission interface",
+          "Drag-and-drop image upload",
+          "Client-side input validation",
+          "Automated Google Drive file storage",
+          "Google Sheets data management",
+          "Success and error notifications",
+          "Serverless architecture",
+          "Cloud-based workflow",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Technology Stack",
+      },
+      {
+        type: "table",
+        headers: ["Technology", "Purpose"],
+        rows: [
+          ["HTML5", "Form structure"],
+          ["CSS3", "Responsive user interface"],
+          ["JavaScript", "Client-side validation and interactions"],
+          ["Google Apps Script", "Backend logic"],
+          ["Google Sheets", "Submission database"],
+          ["Google Drive", "File storage"],
+        ],
+      },
+      {
+        type: "heading",
+        text: "Project Highlights",
+      },
+      {
+        type: "list",
+        items: [
+          "Serverless web application architecture",
+          "Automated submission management",
+          "Google Workspace integration",
+          "Responsive user interface",
+          "Simplified administrative workflow",
+          "Secure cloud-based data storage",
+        ],
+      },
+    ],
+  },
   {
     slug: "university-event-registration-platform",
     title: "University Event Registration Platform",
