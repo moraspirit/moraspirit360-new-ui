@@ -4,7 +4,7 @@ export type ArticleBlock =
   | { type: "list"; items: string[] }
   | { type: "meta"; rows: { label: string; value: string }[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "image"; src: string; alt: string }
+  | { type: "image"; src: string; alt: string; variant?: "phone" | "wide" }
   | { type: "video"; title: string; url: string; description?: string };
 
 export type ProjectDetail = {
@@ -21,6 +21,185 @@ export type ProjectDetail = {
 };
 
 export const digitalProjects: ProjectDetail[] = [
+  {
+    slug: "epilogue-runner",
+    title: "Epilogue Runner",
+    category: "Interactive Browser Game",
+    summary:
+      "How Moraspirit’s Web & Technology team built a secure endless-runner for Epilogue26 — and crowned three weekly high-score winners",
+    image: "/digital_solution/epilogue-runner.avif",
+    article: [
+      {
+        type: "paragraph",
+        text: "Moraspirit · Web and Technology Pillar · Epilogue Concert · 28 July",
+      },
+
+      {
+        type: "paragraph",
+        text: "Epilogue Runner — playable in the browser for Epilogue26.",
+      },
+      {
+        type: "heading",
+        text: "A game built for Epilogue26",
+      },
+      {
+        type: "paragraph",
+        text: "For Epilogue26, Moraspirit’s Web and Technology pillar set out to do more than announce a concert date. We built a full browser game — Epilogue Runner — so university students could compete for concert tickets by climbing a live leaderboard. The brief was simple: make it fun, make it fair, and make sure the highest scores were real.",
+      },
+      {
+        type: "paragraph",
+        text: "The result was a 3D endless runner, playable in the browser, backed by a secure Go API and MySQL leaderboard. Players registered with their student index number, ran for coins, and watched the rankings update in real time. Each week until concert day (28 July), the student in first place won a ticket to Epilogue.",
+      },
+      {
+        type: "heading",
+        text: "What we built",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Runner is a Godot HTML5 (WASM) endless runner themed around the Epilogue concert. Players dodge obstacles, collect coins, and push for a personal best on a public leaderboard. The game shipped with:",
+      },
+      {
+        type: "list",
+        items: [
+          "A polished menu branded for Epilogue — including “Win a Ticket” and ticket purchase links to epilogue.moraspirit.com.",
+          "Register / login with student index number, name, and phone (no password friction for students).",
+          "Live leaderboard (top 10) and personal rank for logged-in players.",
+          "A production Go backend with session signing, server-side map seeds, and replay verification so scores could not be forged from the browser.",
+          "Docker-based deployment and a web export hosted for the event audience.",
+        ],
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-runner-2.avif",
+        alt: "Main menu: EPILOGUE branding, play, leaderboard, and ticket CTA.",
+      },
+      {
+        type: "paragraph",
+        text: "Main menu: EPILOGUE branding, play, leaderboard, and ticket CTA.",
+      },
+      {
+        type: "heading",
+        text: "How the competition worked",
+      },
+      {
+        type: "paragraph",
+        text: "The prize loop was designed for the weeks leading up to the concert:",
+      },
+      {
+        type: "list",
+        items: [
+          "Students register and play as many runs as they like.",
+          "Only verified coin totals count toward best score on the leaderboard.",
+          "The student in first place wins a ticket to the Epilogue concert.",
+          "A new winner is selected each week until concert day — three weekly winners in total for Epilogue26.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "That weekly reset kept competition fresh: early leaders could be challenged, and new players still had a clear path to the podium before 28 July.",
+      },
+      {
+        type: "heading",
+        text: "By the numbers",
+      },
+      {
+        type: "paragraph",
+        text: "The campaign performed strongly across the student community:",
+      },
+      {
+        type: "meta",
+        rows: [
+          { label: "Registered players", value: "500+" },
+          { label: "Runs completed", value: "20,000+" },
+          {
+            label: "Weekly ticket winners",
+            value: "3 (one per week until concert day)",
+          },
+          { label: "Outcome", value: "Successfully delivered for Epilogue26" },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Those numbers reflect real engagement — not anonymous clicks. Every ranked score was tied to a registered account and accepted only after server-side verification.",
+      },
+      {
+        type: "heading",
+        text: "Fair play: why winners were trustworthy",
+      },
+      {
+        type: "paragraph",
+        text: "Browser games are easy to tamper with if the client is trusted. For a ticket prize, that was not acceptable. Our architecture treated the browser as untrusted and made the server the source of truth:",
+      },
+      {
+        type: "list",
+        items: [
+          "Players log in with JWT-backed accounts; scores bind to a real student identity.",
+          "Each run uses a server-issued seed so coins and obstacles are deterministic.",
+          "The client sends a move log (lane changes, jumps, pickups) — not a raw “coins: 999” claim.",
+          "The Go backend regenerates the map and replays the log; only verified coins update the leaderboard.",
+          "Signed requests (HMAC + session + nonce) block forged submissions.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "In short: the highest score on the board was a score the server could re-prove. That let us announce weekly winners with confidence.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-runner-3.avif",
+        alt: "In-browser game view / web export asset",
+        variant: "phone",
+      },
+      {
+        type: "paragraph",
+        text: "In-browser game view / web export asset used for",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-runner-4.avif",
+        alt: "Epilogue Runner gameplay screenshot",
+        variant: "phone",
+      },
+      {
+        type: "heading",
+        text: "Built by Moraspirit Web & Technology",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue Runner was designed and shipped by the Web and Technology pillar of Moraspirit — The Voice of University Sports in Sri Lanka. The stack combined a Godot 4 web export with a Go API, MySQL persistence, and Docker deployment suited to event traffic.",
+      },
+      {
+        type: "paragraph",
+        text: "Beyond the game loop, the project was an end-to-end product: auth UX for students, anti-cheat for fair prizes, leaderboard ops for weekly winners, and concert branding woven through menus and in-world signs.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-runner-5.avif",
+        alt: "Epilogue Runner team and event context",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/epilogue-runner-6.avif",
+        alt: "Epilogue Runner additional project visual",
+      },
+      {
+        type: "heading",
+        text: "Looking back",
+      },
+      {
+        type: "paragraph",
+        text: "Epilogue26 asked for more than a landing page. We delivered a competitive experience that students actually played — over five hundred registered players, more than twenty thousand runs, and three weekly high-score winners heading into the 28 July concert.",
+      },
+      {
+        type: "paragraph",
+        text: "If you climbed the board, shared a run with friends, or walked away with a ticket — thank you for playing. See you at Epilogue.",
+      },
+      {
+        type: "paragraph",
+        text: "Article draft for moraspirit.com · Epilogue Runner · Epilogue26 Links: moraspirit.com · epilogue.moraspirit.com",
+      },
+    ],
+  },
   {
     slug: "epilogue-quiz",
     title: "Epilogue Quiz: Race the Levels, Claim the Crown",

@@ -50,16 +50,22 @@ function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
         }
 
         if (block.type === "image") {
+          const isPhone = block.variant === "phone";
+
           return (
             <div
               key={index}
-              className="relative w-full overflow-hidden rounded-2xl border border-white/10"
+              className={
+                isPhone
+                  ? "relative mx-auto w-[42%] max-w-[220px] overflow-hidden rounded-2xl border border-white/10 sm:w-[28%] sm:max-w-[240px]"
+                  : "relative w-full overflow-hidden rounded-2xl border border-white/10"
+              }
             >
               <Image
                 src={block.src}
                 alt={block.alt}
-                width={1600}
-                height={900}
+                width={isPhone ? 509 : 1600}
+                height={isPhone ? 870 : 900}
                 className="h-auto w-full object-contain"
               />
             </div>
