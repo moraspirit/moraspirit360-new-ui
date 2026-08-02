@@ -12,6 +12,83 @@ export type ProjectDetail = {
 
 export const digitalProjects: ProjectDetail[] = [
   {
+    slug: "epilogue-quiz",
+    title: "Epilogue Quiz",
+    category: "Interactive Quiz Platform",
+    summary:
+      "Epilogue Quiz is an interactive digital quiz experience created for the Epilogue event, designed to engage participants with questions, scoring, and a polished event-friendly experience.",
+    image: "/digital_solution/epilogue-quiz.avif",
+    challenge:
+      "Epilogue Quiz is an interactive digital quiz experience created for the Epilogue event, designed to engage participants with questions, scoring, and a polished event-friendly experience.",
+    solution:
+      "Epilogue Quiz is an interactive digital quiz experience created for the Epilogue event, designed to engage participants with questions, scoring, and a polished event-friendly experience.",
+    features: [
+      "Interactive digital quiz experience",
+      "Event-friendly participant flow",
+      "Scoring and result display",
+      "Polished responsive experience",
+    ],
+    outcome:
+      "Epilogue Quiz is an interactive digital quiz experience created for the Epilogue event, designed to engage participants with questions, scoring, and a polished event-friendly experience.",
+  },
+  {
+    slug: "epilogue-ctf-where-curiosity-meets-cybersecurity",
+    title: "Epilogue CTF: Where Curiosity Meets Cybersecurity",
+    category: "Interactive Cybersecurity Challenge",
+    summary:
+      "An immersive Capture The Flag experience that challenged participants to think beyond the obvious.",
+    image: "/digital_solution/epilogue-ctf.avif",
+    challenge:
+      "Cybersecurity, more than writing code or running security tools; it is about observation, critical thinking, and solving problems creatively.",
+    solution:
+      "Epilogue CTF was designed around this philosophy, transforming a traditional Capture The Flag challenge into an immersive digital experience inspired by the atmosphere of the Epilogue '26 concert.",
+    features: [
+      "Cyberpunk-inspired interface",
+      "Problem-solving focused challenge design",
+      "Modern web technologies",
+    ],
+    outcome:
+      "The platform encouraged careful exploration, question assumptions, and uncover hidden clues through thoughtful interaction.",
+  },
+  {
+    slug: "engineering-an-immersive-web-experience-for-epilogue-26",
+    title: "Engineering an Immersive Web Experience for Epilogue '26",
+    category: "Interactive Event Portal",
+    summary:
+      "A React-based event experience that blends cinematic animation, interactive sections, and a modern portal for Epilogue '26.",
+    image: "/digital_solution/epilogue-immersive-web-experience.avif",
+    challenge:
+      "The goal was to create a web experience that felt immersive from the first interaction while still remaining easy to navigate and responsive.",
+    solution:
+      "We built a screen-based interface with animated transitions, modular React components, and a visual system tailored to the Epilogue '26 identity.",
+    features: [
+      "Interactive landing experience",
+      "Screen-based event portal",
+      "Animation-driven user experience",
+    ],
+    outcome:
+      "The result was a memorable digital journey that balanced storytelling, interaction, and performance.",
+  },
+  {
+    slug: "simplifying-student-submissions-with-google-apps-script",
+    title: "Simplifying Student Submissions with Google Apps Script",
+    category: "Cloud-Based Submission Platform",
+    summary:
+      "Building an automated, cloud-based submission platform for efficient file collection and management.",
+    image: "/digital_solution/simplifying-student-submissions-with-google-apps-script.avif",
+    challenge:
+      "Student submissions were scattered across manual processes, making file collection, organization, and tracking difficult to manage.",
+    solution:
+      "We built an automated submission workflow using Google Apps Script and Google Workspace services to streamline collection and record management.",
+    features: [
+      "Automated submission handling",
+      "Google Workspace integration",
+      "Cloud-based file collection",
+    ],
+    outcome:
+      "The platform reduced administrative overhead and made student file submissions easier to manage.",
+  },
+  {
     slug: "university-event-registration-platform",
     title: "University Event Registration Platform",
     category: "Website",
