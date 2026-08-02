@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const VIEW_PERMISSION = "view_moraspirit360_requests";
 const MANAGE_PERMISSION = "manage_moraspirit360_requests";
