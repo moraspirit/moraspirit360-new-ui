@@ -22,12 +22,12 @@ const ScrollRevealDiv : React.FC<ScrollRevealDivProps> = ({children, delay = 0, 
             entries.forEach((entry) => {
                 if(entry.isIntersecting){
                     setIsVisible(true);
-                } else {
-                    setIsVisible(false);
+                    observer.unobserve(element);
                 }
             })
         },{
             threshold : 0,
+            rootMargin: '0px 0px 40% 0px'
         });
 
         observer.observe(element);

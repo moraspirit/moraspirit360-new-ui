@@ -74,7 +74,7 @@ const Home = () => {
         />
       </Head>
       <div className={styles.heroContainer}>
-        <video className={styles.videoBackground} autoPlay muted loop>
+        <video className={styles.videoBackground} autoPlay muted loop playsInline preload="metadata">
           <source src="/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
