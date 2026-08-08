@@ -21,10 +21,12 @@ const ScrollLeftDiv: React.FC<ScrollLeftDivProps> = ({ children, delay = 0, clas
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
+                    observer.unobserve(element);
                 } 
             });
         }, {
             threshold: 0.1, // Adjust threshold if needed
+            rootMargin: '0px 0px 40% 0px'
         });
 
         observer.observe(element);

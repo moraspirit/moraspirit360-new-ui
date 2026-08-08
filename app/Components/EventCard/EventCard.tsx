@@ -26,12 +26,12 @@ const EventCard : React.FC<eventCardProps> = ({ imgUrl, delay = 0, title = '', d
       entries.forEach((entry) => {
         if(entry.isIntersecting){
           setIsVisible(true);
-        } else {
-          setIsVisible(false);
+          observer.unobserve(element);
         }
       })
     },{
-      threshold: 0
+      threshold: 0,
+      rootMargin: '0px 0px 40% 0px'
     })
 
     observer.observe(element);
@@ -74,7 +74,7 @@ const EventCard : React.FC<eventCardProps> = ({ imgUrl, delay = 0, title = '', d
       
      
 
-      <img className=' object-cover w-full h-full rounded-2xl border-black border-2 hover:border-mora-red z-0' src={imgUrl} alt="" />
+      <img className=' object-cover w-full h-full rounded-2xl border-black border-2 hover:border-mora-red z-0' loading='lazy' src={imgUrl} alt="" />
     </div>
   )
 }

@@ -23,10 +23,12 @@ const ArticleCard = ({ img, date, title, desc }: EventCardProps) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
+                    observer.unobserve(element);
                 } 
             });
         }, {
             threshold: 0.1,
+            rootMargin: '0px 0px 40% 0px'
         });
 
         observer.observe(element);
