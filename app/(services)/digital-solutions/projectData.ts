@@ -22,6 +22,138 @@ export type ProjectDetail = {
 
 export const digitalProjects: ProjectDetail[] = [
   {
+    slug: "birthday-flyer-bot",
+    title: "Birthday Flyer Bot",
+    category: "Automation Platform",
+    summary:
+      "Automated MoraSpirit birthday flyer generator. Reads crew birthdays from Google Sheets, downloads private Drive photos, face-corrects and crops them, composites personalized Canva flyers, and delivers them daily via email, Discord, and Telegram — with a Next.js admin panel for status and manual triggers.",
+    image: "/digital_solution/birthday-flyer-bot.avif",
+    article: [
+      {
+        type: "paragraph",
+        text: "Birthday flyers used to be made by hand: find today’s birthdays, open each photo, crop it, drop it on a template, type the name and title, then send it out. That workflow doesn’t scale for a large crew — and it’s easy to miss someone.",
+      },
+      {
+        type: "heading",
+        text: "At a Glance",
+      },
+      {
+        type: "meta",
+        rows: [
+          { label: "Project", value: "Birthday Flyer Bot" },
+          {
+            label: "Purpose",
+            value:
+              "Automatically generate and deliver personalized MoraSpirit birthday flyers every day.",
+          },
+          {
+            label: "Audience",
+            value: "MoraSpirit crew, pillar heads, and operations admins",
+          },
+          {
+            label: "Automation",
+            value: "GitHub Actions cron + manual workflow dispatch",
+          },
+          {
+            label: "Delivery",
+            value: "Email (SMTP), Discord webhooks, Telegram Bot API",
+          },
+          {
+            label: "Technology",
+            value:
+              "Node.js, Sharp, smartcrop-sharp, face-api.js, Google Sheets/Drive OAuth, Nodemailer, Next.js admin panel",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        text: "The Challenge",
+      },
+      {
+        type: "paragraph",
+        text: "Manual birthday flyer creation depended on someone noticing the date, hunting for the right photo, cropping faces carefully, placing them on a branded template, and posting to every channel. With Members and Board tabs full of people, that process was slow, inconsistent, and easy to forget.",
+      },
+      {
+        type: "heading",
+        text: "The Solution",
+      },
+      {
+        type: "paragraph",
+        text: "Flyer Bot runs on a daily schedule. It checks Google Sheets for today’s birthdays, downloads private Drive photos via personal Google OAuth, auto-rotates and smart-crops faces, composites them onto the official Canva-style template, and sends the finished AVIF flyer to the configured channels. An admin panel lets the team check status and trigger a run manually.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/birthday-flyer-dashboard.avif",
+        alt: "Flyer Bot admin dashboard with Generate Now controls",
+      },
+      {
+        type: "paragraph",
+        text: "Admin dashboard — birthday flyer automation status and manual Generate Now controls.",
+      },
+      {
+        type: "heading",
+        text: "How the pipeline works",
+      },
+      {
+        type: "list",
+        items: [
+          "Daily automatic birthday detection from Members + Board sheet tabs",
+          "Private Google Drive photo download via personal Google OAuth (no public sharing needed)",
+          "Face detection for rotation correction and smart square crop",
+          "Circle photo plus name/title compositing on a Canva template",
+          "Delivery via email (SMTP attachment), Discord webhook, and Telegram",
+          "Marks “sent this year” back on the sheet to avoid duplicates",
+          "Alerts when a birthday person is missing a photo",
+          "Compact AVIF flyer output for smaller file size",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Admin panel",
+      },
+      {
+        type: "paragraph",
+        text: "A password-protected Next.js admin panel (Vercel-ready) gives operators a live status view and on-demand controls. From the dashboard, the team can review automation status and press Generate Now when a same-day run is needed outside the cron schedule.",
+      },
+      {
+        type: "paragraph",
+        text: "The templates editor lets admins update Head, Member, and Other flyer designs with a live preview. HTML/CSS templates use placeholders such as photo, name, and category — so design changes can ship without rewriting the generation engine.",
+      },
+      {
+        type: "image",
+        src: "/digital_solution/articles/birthday-flyer-templates.avif",
+        alt: "Flyer Templates editor with live preview for Head, Member, and Other designs",
+      },
+      {
+        type: "paragraph",
+        text: "Flyer Templates editor — edit HTML/CSS on the left and preview sample data live on the right.",
+      },
+      {
+        type: "heading",
+        text: "Tech stack",
+      },
+      {
+        type: "list",
+        items: [
+          "Engine: Node.js, Sharp, smartcrop-sharp, face-api.js",
+          "Data: Google Sheets API, Google Drive API (OAuth 2.0)",
+          "Delivery: Nodemailer (SMTP), Discord webhooks, Telegram Bot API",
+          "Automation: GitHub Actions (cron + manual workflow dispatch)",
+          "Admin: Next.js, Vercel-ready, password-protected dashboard",
+          "Design: Canva-exported template + configurable geometry",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Outcome",
+      },
+      {
+        type: "paragraph",
+        text: "Birthday celebrations for the MoraSpirit crew now run on autopilot. Personalized flyers go out on the right day, with consistent branding, fewer missed birthdays, and an admin escape hatch when someone needs a manual regenerate.",
+      },
+    ],
+  },
+  {
     slug: "epilogue-online-ticketing-and-qr-verification",
     title: "Epilogue Online Ticketing & QR Verification System",
     category: "Ticketing Platform",
